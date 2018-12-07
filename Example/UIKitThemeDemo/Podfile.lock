@@ -1,0 +1,63 @@
+PODS:
+  - DarkMagic (0.0.1)
+  - DinoDNA (0.2.55)
+  - DynamicColor (4.0.2)
+  - UIKitExtensions (0.0.1):
+    - DinoDNA
+  - UIKitMixinable (0.0.1)
+  - UIKitTheme (0.0.1):
+    - DarkMagic
+    - DinoDNA
+    - DynamicColor
+    - UIKitExtensions
+    - UIKitMixinable
+
+DEPENDENCIES:
+  - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
+  - "DinoDNA (from `git@bitbucket.org:appsaurus/dinodna.git`)"
+  - DynamicColor
+  - UIKitExtensions (from `https://github.com/Appsaurus/UIKitExtensions`)
+  - UIKitMixinable (from `https://github.com/Appsaurus/UIKitMixinable`)
+  - UIKitTheme (from `../../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DynamicColor
+
+EXTERNAL SOURCES:
+  DarkMagic:
+    :git: https://github.com/Appsaurus/DarkMagic
+  DinoDNA:
+    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+  UIKitExtensions:
+    :git: https://github.com/Appsaurus/UIKitExtensions
+  UIKitMixinable:
+    :git: https://github.com/Appsaurus/UIKitMixinable
+  UIKitTheme:
+    :path: "../../"
+
+CHECKOUT OPTIONS:
+  DarkMagic:
+    :commit: 2f9737ee570a2aa5791788ee0d8f2e940ed4fb6b
+    :git: https://github.com/Appsaurus/DarkMagic
+  DinoDNA:
+    :commit: 7cb7c903149d5214d8ed2cfc16d77a220e5b47a6
+    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+  UIKitExtensions:
+    :commit: e14a94c742775faf6db1f4a13c04beda12a2cf51
+    :git: https://github.com/Appsaurus/UIKitExtensions
+  UIKitMixinable:
+    :commit: 37c82cabb0cee564e743846deda477f4a24e387a
+    :git: https://github.com/Appsaurus/UIKitMixinable
+
+SPEC CHECKSUMS:
+  DarkMagic: 3bb176782b377087e1d4b4f33677a33b12d8807e
+  DinoDNA: 0c2d2e62f36b8a86b28864639045db0e23cab49c
+  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
+  UIKitExtensions: 01482a8be62c65db695d6b34506f4e583b0b30ba
+  UIKitMixinable: f0d2a8609447ce1158533a70dfcf8d12a2e12575
+  UIKitTheme: 8a9284a6fa67ff9a364116a734f4b9adf4ed7e5a
+
+PODFILE CHECKSUM: 37d9cda090779cfeae208437cd54b2d1699253c1
+
+COCOAPODS: 1.5.3

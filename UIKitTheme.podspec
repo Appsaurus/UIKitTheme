@@ -14,6 +14,12 @@ Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.requires_arc = true
 
+  s.dependency 'DynamicColor'
+  s.dependency 'UIKitMixinable'
+  s.dependency 'UIKitExtensions'
+  s.dependency 'DinoDNA'
+  s.dependency 'DarkMagic'
+
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.tvos.deployment_target = '9.2'
@@ -24,7 +30,7 @@ Pod::Spec.new do |s|
   s.osx.source_files = 'Sources/{macOS,Shared}/**/*'
   s.watchos.source_files = 'Sources/{watchOS,Shared}/**/*'
 
-  # s.ios.frameworks = 'UIKit', 'Foundation'
+  s.ios.frameworks = 'UIKit', 'Foundation', 'CoreGraphics'
   # s.osx.frameworks = 'Cocoa', 'Foundation'
 
 end
