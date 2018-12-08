@@ -22,30 +22,30 @@ public extension StatusBarConfigurable where Self: UIViewController{
     
     public var statusBarStyle: UIStatusBarStyle{
         get{
-            return getAssociatedObject(forKey: .statusBarStyle, initialValue: statusBarConfiguration.style)
+            return getAssociatedObject(for: .statusBarStyle, initialValue: self.statusBarConfiguration.style)
         }
         set{
-            setAssociatedObject(newValue, forKey: .statusBarStyle)
+            setAssociatedObject(newValue, for: .statusBarStyle)
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
     public var statusBarHidden: Bool{
         get{
-            return getAssociatedObject(forKey: .statusBarHidden, initialValue: statusBarConfiguration.hidden)
+            return getAssociatedObject(for: .statusBarHidden, initialValue: self.statusBarConfiguration.hidden)
         }
         set{
-            setAssociatedObject(newValue, forKey: .statusBarHidden)
+            setAssociatedObject(newValue, for: .statusBarHidden)
             setNeedsStatusBarAppearanceUpdate()
         }
     }
     
     public var statusBarAnimation: UIStatusBarAnimation{
         get{
-            return getAssociatedObject(forKey: .statusBarAnimation, initialValue: statusBarConfiguration.animation)
+            return getAssociatedObject(for: .statusBarAnimation, initialValue: self.statusBarConfiguration.animation)
         }
         set{
-            setAssociatedObject(newValue, forKey: .statusBarAnimation)
+            setAssociatedObject(newValue, for: .statusBarAnimation)
         }
     }
 }

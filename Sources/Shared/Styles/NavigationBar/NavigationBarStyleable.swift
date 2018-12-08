@@ -28,17 +28,17 @@ public protocol NavigationBarStyleable: class{
 
 
 private extension AssociatedObjectKeys{
-    static let navigationBarStyle = AssociatedOptionalObjectKey<NavigationBarStyle>("navigationBarStyle")
+    static let navigationBarStyle = AssociatedObjectKey<NavigationBarStyle>("navigationBarStyle")
 }
 
 public extension NavigationBarStyleable where Self: NSObject{
     
     public var navigationBarStyle: NavigationBarStyle?{
         get{
-            return getAssociatedObject(forKey: .navigationBarStyle)
+            return self[.navigationBarStyle]
         }
         set{
-            setAssociatedObject(newValue, forKey: .navigationBarStyle)
+            self[.navigationBarStyle] = newValue
             applyDefaultNavigationBarStyle()
         }
     }

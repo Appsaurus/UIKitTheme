@@ -21,10 +21,10 @@ public extension Roundable where Self: UIView{
     
     public var rounded: Bool{
         get{
-            return getAssociatedObject(forKey: .rounded, initialValue: false)
+            return getAssociatedObject(for: .rounded, initialValue: false)
         }
         set{
-            setAssociatedObject(newValue, forKey: .rounded)
+            setAssociatedObject(newValue, for: .rounded)
         }
     }
 }
