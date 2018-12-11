@@ -1,10 +1,10 @@
 PODS:
   - DarkMagic (0.0.2)
   - DinoDNA (0.2.55)
-  - DynamicColor (4.0.2)
-  - UIKitExtensions (0.0.1):
+  - DynamicColor (4.0.3)
+  - UIKitExtensions (0.0.3):
     - DinoDNA
-  - UIKitMixinable (0.0.1)
+  - UIKitMixinable (0.0.2)
 
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
@@ -29,24 +29,24 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DarkMagic:
-    :commit: 0204da5f3180a4f5cae63737fb39bda94a78d96b
+    :commit: 6803dbc0fe9679872667a1253cdd6afb433d2375
     :git: https://github.com/Appsaurus/DarkMagic
   DinoDNA:
     :commit: 7cb7c903149d5214d8ed2cfc16d77a220e5b47a6
     :git: "git@bitbucket.org:appsaurus/dinodna.git"
   UIKitExtensions:
-    :commit: e14a94c742775faf6db1f4a13c04beda12a2cf51
+    :commit: 54a665bee3d8996dcf261e85ac3007e4b0d5a47f
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
-    :commit: 37c82cabb0cee564e743846deda477f4a24e387a
+    :commit: dd0dcbad33e409c1d8af4f1241fa9c4880686da5
     :git: https://github.com/Appsaurus/UIKitMixinable
 
 SPEC CHECKSUMS:
   DarkMagic: b71093ea6606dd5737eca437e63aa8a30db213b5
   DinoDNA: 0c2d2e62f36b8a86b28864639045db0e23cab49c
-  DynamicColor: c7adcfe871781a2b39877a5774e452ba51b79eb3
-  UIKitExtensions: 01482a8be62c65db695d6b34506f4e583b0b30ba
-  UIKitMixinable: f0d2a8609447ce1158533a70dfcf8d12a2e12575
+  DynamicColor: bf19b33fe404c59a68e64af95cc6b017346e7e75
+  UIKitExtensions: 831815349494deeb723a1e8c0a03d1db15228219
+  UIKitMixinable: fff6c8bc2560dd8365225a6adbb5f28df089813a
 
 PODFILE CHECKSUM: df7785838d6f8f740379ef732972608a7830f0bf
 
