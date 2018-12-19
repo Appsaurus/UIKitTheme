@@ -38,7 +38,7 @@ public extension String {
     ///   - range: range to apply (nil means entire string's range)
     /// - Returns: an NSMutableAttributedString instance
     public func apply(style: AttributedTextStyle, range: Range<Int>? = nil) -> NSMutableAttributedString {
-        return self.attributedString().apply(style: style, range: range)
+        return self.attributed.mutable.apply(style: style, range: range)
     }
     
     
@@ -55,7 +55,7 @@ public extension String {
     /// - Parameter styles: styles to apply
     /// - Returns: a new attributed string
     public func apply(stylesArray styles: [AttributedTextStyle]) -> NSMutableAttributedString {
-        return self.attributedString().apply(stylesArray: Array(styles))
+        return self.attributed.mutable.apply(stylesArray: Array(styles))
     }
     
     /// Apply style's attributes to given string with pattern matching specified
@@ -66,11 +66,11 @@ public extension String {
     ///   - options: options of pattern matching
     /// - Returns: a new attributed string instance
     public func apply(styles: AttributedTextStyle..., pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
-        return self.attributedString().apply(stylesArray: styles, pattern: pattern, options: options)
+        return self.attributed.mutable.apply(stylesArray: styles, pattern: pattern, options: options)
     }
     
     public func apply(style: AttributedTextStyle, to words: [String], options: NSRegularExpression.Options = []) -> NSMutableAttributedString{
-        guard words.count > 0 else { return self.attributedString() }
+        guard words.count > 0 else { return attributed.mutable }
         let regex = words.count > 1 ? "(" + words.joined(separator: "|") + ")" : "(\(words[0]))"
         return self.apply(styles: style, pattern: regex, options: options)
     }

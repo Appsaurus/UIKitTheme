@@ -35,17 +35,11 @@ extension DynamicColor{
 			color.isContrasting(with: self, inContext: context)
 		}
 
-		print("Sorted array \(sortedByContrast)")
-        let contrastColor = sortedByContrast[normalizedIndex: rank.rawValue]
-
-		if contrastColor == nil{
-			//			contrastColor = contrastingColor(inContext: context, fromCandidates: .white, .black)
-		}
-		guard let color = contrastColor else {
-			return self.isLight() ? .black : .white
-		}
-
-		return color
+        guard sortedByContrast.count > 0 else {
+            return self.isLight() ? .black : .white
+        }
+        
+		return sortedByContrast[normalizedIndex: rank.rawValue]
 	}
 
 

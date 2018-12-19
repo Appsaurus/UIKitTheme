@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.dependency 'DynamicColor'
   s.dependency 'UIKitMixinable'
   s.dependency 'UIKitExtensions'
-  s.dependency 'DinoDNA'
+  s.dependency 'Swiftest'
   s.dependency 'DarkMagic'
 
   s.ios.deployment_target = '9.0'

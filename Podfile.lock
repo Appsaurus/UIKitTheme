@@ -1,15 +1,15 @@
 PODS:
   - DarkMagic (0.0.2)
-  - DinoDNA (0.2.55)
   - DynamicColor (4.0.3)
-  - UIKitExtensions (0.0.3):
-    - DinoDNA
+  - Swiftest (0.0.2)
+  - UIKitExtensions (0.0.4):
+    - Swiftest
   - UIKitMixinable (0.0.2)
 
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
-  - "DinoDNA (from `git@bitbucket.org:appsaurus/dinodna.git`)"
   - DynamicColor
+  - Swiftest (from `https://github.com/Appsaurus/Swiftest`)
   - UIKitExtensions (from `https://github.com/Appsaurus/UIKitExtensions`)
   - UIKitMixinable (from `https://github.com/Appsaurus/UIKitMixinable`)
 
@@ -20,8 +20,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DarkMagic:
     :git: https://github.com/Appsaurus/DarkMagic
-  DinoDNA:
-    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+  Swiftest:
+    :git: https://github.com/Appsaurus/Swiftest
   UIKitExtensions:
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
@@ -31,11 +31,11 @@ CHECKOUT OPTIONS:
   DarkMagic:
     :commit: 6803dbc0fe9679872667a1253cdd6afb433d2375
     :git: https://github.com/Appsaurus/DarkMagic
-  DinoDNA:
-    :commit: 7cb7c903149d5214d8ed2cfc16d77a220e5b47a6
-    :git: "git@bitbucket.org:appsaurus/dinodna.git"
+  Swiftest:
+    :commit: cd7ba87eda65d91b4e9a65be791517677149972a
+    :git: https://github.com/Appsaurus/Swiftest
   UIKitExtensions:
-    :commit: 54a665bee3d8996dcf261e85ac3007e4b0d5a47f
+    :commit: e66a86e6546cb6af0e36b3aec0ea8299996bb670
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
     :commit: dd0dcbad33e409c1d8af4f1241fa9c4880686da5
@@ -43,11 +43,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DarkMagic: b71093ea6606dd5737eca437e63aa8a30db213b5
-  DinoDNA: 0c2d2e62f36b8a86b28864639045db0e23cab49c
   DynamicColor: bf19b33fe404c59a68e64af95cc6b017346e7e75
-  UIKitExtensions: 831815349494deeb723a1e8c0a03d1db15228219
+  Swiftest: d63bb5f7427ebfd10753609d834219db97b63441
+  UIKitExtensions: 8d4bac3f1cd1a0dea193e6d78cf54f57b530ae87
   UIKitMixinable: fff6c8bc2560dd8365225a6adbb5f28df089813a
 
-PODFILE CHECKSUM: df7785838d6f8f740379ef732972608a7830f0bf
+PODFILE CHECKSUM: 335383d22c041edf7206260004ad55578302d970
 
 COCOAPODS: 1.5.3
