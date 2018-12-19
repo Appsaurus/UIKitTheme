@@ -13,9 +13,7 @@
 
 ## Usage
 
-```swift
-<API>
-```
+Coming soon.
 
 ## Installation
 
@@ -23,26 +21,26 @@
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'UIKitTheme'
+pod 'UIKitTheme', :git => 'https://github.com/Appsaurus/UIKitTheme'
+pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
+pod 'UIKitMixinable', :git => 'https://github.com/Appsaurus/UIKitMixinable'
+pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
+pod 'DarkMagic', :git => 'https://github.com/Appsaurus/DarkMagic'
 ```
 
 **UIKitTheme** is also available through [Carthage](https://github.com/Carthage/Carthage).
 To install just write into your Cartfile:
 
 ```ruby
-github "Strobocop/UIKitTheme"
+github "Appsaurus/UIKitTheme"
 ```
 
 **UIKitTheme** can also be installed manually. Just download and drop `Sources` folders in your project.
 
-## Author
-
-Brian Strobach, brian@appsaurus.io
-
 ## Contributing
 
-We would love you to contribute to **UIKitTheme**, check the [CONTRIBUTING](github.com/Strobocop/UIKitTheme/blob/master/CONTRIBUTING.md) file for more info.
+We would love you to contribute to **UIKitTheme**, check the [CONTRIBUTING](github.com/Appsaurus/UIKitTheme/blob/master/CONTRIBUTING.md) file for more info.
 
 ## License
 
-**UIKitTheme** is available under the MIT license. See the [LICENSE](github.com/Strobocop/UIKitTheme/blob/master/LICENSE.md) file for more info.
+**UIKitTheme** is available under the MIT license. See the [LICENSE](github.com/Appsaurus/UIKitTheme/blob/master/LICENSE.md) file for more info.
