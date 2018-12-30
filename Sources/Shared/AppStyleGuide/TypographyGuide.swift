@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class FontSizingGuide: DefaultOverridable{
+open class FontSizingGuide: DefaultOverridable {
 	open var barButton: CGFloat = 17.0
 	open var button: CGFloat = UIFont.buttonFontSize
 	open var label: CGFloat = UIFont.labelFontSize
@@ -16,39 +16,38 @@ open class FontSizingGuide: DefaultOverridable{
 	open var system: CGFloat = UIFont.systemFontSize
 	open var icon: CGFloat = 50.0
     
-    public required init(){
+    public required init() {
         overrideDefaults()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
 }
 
-
-open class TypographyGuide: DefaultOverridable{
+open class TypographyGuide: DefaultOverridable {
 	open lazy var sizes: FontSizingGuide = FontSizingGuide()
 	open lazy var fonts: FontGuide = FontGuide()
 
-    public required init(){
+    public required init() {
         overrideDefaults()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
 }
-open class FontGuide: DefaultOverridable{
+open class FontGuide: DefaultOverridable {
 
-    //MARK: Fonts Names
+    // MARK: Fonts Names
     open var ultraLightName: String?
     open var thinName: String?
     open var lightName: String?
@@ -59,25 +58,23 @@ open class FontGuide: DefaultOverridable{
     open var heavyName: String?
     open var blackName: String?
     
-    public required init(){
+    public required init() {
         overrideDerivedDefaults()
         loadCustomFonts()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
 
+	// MARK: Fonts
 
-
-	//MARK: Fonts
-
-	public func fontName(weight: UIFont.Weight) -> String?{
-		switch weight{
+	public func fontName(weight: UIFont.Weight) -> String? {
+		switch weight {
 		case .ultraLight: return ultraLightName
 		case .thin: return thinName
 		case .light: return lightName
@@ -90,12 +87,12 @@ open class FontGuide: DefaultOverridable{
 		}
 	}
 
-	open func iconFont(_ size: CGFloat? = nil) -> UIFont{
+	open func iconFont(_ size: CGFloat? = nil) -> UIFont {
 		assertionFailure(String(describing: self) + " is abstract. You must implement " + #function)
 		return regular(size ?? .icon)
 	}
 
-	open func font(weight: UIFont.Weight, size: CGFloat = .system) -> UIFont{
+	open func font(weight: UIFont.Weight, size: CGFloat = .system) -> UIFont {
 		guard let fontName = fontName(weight: weight) else {
 //			debugPrint("No font name set for weight \(weight). Using system font instead.")
 			return UIFont.systemFont(ofSize: size, weight: weight)
@@ -107,46 +104,46 @@ open class FontGuide: DefaultOverridable{
 		return font
 	}
 
-	open func ultraLight(_ size: CGFloat = .system) -> UIFont{
+	open func ultraLight(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .ultraLight, size: size)
 	}
 
-	open func thin(_ size: CGFloat = .system) -> UIFont{
+	open func thin(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .thin, size: size)
 	}
 
-	open func light(_ size: CGFloat = .system) -> UIFont{
+	open func light(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .light, size: size)
 	}
 
-	open func regular(_ size: CGFloat = .system) -> UIFont{
+	open func regular(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .regular, size: size)
 	}
 
-	open func medium(_ size: CGFloat = .system) -> UIFont{
+	open func medium(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .medium, size: size)
 	}
 
-	open func semibold(_ size: CGFloat = .system) -> UIFont{
+	open func semibold(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .semibold, size: size)
 	}
 
-	open func bold(_ size: CGFloat = .system) -> UIFont{
+	open func bold(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .bold, size: size)
 	}
 
-	open func heavy(_ size: CGFloat = .system) -> UIFont{
+	open func heavy(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .heavy, size: size)
 	}
 
-	open func black(_ size: CGFloat = .system) -> UIFont{
+	open func black(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .black, size: size)
 	}
 }
 
-extension FontGuide{
+extension FontGuide {
 	
-	open func loadCustomFonts(){
+	open func loadCustomFonts() {
 		
 //		[ultraLightName,
 //		 thinName,
@@ -160,47 +157,47 @@ extension FontGuide{
 	}
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 
-extension UIFont{
-	public static func ultraLight(_ size: CGFloat = .system) -> UIFont{
+extension UIFont {
+	public static func ultraLight(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.ultraLight(size)
 	}
 
-	public static func thin(_ size: CGFloat = .system) -> UIFont{
+	public static func thin(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.thin(size)
 	}
 
-	public static func light(_ size: CGFloat = .system) -> UIFont{
+	public static func light(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.light(size)
 	}
 
-	public static func regular(_ size: CGFloat = .system) -> UIFont{
+	public static func regular(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.regular(size)
 	}
 
-	public static func medium(_ size: CGFloat = .system) -> UIFont{
+	public static func medium(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.medium(size)
 	}
 
-	public static func semibold(_ size: CGFloat = .system) -> UIFont{
+	public static func semibold(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.semibold(size)
 	}
 
-	public static func bold(_ size: CGFloat = .system) -> UIFont{
+	public static func bold(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.bold(size)
 	}
 
-	public static func heavy(_ size: CGFloat = .system) -> UIFont{
+	public static func heavy(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.heavy(size)
 	}
 
-	public static func black(_ size: CGFloat = .system) -> UIFont{
+	public static func black(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.black(size)
 	}
 }
 
-extension CGFloat{
+extension CGFloat {
 	public static var barButton: CGFloat { return  App.style.fontSizes.barButton }
 	public static var button: CGFloat { return App.style.fontSizes.button }
 	public static var icon: CGFloat { return App.style.fontSizes.icon }

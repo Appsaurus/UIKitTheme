@@ -8,18 +8,17 @@
 import Foundation
 import UIKit
 
-
-open class NavigationBarStyleDefaults: SubAppStyleGuideDefaults{
+open class NavigationBarStyleDefaults: SubAppStyleGuideDefaults {
 	open var titleFontSize: CGFloat = 17.0
-	open var backButtonImage: UIImage? = nil
+	open var backButtonImage: UIImage?
 	open var hidesBottomHairline: Bool = true
 	open lazy var titleFont: UIFont = fonts.regular(titleFontSize)
-	open func titleTextStyle(color: UIColor, font: UIFont? = nil) -> TextStyle{
+	open func titleTextStyle(color: UIColor, font: UIFont? = nil) -> TextStyle {
 		return TextStyle(color: color, font: font ?? titleFont)
 	}
 }
 
-open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = NavigationBarStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -37,13 +36,13 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 								  hidesBottomHairline: defaults.hidesBottomHairline)
 	}
 
-	open var primaryContrast: NavigationBarStyle{
+	open var primaryContrast: NavigationBarStyle {
 		return NavigationBarStyle(barColor: colors.primaryContrast,
 								  titleTextStyle: defaults.titleTextStyle(color: colors.primary),
 								  hidesBottomHairline: defaults.hidesBottomHairline)
 	}
 
-	open var gradient: NavigationBarStyle{
+	open var gradient: NavigationBarStyle {
 		let gradient = GradientConfiguration(colors: [colors.primary, colors.primaryDark], orientation: .leftRight)
 		return  NavigationBarStyle(gradient: gradient,
 								   titleTextStyle: defaults.titleTextStyle(color: colors.primaryContrast),
@@ -59,9 +58,9 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 	}
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension NavigationBarStyle{
+extension NavigationBarStyle {
 
 	public static var `default`: NavigationBarStyle {
 		return App.style.navigationBar.defaultStyle
@@ -71,11 +70,11 @@ extension NavigationBarStyle{
 		return App.style.navigationBar.primary
 	}
 
-	public static var primaryContrast: NavigationBarStyle{
+	public static var primaryContrast: NavigationBarStyle {
 		return App.style.navigationBar.primaryContrast
 	}
 
-	public static var gradient: NavigationBarStyle{
+	public static var gradient: NavigationBarStyle {
 		return App.style.navigationBar.gradient
 	}
 
@@ -83,5 +82,3 @@ extension NavigationBarStyle{
 		return App.style.navigationBar.transparent
 	}
 }
-
-

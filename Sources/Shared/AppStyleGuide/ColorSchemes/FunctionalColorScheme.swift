@@ -8,7 +8,7 @@
 import UIKit
 import DynamicColor
 
-open class FunctionalColorScheme: DefaultOverridable{
+open class FunctionalColorScheme: DefaultOverridable {
 	//Indicator colors
 	open var cancel: UIColor = FlatColors.red
 	open var delete: UIColor = FlatColors.red
@@ -21,21 +21,21 @@ open class FunctionalColorScheme: DefaultOverridable{
 	open var success: UIColor = FlatColors.green
 	open var warning: UIColor = FlatColors.yellow
 
-    public required init(){
+    public required init() {
         overrideDefaults()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
 }
 
-extension FunctionalColorScheme: ColorPaletteProvider{
-	public var colors: [UIColor]{
+extension FunctionalColorScheme: ColorPaletteProvider {
+	public var colors: [UIColor] {
 		return [
 			cancel,
 			delete,
@@ -51,7 +51,7 @@ extension FunctionalColorScheme: ColorPaletteProvider{
 	}
 }
 
-extension UIColor{
+extension UIColor {
 
 	//Functional
 	public static var cancel: UIColor { return App.colors.functional.cancel }

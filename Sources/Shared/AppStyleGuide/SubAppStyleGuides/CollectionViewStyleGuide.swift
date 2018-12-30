@@ -5,14 +5,13 @@
 //  Created by Brian Strobach on 3/10/18.
 //
 
-
 import UIKit
 
-open class CollectionViewStyleDefaults: SubAppStyleGuideDefaults{
+open class CollectionViewStyleDefaults: SubAppStyleGuideDefaults {
 	open lazy var viewStyle: ViewStyle = ViewStyle(backgroundColor: appStyleGuide.viewControllerBaseViewBackgroundColor)
 }
 
-open class CollectionViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class CollectionViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = CollectionViewStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -25,11 +24,10 @@ open class CollectionViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension CollectionViewStyle{
+extension CollectionViewStyle {
 	public static var defaultStyle: CollectionViewStyle {
 		return App.style.collectionView.defaultStyle
 	}
 }
-

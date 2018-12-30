@@ -1,8 +1,9 @@
 PODS:
   - DarkMagic (0.0.2)
   - DynamicColor (4.0.3)
-  - Swiftest (0.0.3)
-  - UIKitExtensions (0.0.4):
+  - Swiftest (0.0.11)
+  - SwiftLint (0.29.2)
+  - UIKitExtensions (0.0.6):
     - Swiftest
   - UIKitMixinable (0.0.2)
 
@@ -10,12 +11,14 @@ DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
   - DynamicColor
   - Swiftest (from `https://github.com/Appsaurus/Swiftest`)
+  - SwiftLint
   - UIKitExtensions (from `https://github.com/Appsaurus/UIKitExtensions`)
   - UIKitMixinable (from `https://github.com/Appsaurus/UIKitMixinable`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DynamicColor
+    - SwiftLint
 
 EXTERNAL SOURCES:
   DarkMagic:
@@ -29,25 +32,26 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DarkMagic:
-    :commit: 6803dbc0fe9679872667a1253cdd6afb433d2375
+    :commit: 0dd7dbb31d16ef1afd4ccc75b1179a54296aaaed
     :git: https://github.com/Appsaurus/DarkMagic
   Swiftest:
-    :commit: 0e507af6b8c54aa5103550ef87aeef4fc1ec1aef
+    :commit: 5414b2ddb640fee708c1a120558bbd0cf8bade35
     :git: https://github.com/Appsaurus/Swiftest
   UIKitExtensions:
-    :commit: e66a86e6546cb6af0e36b3aec0ea8299996bb670
+    :commit: b931f027be8a93c53686c69db6c8a32373e126a4
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
-    :commit: dd0dcbad33e409c1d8af4f1241fa9c4880686da5
+    :commit: 8b8420507f1ce6e4cd1593b946fe13f63be9f7fa
     :git: https://github.com/Appsaurus/UIKitMixinable
 
 SPEC CHECKSUMS:
   DarkMagic: b71093ea6606dd5737eca437e63aa8a30db213b5
   DynamicColor: bf19b33fe404c59a68e64af95cc6b017346e7e75
-  Swiftest: a48838b3aa96e4275b7bd270e5af81b5b6bf135d
-  UIKitExtensions: 8d4bac3f1cd1a0dea193e6d78cf54f57b530ae87
+  Swiftest: 427378dc087b53ffdb10e3e4c92cd6787c4be70a
+  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
+  UIKitExtensions: e35fd5af1fca0531684a526c4adc8e3da517fa28
   UIKitMixinable: fff6c8bc2560dd8365225a6adbb5f28df089813a
 
-PODFILE CHECKSUM: 335383d22c041edf7206260004ad55578302d970
+PODFILE CHECKSUM: 835b9d10b7be9e50231b87e4dfe32737728d46b0
 
 COCOAPODS: 1.5.3

@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-//import DinoDNA
 
-open class ButtonStyle: Style{
+open class ButtonStyle: Style {
     open var textStyle: TextStyle
     open var viewStyle: ViewStyle
     
@@ -20,13 +19,13 @@ open class ButtonStyle: Style{
     }
 }
 
-public protocol ButtonStyleable{
+public protocol ButtonStyleable {
     func apply(buttonStyle style: ButtonStyle)
 }
-extension ButtonStyleable where Self: TextStyleable & ViewStyleable{
-    public func apply(buttonStyle style: ButtonStyle){
+extension ButtonStyleable where Self: TextStyleable & ViewStyleable {
+    public func apply(buttonStyle style: ButtonStyle) {
         apply(textStyle: style.textStyle)
         apply(viewStyle: style.viewStyle, optimizeRendering: false)
     }
 }
-extension UIButton: ButtonStyleable{}
+extension UIButton: ButtonStyleable {}

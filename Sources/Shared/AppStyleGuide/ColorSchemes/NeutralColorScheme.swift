@@ -7,28 +7,28 @@
 
 import UIKit
 
-open class NeutralColorScheme: DefaultOverridable{
+open class NeutralColorScheme: DefaultOverridable {
 	open var light: UIColor = FlatColors.white
 	open var mediumLight: UIColor = FlatColors.whiteDark
 	open var medium: UIColor = FlatColors.gray
 	open var mediumDark: UIColor = FlatColors.grayDark
 	open var dark: UIColor = FlatColors.black
 
-    public required init(){
+    public required init() {
         overrideDefaults()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
 }
 
-extension NeutralColorScheme: ColorPaletteProvider{
-	public var colors: [UIColor]{
+extension NeutralColorScheme: ColorPaletteProvider {
+	public var colors: [UIColor] {
 		return [
 			light,
 			mediumLight,
@@ -39,7 +39,7 @@ extension NeutralColorScheme: ColorPaletteProvider{
 	}
 }
 
-extension UIColor{
+extension UIColor {
 
 	public static var neutralLight: UIColor { return App.colors.neutrals.light }
 	public static var neutralMediumLight: UIColor { return App.colors.neutrals.mediumLight }

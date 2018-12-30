@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class CollectionViewStyle: Style{
+open class CollectionViewStyle: Style {
 
 	open var viewStyle: ViewStyle
 
@@ -17,12 +17,12 @@ open class CollectionViewStyle: Style{
 
 }
 
-public protocol CollectionViewStyleable{
+public protocol CollectionViewStyleable {
 	func apply(collectionViewStyle style: CollectionViewStyle)
 }
 
-extension UICollectionView: CollectionViewStyleable{
-	public func apply(collectionViewStyle style: CollectionViewStyle){
+extension UICollectionView: CollectionViewStyleable {
+	public func apply(collectionViewStyle style: CollectionViewStyle) {
 		 apply(viewStyle: style.viewStyle, optimizeRendering: false)
 	}
 }

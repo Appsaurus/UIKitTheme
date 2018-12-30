@@ -7,20 +7,20 @@
 
 import Foundation
 
-public protocol AppStyleGuideDerived{
+public protocol AppStyleGuideDerived {
 	var appStyleGuide: AppStyleGuide { get set }
 	init(appStyleGuide: AppStyleGuide)
 }
 
-extension AppStyleGuideDerived{
-	//MARK: Convenience
-	public var colors: ColorScheme{
+extension AppStyleGuideDerived {
+	// MARK: Convenience
+	public var colors: ColorScheme {
 		return appStyleGuide.colors
 	}
-	public var fonts: FontGuide{
+	public var fonts: FontGuide {
 		return appStyleGuide.fonts
 	}
-	public var text: TextStyleGuide{
+	public var text: TextStyleGuide {
 		return appStyleGuide.text
 	}
 
@@ -69,7 +69,7 @@ extension AppStyleGuideDerived{
 
 }
 
-public protocol DefaultSettingsManaged: AppStyleGuideDerived{
+public protocol DefaultSettingsManaged: AppStyleGuideDerived {
 	associatedtype Defaults: AppStyleGuideDerived
 	var defaults: Defaults { get set }
 }
@@ -81,31 +81,31 @@ public protocol DefaultSettingsManaged: AppStyleGuideDerived{
 //	}
 //}
 
-public protocol AppearanceProxyManager{
+public protocol AppearanceProxyManager {
 	func applyAppearanceProxySettings()
 }
 
-extension Array where Element: AppearanceProxyManager{
-	public func applyAppearanceProxySettings(){
+extension Array where Element: AppearanceProxyManager {
+	public func applyAppearanceProxySettings() {
 		self.forEach { (apm) in
 			apm.applyAppearanceProxySettings()
 		}
 	}
 }
 
-open class BaseAppStyleDerived: NSObject, AppStyleGuideDerived{
+open class BaseAppStyleDerived: NSObject, AppStyleGuideDerived {
 	open var appStyleGuide: AppStyleGuide
-	public required init(appStyleGuide: AppStyleGuide){
+	public required init(appStyleGuide: AppStyleGuide) {
 		self.appStyleGuide = appStyleGuide
 	}
 
 }
-open class SubAppStyleGuide: BaseAppStyleDerived, AppearanceProxyManager{
+open class SubAppStyleGuide: BaseAppStyleDerived, AppearanceProxyManager {
 	public func applyAppearanceProxySettings() {
 
 	}
 }
 
-open class SubAppStyleGuideDefaults: BaseAppStyleDerived{
+open class SubAppStyleGuideDefaults: BaseAppStyleDerived {
 
 }

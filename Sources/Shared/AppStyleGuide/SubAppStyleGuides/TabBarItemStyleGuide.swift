@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class TabBarItemStyleDefaults: SubAppStyleGuideDefaults{
+open class TabBarItemStyleDefaults: SubAppStyleGuideDefaults {
 
 	//UITabBarItem //Note: Will only apply if images is set with UIImageRenderingModeAlwaysOriginal, otherwise tabBarTintColor is used
 	open lazy var normalTextColor: UIColor = colors.functional.deselected
@@ -16,7 +16,7 @@ open class TabBarItemStyleDefaults: SubAppStyleGuideDefaults{
 	open lazy var selectedIconColor: UIColor? = colors.functional.selected
 
 }
-open class TabBarItemStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class TabBarItemStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = TabBarItemStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -30,9 +30,9 @@ open class TabBarItemStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 	}
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension TabBarItemStyle{
+extension TabBarItemStyle {
 	public static var defaultStyle: TabBarItemStyle {
 		return App.style.tabBarItem.defaultStyle
 	}

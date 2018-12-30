@@ -11,13 +11,12 @@ import UIKit
 
 public extension UIColor {
     
-    public class func randomColor() -> UIColor{
+    public class func randomColor() -> UIColor {
         let red = CGFloat(drand48())
         let green = CGFloat(drand48())
         let blue = CGFloat(drand48())
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
-    
     
     //    /// init method with RGB values from 0 to 255, instead of 0 to 1. With alpha(default:1)
     //    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
@@ -58,8 +57,8 @@ public extension UIColor {
      :param: lighting percent percentage
      :returns: lighter UIColor
      */
-    public func lighterColor(_ percent : Double) -> UIColor {
-        return colorWithBrightnessFactor(CGFloat(1 + percent));
+    public func lighterColor(_ percent: Double) -> UIColor {
+        return colorWithBrightnessFactor(CGFloat(1 + percent))
     }
     
     /**
@@ -68,8 +67,8 @@ public extension UIColor {
      :param: darking percent percentage
      :returns: darker UIColor
      */
-    public func darkerColor(_ percent : Double) -> UIColor {
-        return colorWithBrightnessFactor(CGFloat(1 - percent));
+    public func darkerColor(_ percent: Double) -> UIColor {
+        return colorWithBrightnessFactor(CGFloat(1 - percent))
     }
     
     /**
@@ -79,27 +78,26 @@ public extension UIColor {
      :returns: modified color
      */
     public func colorWithBrightnessFactor(_ factor: CGFloat) -> UIColor {
-        var hue : CGFloat = 0
-        var saturation : CGFloat = 0
-        var brightness : CGFloat = 0
-        var alpha : CGFloat = 0
+        var hue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var alpha: CGFloat = 0
         
         if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
             return UIColor(hue: hue, saturation: saturation, brightness: brightness * factor, alpha: alpha)
         } else {
-            return self;
+            return self
         }
     }
     
-    public func brighten(amount: CGFloat) -> UIColor{
+    public func brighten(amount: CGFloat) -> UIColor {
         return self.colorWithBrightnessFactor(brightnessComponent + amount)
     }
     
-    public class func hsb(_ h: CGFloat, _ s: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor{
+    public class func hsb(_ h: CGFloat, _ s: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor {
         return UIColor(hue: h/360.0, saturation: s/100.0, brightness: b/100.0, alpha: a)
     }
 }
-
 
 //  Created by R0CKSTAR on 6/13/14.
 //  Copyright (c) 2014 P.D.Q. All rights reserved.
@@ -110,14 +108,13 @@ public extension UIColor {
  UnableToScanHexValue:      "Scan hex error"
  MismatchedHexStringLength: "Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8"
  */
-public enum UIColorInputError : Error {
+public enum UIColorInputError: Error {
     case missingHashMarkAsPrefix,
     unableToScanHexValue,
     mismatchedHexStringLength
 }
 
 extension UIColor {
-    
     
     /**
      The shorthand three-digit hexadecimal representation of color.
@@ -186,12 +183,12 @@ extension UIColor {
             throw UIColorInputError.missingHashMarkAsPrefix
         }
         let hexString: String = String(rgba[rgba.index(rgba.startIndex, offsetBy: 1)..<rgba.endIndex])
-        var hexValue:  UInt32 = 0
+        var hexValue: UInt32 = 0
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {
             throw UIColorInputError.unableToScanHexValue
         }
         
-        switch (hexString.count) {
+        switch hexString.count {
         case 3:
             self.init(hex3: UInt16(hexValue))
         case 4:
@@ -230,13 +227,12 @@ extension UIColor {
         var a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         
-        if (includeAlpha) {
+        if includeAlpha {
             return String(format: "#%02X%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255), Int(a * 255))
         } else {
             return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
         }
     }
-    
     
     open override var description: String {
         return self.hexString(true)
@@ -246,4 +242,3 @@ extension UIColor {
         return self.hexString(true)
     }
 }
-

@@ -10,9 +10,9 @@ import DarkMagic
 import UIKitExtensions
 
 public extension UIViewController {
-    public func applyNavigationBar(style: NavigationBarStyle){
+    public func applyNavigationBar(style: NavigationBarStyle) {
         
-        guard let selfNav = self as? UINavigationController else{
+        guard let selfNav = self as? UINavigationController else {
             navigationController?.navigationBar.apply(navigationBarStyle: style)
             return
         }
@@ -20,40 +20,38 @@ public extension UIViewController {
     }
 }
 
-public protocol NavigationBarStyleable: class{
+public protocol NavigationBarStyleable: class {
     var navigationBarStyle: NavigationBarStyle? { get set }
     func animateToDefaultNavigationBarStyle()
     func applyDefaultNavigationBarStyle()
 }
 
-
-private extension AssociatedObjectKeys{
+private extension AssociatedObjectKeys {
     static let navigationBarStyle = AssociatedObjectKey<NavigationBarStyle>("navigationBarStyle")
 }
 
-public extension NavigationBarStyleable where Self: NSObject{
+public extension NavigationBarStyleable where Self: NSObject {
     
-    public var navigationBarStyle: NavigationBarStyle?{
-        get{
+    public var navigationBarStyle: NavigationBarStyle? {
+        get {
             return self[.navigationBarStyle]
         }
-        set{
+        set {
             self[.navigationBarStyle] = newValue
             applyDefaultNavigationBarStyle()
         }
     }
     
 }
-public extension NavigationBarStyleable where Self: UIViewController{
-    public func applyDefaultNavigationBarStyle(){
+public extension NavigationBarStyleable where Self: UIViewController {
+    public func applyDefaultNavigationBarStyle() {
         guard let parent = self.parent, parent === navigationController else { return }
         guard let style = navigationBarStyle else { return }
         self.applyNavigationBar(style: style)
     }
-    public func animateToDefaultNavigationBarStyle(){
+    public func animateToDefaultNavigationBarStyle() {
         guard let parent = self.parent, parent === navigationController else { return }
         guard let style = navigationBarStyle else { return }
-        
         
         guard let transitionCoordinator = transitionCoordinator else {
             self.applyNavigationBar(style: style)
@@ -61,7 +59,7 @@ public extension NavigationBarStyleable where Self: UIViewController{
         }
         let destinationVC = transitionCoordinator.toViewController
         
-        transitionCoordinator.animate(alongsideTransition: { (context) in
+        transitionCoordinator.animate(alongsideTransition: { (_) in
             destinationVC.applyNavigationBar(style: style)
             }, completion: nil)
     }

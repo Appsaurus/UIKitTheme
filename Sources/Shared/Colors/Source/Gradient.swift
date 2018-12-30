@@ -9,7 +9,7 @@
 import UIKit
 import UIKitExtensions
 
-public class GradientConfiguration{
+public class GradientConfiguration {
     open var colors: [UIColor]
     open var orientation: GradientOrientation
     open var locations: [NSNumber] = [0, 1]
@@ -19,7 +19,7 @@ public class GradientConfiguration{
         self.orientation = orientation
     }
     
-    public func toLayer(frame: CGRect) -> CAGradientLayer{
+    public func toLayer(frame: CGRect) -> CAGradientLayer {
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = frame
         gradientLayer.colors = colors.map({ (color) -> CGColor in
@@ -31,12 +31,12 @@ public class GradientConfiguration{
         return gradientLayer
     }
     
-    public func toImage(frame: CGRect) -> UIImage?{
+    public func toImage(frame: CGRect) -> UIImage? {
         let gradientLayer = toLayer(frame: frame)
         let image = UIImage.imageWithLayer(layer: gradientLayer)
         return image
     }
-    public func toColor(frame: CGRect) -> UIColor{
+    public func toColor(frame: CGRect) -> UIColor {
         let color = UIColor(patternImage: toImage(frame: frame)!)
         return color
     }
@@ -89,8 +89,6 @@ public enum GradientOrientation {
 
 public extension UIView {
     
-    
-    
     /// Applies a gradient mask to view.
     ///
     /// - Parameters:
@@ -98,7 +96,7 @@ public extension UIView {
     @discardableResult
     public func applyGradientMask(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
         gradient.colors = [.white, .clear]
-        let gradientLayer = apply(gradient:gradient, frame: frame, at: index)
+        let gradientLayer = apply(gradient: gradient, frame: frame, at: index)
         self.layer.mask = gradientLayer
         return gradientLayer
     }

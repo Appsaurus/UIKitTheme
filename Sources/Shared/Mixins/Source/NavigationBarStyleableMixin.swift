@@ -7,7 +7,7 @@
 
 import UIKitMixinable
 
-public class NavigationBarStyleableMixin: UIViewControllerMixin<UIViewController & NavigationBarStyleable>{
+public class NavigationBarStyleableMixin: UIViewControllerMixin<UIViewController & NavigationBarStyleable> {
     open override func viewWillAppear(_ animated: Bool) {
         mixable.animateToDefaultNavigationBarStyle()
     }

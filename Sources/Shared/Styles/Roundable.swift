@@ -9,21 +9,21 @@ import UIKit
 import DarkMagic
 
 //For views that need to round their corners after resizing their layout
-public protocol Roundable: class{
+public protocol Roundable: class {
     var rounded: Bool { get set }
 }
 
-private extension AssociatedObjectKeys{
+private extension AssociatedObjectKeys {
     static let rounded = AssociatedObjectKey<Bool>("rounded")
 }
 
-public extension Roundable where Self: UIView{
+public extension Roundable where Self: UIView {
     
-    public var rounded: Bool{
-        get{
+    public var rounded: Bool {
+        get {
             return getAssociatedObject(for: .rounded, initialValue: false)
         }
-        set{
+        set {
             setAssociatedObject(newValue, for: .rounded)
         }
     }

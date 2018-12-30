@@ -7,12 +7,12 @@
 
 import UIKit
 
-open class NeutralTextColorScheme: NeutralColorScheme{
+open class NeutralTextColorScheme: NeutralColorScheme {
 	open lazy var defaultText: UIColor = dark
 
 }
 
-extension UIColor{
+extension UIColor {
 
 	//Text
 	public static var textDefault: UIColor { return App.colors.text.defaultText}

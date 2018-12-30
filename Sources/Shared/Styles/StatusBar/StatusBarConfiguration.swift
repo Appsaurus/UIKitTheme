@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class StatusBarConfiguration: Style{
+open class StatusBarConfiguration: Style {
     open var hidden: Bool
     open var style: UIStatusBarStyle
     open var animation: UIStatusBarAnimation

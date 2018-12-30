@@ -8,10 +8,10 @@
 import UIKit
 import CoreGraphics
 
-extension UIColor{
+extension UIColor {
 
-    //MARK: Difference API
-    public enum ColorDifferenceAlgorithm{
+    // MARK: Difference API
+    public enum ColorDifferenceAlgorithm {
         case CIEDE2000
         case CIE94
     }
@@ -21,7 +21,7 @@ extension UIColor{
     }
 
     public class func differenceBetween(_ color1: UIColor, _ color2: UIColor, using algorithm: ColorDifferenceAlgorithm = .CIEDE2000) -> CGFloat {
-        switch algorithm{
+        switch algorithm {
         case .CIEDE2000:
             return color1.CIEDE2000(compare: color2)
         case .CIE94:
@@ -30,8 +30,8 @@ extension UIColor{
 
     }
 
-    //MARK: Closest Match API
-    public func closestMatch(in palette: [UIColor]) -> UIColor{
+    // MARK: Closest Match API
+    public func closestMatch(in palette: [UIColor]) -> UIColor {
         return UIColor.closestMatch(to: self, in: palette)
     }
 
@@ -50,7 +50,7 @@ extension UIColor{
         return nearestColor
     }
 
-    //MARK: Color distance algorithm implementations
+    // MARK: Color distance algorithm implementations
     /**
     Detemine the distance between two colors based on the way humans perceive them.
 
@@ -61,11 +61,11 @@ extension UIColor{
     func CIE94(compare color: UIColor) -> CGFloat {
         // https://en.wikipedia.org/wiki/Color_difference#CIE94
 
-        let k_L:CGFloat = 1
-        let k_C:CGFloat = 1
-        let k_H:CGFloat = 1
-        let k_1:CGFloat = 0.045
-        let k_2:CGFloat = 0.015
+        let k_L: CGFloat = 1
+        let k_C: CGFloat = 1
+        let k_H: CGFloat = 1
+        let k_1: CGFloat = 0.045
+        let k_2: CGFloat = 0.015
 
         let LAB1 = self.toLabComponents()
         let L_1 = LAB1.L, a_1 = LAB1.a, b_1 = LAB1.b
@@ -73,30 +73,28 @@ extension UIColor{
         let LAB2 = color.toLabComponents()
         let L_2 = LAB2.L, a_2 = LAB2.a, b_2 = LAB2.b
 
-        let deltaL:CGFloat = L_1 - L_2
-        let deltaA:CGFloat = a_1 - a_2
-        let deltaB:CGFloat = b_1 - b_2
+        let deltaL: CGFloat = L_1 - L_2
+        let deltaA: CGFloat = a_1 - a_2
+        let deltaB: CGFloat = b_1 - b_2
 
-        let C_1:CGFloat = sqrt(pow(a_1, 2) + pow(b_1, 2))
-        let C_2:CGFloat = sqrt(pow(a_2, 2) + pow(b_2, 2))
-        let deltaC_ab:CGFloat = C_1 - C_2
+        let C_1: CGFloat = sqrt(pow(a_1, 2) + pow(b_1, 2))
+        let C_2: CGFloat = sqrt(pow(a_2, 2) + pow(b_2, 2))
+        let deltaC_ab: CGFloat = C_1 - C_2
 
-        let deltaH_ab:CGFloat = sqrt(pow(deltaA, 2) + pow(deltaB, 2) - pow(deltaC_ab, 2))
+        let deltaH_ab: CGFloat = sqrt(pow(deltaA, 2) + pow(deltaB, 2) - pow(deltaC_ab, 2))
 
-        let s_L:CGFloat = 1
-        let s_C:CGFloat = 1 + (k_1 * C_1)
-        let s_H:CGFloat = 1 + (k_2 * C_1)
+        let s_L: CGFloat = 1
+        let s_C: CGFloat = 1 + (k_1 * C_1)
+        let s_H: CGFloat = 1 + (k_2 * C_1)
 
         // Calculate
 
-        let P1:CGFloat = pow(deltaL/(k_L * s_L), 2)
-        let P2:CGFloat = pow(deltaC_ab/(k_C * s_C), 2)
-        let P3:CGFloat = pow(deltaH_ab/(k_H * s_H), 2)
+        let P1: CGFloat = pow(deltaL/(k_L * s_L), 2)
+        let P2: CGFloat = pow(deltaC_ab/(k_C * s_C), 2)
+        let P3: CGFloat = pow(deltaH_ab/(k_H * s_H), 2)
 
         return sqrt((P1.isNaN ? 0:P1) + (P2.isNaN ? 0:P2) + (P3.isNaN ? 0:P3))
     }
-
-
 
     /**
     Detemine the distance between two colors based on the way humans perceive them.
@@ -106,6 +104,7 @@ extension UIColor{
 
     - returns: A CGFloat representing the deltaE
     */
+    //swiftlint:disable:next function_body_length
     func CIEDE2000(compare color: UIColor) -> CGFloat {
         // CIEDE2000, Sharma 2004 -> http://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf
 

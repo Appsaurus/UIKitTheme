@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-open class TableViewCellStyle: Style{
+open class TableViewCellStyle: Style {
 	open var viewStyle: ViewStyle
 	open var selectedBackgroundColor: UIColor?
 	open var selectionStyle: UITableViewCell.SelectionStyle = .none
@@ -19,13 +19,13 @@ open class TableViewCellStyle: Style{
     }
 }
 
-public protocol TableViewCellStyleable{
+public protocol TableViewCellStyleable {
 	func apply(tableViewCellStyle style: TableViewCellStyle)
 }
 
-extension UITableViewCell: TableViewCellStyleable{
+extension UITableViewCell: TableViewCellStyleable {
     
-	public func apply(tableViewCellStyle style: TableViewCellStyle){
+	public func apply(tableViewCellStyle style: TableViewCellStyle) {
 		apply(viewStyle: style.viewStyle, optimizeRendering: false)
 		self.selectionStyle = style.selectionStyle
 		self.setSelectedBackground(color: style.selectedBackgroundColor)
@@ -33,25 +33,25 @@ extension UITableViewCell: TableViewCellStyleable{
 	}
 }
 
-extension UIColor{
-	public static var tableViewCellSelectedBackgroundColor: UIColor?{
+extension UIColor {
+	public static var tableViewCellSelectedBackgroundColor: UIColor? {
 		return App.style.tableViewCell.defaults.selectedBackgroundColor
 	}
 }
 
-public extension UITableViewCell{
-    public func applyClearBackground(){
+public extension UITableViewCell {
+    public func applyClearBackground() {
         backgroundColor = UIColor.clear
         backgroundView?.backgroundColor = UIColor.clear
     }
     
-    public func hideSeparatorInset(){
+    public func hideSeparatorInset() {
         self.layoutMargins = UIEdgeInsets.zero
         self.separatorInset = UIEdgeInsets.zero
     }
     
-    public func setSelectedBackground(color: UIColor?){
-        guard let color = color else{
+    public func setSelectedBackground(color: UIColor?) {
+        guard let color = color else {
             self.selectedBackgroundView = nil
             return
         }

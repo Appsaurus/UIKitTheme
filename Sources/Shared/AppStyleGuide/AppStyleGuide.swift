@@ -7,25 +7,24 @@
 
 import UIKit
 
-public protocol DefaultOverridable{
+public protocol DefaultOverridable {
     func overrideDefaults()
     func overrideStoredDefaults()
     func overrideDerivedDefaults()
 }
-extension DefaultOverridable{
-    public func overrideDefaults(){
+extension DefaultOverridable {
+    public func overrideDefaults() {
         overrideStoredDefaults()
         overrideDerivedDefaults()
     }
 }
 
-open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable{
+open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable {
 
 	open lazy var colors: ColorScheme = ColorScheme()
 	open lazy var typography: TypographyGuide = TypographyGuide()
 
-
-	//MARK: SubAppStyleGuides
+	// MARK: SubAppStyleGuides
 	open lazy var text: TextStyleGuide = TextStyleGuide(appStyleGuide: self)
 	open lazy var views: ViewStyleGuide = ViewStyleGuide(appStyleGuide: self)
 	open lazy var shadows: ShadowStyleGuide = ShadowStyleGuide(appStyleGuide: self)
@@ -42,7 +41,6 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable{
 	open lazy var collectionView: CollectionViewStyleGuide = CollectionViewStyleGuide(appStyleGuide: self)
 	open lazy var collectionViewCell: CollectionViewCellStyleGuide = CollectionViewCellStyleGuide(appStyleGuide: self)
 
-
     //TODO: Refactor into separate styles
     open lazy var mainWindowBackgroundColor: UIColor = colors.primary
     open lazy var viewControllerBaseViewBackgroundColor: UIColor = colors.neutrals.light
@@ -53,7 +51,7 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable{
     open lazy var pagingViewControllerBaseViewBackgroundColor: UIColor = viewControllerBaseViewBackgroundColor
     open lazy var formViewControllerBackgroundColor: UIColor = colors.primary
     
-	open var subStyleGuides: [SubAppStyleGuide]{
+	open var subStyleGuides: [SubAppStyleGuide] {
 		return [
 			text,
 			views,
@@ -71,46 +69,45 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable{
 		]
 	}
     
-    public required init(){
+    public required init() {
         overrideDefaults()
     }
     
-    open func overrideStoredDefaults(){
+    open func overrideStoredDefaults() {
         
     }
     
-    open func overrideDerivedDefaults(){
+    open func overrideDerivedDefaults() {
         
     }
     
-	//MARK: AppearanceProxyManager
+	// MARK: AppearanceProxyManager
 	open func applyAppearanceProxySettings() {
 		subStyleGuides.applyAppearanceProxySettings()
 	}
 
-	open var barButtonItemStyle: ButtonStyle{
+	open var barButtonItemStyle: ButtonStyle {
 		return .flat(textStyle: .regular(color: .primaryContrast, size: .button))
 	}
 
-
-	open var statefulViewControllerViewBackgroundColor: UIColor?{
+	open var statefulViewControllerViewBackgroundColor: UIColor? {
 		return nil
 	}
 
 }
 
-extension AppStyleGuide{
-	//MARK: Convenience
-	open var fonts: FontGuide{
+extension AppStyleGuide {
+	// MARK: Convenience
+	open var fonts: FontGuide {
 		return typography.fonts
 	}
 
-	open var fontSizes: FontSizingGuide{
+	open var fontSizes: FontSizingGuide {
 		return typography.sizes
 	}
 }
 
-extension UIColor{
+extension UIColor {
 	public static var mainWindowBackgroundColor: UIColor {
 		return App.style.mainWindowBackgroundColor
 	}
@@ -137,7 +134,7 @@ extension UIColor{
 	}
 }
 
-//MARK: Non-appearance protocol default customizations
+// MARK: Non-appearance protocol default customizations
 //
 //public extension UITableViewController {
 //
@@ -163,4 +160,3 @@ extension UIColor{
 //		self.apply(tableViewCellStyle: .defaultStyle)
 //	}
 //}
-

@@ -9,14 +9,13 @@ import Foundation
 
 import UIKit
 
-
-open class TabBarStyleDefaults: SubAppStyleGuideDefaults{
+open class TabBarStyleDefaults: SubAppStyleGuideDefaults {
 	open var opaque: Bool = true
 	open lazy var backgroundColor: UIColor = colors.primaryContrast
 	open lazy var tintColor: UIColor = colors.primary
 }
 
-open class TabBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class TabBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = TabBarStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -36,10 +35,10 @@ open class TabBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 	}
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension TabBarStyle{
-	public static var defaultStyle: TabBarStyle{
+extension TabBarStyle {
+	public static var defaultStyle: TabBarStyle {
 		return App.style.tabBar.defaultStyle
 	}
 	public static func primary(opaque: Bool? = nil) -> TabBarStyle {

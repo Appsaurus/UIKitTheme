@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol ViewControllerStyleable: Styleable{
+public protocol ViewControllerStyleable: Styleable {
     var viewControllerStyle: ViewControllerStyle { get set }
     func apply(viewControllerStyle: ViewControllerStyle)
     

@@ -8,10 +8,13 @@
 
 import UIKit
 
-extension UIViewController{
+extension UIViewController {
 
     @discardableResult
-    public func setupNavigationBarTitleLabel(text: String = "", inset: UIEdgeInsets? = nil, style: TextStyle = NavigationBarStyle.default.titleTextStyle, maxNumberOfLines: Int = 1) -> UILabel{
+    public func setupNavigationBarTitleLabel(text: String = "",
+                                             inset: UIEdgeInsets? = nil,
+                                             style: TextStyle = NavigationBarStyle.default.titleTextStyle,
+                                             maxNumberOfLines: Int = 1) -> UILabel {
         let navBar = navigationController!.navigationBar
         let frame = navBar.bounds.insetBy(dx: navBar.frame.w/6.0, dy: navBar.frame.h/5.0)
         let titleLabel = UILabel(frame: frame, text: text)

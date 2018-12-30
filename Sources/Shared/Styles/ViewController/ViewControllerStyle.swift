@@ -7,7 +7,7 @@
 
 import Foundation
 
-open class ViewControllerStyle: Style{
+open class ViewControllerStyle: Style {
     open var navigationBarStyle: NavigationBarStyle
     open var viewStyle: ViewStyle
     

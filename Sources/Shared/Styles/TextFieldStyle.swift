@@ -9,9 +9,8 @@
 import Foundation
 
 import UIKit
-//import DinoDNA
 
-open class TextFieldStyle: Style{
+open class TextFieldStyle: Style {
     open var textStyle: TextStyle
     open var viewStyle: ViewStyle
     
@@ -21,11 +20,11 @@ open class TextFieldStyle: Style{
     }
 }
 
-public protocol TextFieldStyleable{
+public protocol TextFieldStyleable {
     func apply(textFieldStyle: TextFieldStyle)
 }
-extension TextFieldStyleable where Self: TextStyleable & ViewStyleable{
-    public func apply(textFieldStyle: TextFieldStyle){
+extension TextFieldStyleable where Self: TextStyleable & ViewStyleable {
+    public func apply(textFieldStyle: TextFieldStyle) {
         apply(textStyle: textFieldStyle.textStyle)
         apply(viewStyle: textFieldStyle.viewStyle, optimizeRendering: false)
 //        guard let materialField = self as? MaterialTextField, let materialStyle = textFieldStyle as? MaterialTextFieldStyle else { return }
@@ -34,6 +33,6 @@ extension TextFieldStyleable where Self: TextStyleable & ViewStyleable{
 //        materialField.secondaryLabel.apply(textStyle: materialStyle.secondaryLabelTextStyle)
     }
 }
-extension UITextField: TextFieldStyleable{}
-extension UILabel: TextFieldStyleable{}
-extension UITextView: TextFieldStyleable{}
+extension UITextField: TextFieldStyleable {}
+extension UILabel: TextFieldStyleable {}
+extension UITextView: TextFieldStyleable {}

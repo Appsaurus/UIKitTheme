@@ -7,13 +7,12 @@
 //
 
 import UIKit
-//import DinoDNA
 
-public protocol TextStyleable{
+public protocol TextStyleable {
     func apply(textStyle: TextStyle)
 }
 
-open class TextStyle: Style{
+open class TextStyle: Style {
     open var color: UIColor
     open var font: UIFont
     open var shadowStyle: ShadowStyle?
@@ -28,34 +27,34 @@ open class TextStyle: Style{
         return TextStyle(color: color, font: font, shadowStyle: shadowStyle)
     }
     
-    public var attributeDictionary: Dictionary<NSAttributedString.Key, Any>{
-        var attributes: Dictionary<NSAttributedString.Key, Any> = [
-            .font : font,
-            .foregroundColor : color
+    public var attributeDictionary: [NSAttributedString.Key: Any] {
+        var attributes: [NSAttributedString.Key: Any] = [
+            .font: font,
+            .foregroundColor: color
         ]
-        if let shadowStyle = shadowStyle{
+        if let shadowStyle = shadowStyle {
             attributes.merge(with: shadowStyle.attributeDictionary)
         }
         return attributes   
     }
 }
-extension UILabel: TextStyleable{}
-public extension UILabel{
-    public func apply(textStyle: TextStyle){
+extension UILabel: TextStyleable {}
+public extension UILabel {
+    public func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
         self.apply(shadowStyle: shadowStyle)
     }
     
-    public func textStyle() -> TextStyle{        
+    public func textStyle() -> TextStyle {        
         return TextStyle(color: textColor, font: font, shadowStyle: shadowStyle())
     }
     
 }
-extension UITextField: TextStyleable{}
-public extension UITextField{
-    public func apply(textStyle: TextStyle){
+extension UITextField: TextStyleable {}
+public extension UITextField {
+    public func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
@@ -63,9 +62,9 @@ public extension UITextField{
     }
 }
 
-extension UITextView: TextStyleable{}
-public extension UITextView{
-    public func apply(textStyle: TextStyle){
+extension UITextView: TextStyleable {}
+public extension UITextView {
+    public func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
@@ -73,9 +72,9 @@ public extension UITextView{
     }
 }
 
-extension UIButton: TextStyleable{}
-public extension UIButton{
-    public func apply(textStyle: TextStyle){
+extension UIButton: TextStyleable {}
+public extension UIButton {
+    public func apply(textStyle: TextStyle) {
         setTitleColor(textStyle.color, for: .normal)
         titleLabel?.font = textStyle.font
         guard let shadow = textStyle.shadowStyle else {
@@ -85,19 +84,19 @@ public extension UIButton{
     }
 }
 
-extension UIBarButtonItem: TextStyleable{}
-public extension UIBarButtonItem{
-    public func apply(textStyle: TextStyle){
+extension UIBarButtonItem: TextStyleable {}
+public extension UIBarButtonItem {
+    public func apply(textStyle: TextStyle) {
         setTitleTextAttributes(textStyle.attributeDictionary, for: .normal)
     }
     
-    public func apply(textStyle: TextStyle, for state: UIControl.State){
+    public func apply(textStyle: TextStyle, for state: UIControl.State) {
         setTitleTextAttributes(textStyle.attributeDictionary, for: state)
     }
 }
 
-extension Array where Element: TextStyleable{
-    public func apply(textStyle: TextStyle){
+extension Array where Element: TextStyleable {
+    public func apply(textStyle: TextStyle) {
         forEach({$0.apply(textStyle: textStyle)})
     }
 }

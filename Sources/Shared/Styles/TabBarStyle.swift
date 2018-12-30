@@ -7,12 +7,11 @@
 
 import UIKit
 
-public protocol TabBarStyleable{
+public protocol TabBarStyleable {
 	func apply(tabBarStyle: TabBarStyle)
 }
 
-
-open class TabBarStyle: Style{
+open class TabBarStyle: Style {
 		open var tintColor: UIColor
 		open var backgroundColor: UIColor?
 		open var opaque: Bool
@@ -23,7 +22,7 @@ open class TabBarStyle: Style{
     }
 }
 
-extension UITabBar : TabBarStyleable{
+extension UITabBar: TabBarStyleable {
 
 	public func apply(tabBarStyle: TabBarStyle) {
 		tintColor = tabBarStyle.tintColor
@@ -31,4 +30,3 @@ extension UITabBar : TabBarStyleable{
 		isOpaque = tabBarStyle.opaque
 	}
 }
-

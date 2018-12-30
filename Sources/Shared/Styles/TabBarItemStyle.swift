@@ -8,18 +8,16 @@
 
 import UIKit
 
-public protocol TabBarItemStyleable{
+public protocol TabBarItemStyleable {
     func apply(tabBarItemStyle: TabBarItemStyle)    
 }
 
-
-open class TabBarItemStyle: Style{
+open class TabBarItemStyle: Style {
 	open var normalTextColor: UIColor
 	open var selectedTextColor: UIColor
 	open var renderOriginal: Bool
 	open var normalIconColor: UIColor
 	open var selectedIconColor: UIColor
-
     
     public init(normalTextColor: UIColor, selectedTextColor: UIColor, renderOriginal: Bool = true, normalIconColor: UIColor? = nil, selectedIconColor: UIColor? = nil) {
         self.renderOriginal = renderOriginal
@@ -30,14 +28,14 @@ open class TabBarItemStyle: Style{
     }
 }
 
-extension UITabBarItem : TabBarItemStyleable{
+extension UITabBarItem: TabBarItemStyleable {
     
     public func apply(tabBarItemStyle: TabBarItemStyle) {
         
-        setTitleTextAttributes([.foregroundColor : tabBarItemStyle.normalTextColor], for: .normal)
-        setTitleTextAttributes([.foregroundColor : tabBarItemStyle.selectedTextColor], for: .selected)
+        setTitleTextAttributes([.foregroundColor: tabBarItemStyle.normalTextColor], for: .normal)
+        setTitleTextAttributes([.foregroundColor: tabBarItemStyle.selectedTextColor], for: .selected)
 		guard !(self === UITabBarItem.appearance()) else { return }
-        if tabBarItemStyle.renderOriginal{
+        if tabBarItemStyle.renderOriginal {
             image = image?.withRenderingMode(.alwaysOriginal)
             selectedImage = selectedImage?.withRenderingMode(.alwaysOriginal)
         }

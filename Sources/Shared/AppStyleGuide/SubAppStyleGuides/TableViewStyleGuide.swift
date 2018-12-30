@@ -7,14 +7,14 @@
 
 import UIKit
 
-open class TableViewStyleDefaults: SubAppStyleGuideDefaults{
+open class TableViewStyleDefaults: SubAppStyleGuideDefaults {
 	open lazy var cellSeparatorColor: UIColor = colors.text.mediumLight
 	open var hidesEmptyCells: Bool = true
 	open var hidesSeparatorInset: Bool = true
 	open lazy var viewStyle: ViewStyle = ViewStyle.init(backgroundColor: appStyleGuide.viewControllerBaseViewBackgroundColor)
 }
 
-open class TableViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class TableViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = TableViewStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -30,9 +30,9 @@ open class TableViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 	
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension TableViewStyle{
+extension TableViewStyle {
 	public static var defaultStyle: TableViewStyle {
 		return App.style.tableView.defaultStyle
 	}

@@ -8,9 +8,8 @@
 
 import Foundation
 import UIKit
-//import DinoDNA
 
-open class NavigationBarStyle: Style{
+open class NavigationBarStyle: Style {
     open var barColor: UIColor?
     open var backgroundImage: UIImage?
     open var gradient: GradientConfiguration?
@@ -20,7 +19,14 @@ open class NavigationBarStyle: Style{
     open var transparent: Bool
     open var hidesBottomHairline: Bool
     
-	public init(barColor: UIColor? = nil, backgroundImage: UIImage? = nil, gradient: GradientConfiguration? = nil, titleTextStyle: TextStyle? = nil, opaque: Bool = true, translucent: Bool = false, transparent: Bool = false, hidesBottomHairline: Bool = false) {
+    public init(barColor: UIColor? = nil,
+                backgroundImage: UIImage? = nil,
+                gradient: GradientConfiguration? = nil,
+                titleTextStyle: TextStyle? = nil,
+                opaque: Bool = true,
+                translucent: Bool = false,
+                transparent: Bool = false,
+                hidesBottomHairline: Bool = false) {
         self.barColor = barColor
         self.backgroundImage = backgroundImage
         self.gradient = gradient
@@ -32,56 +38,53 @@ open class NavigationBarStyle: Style{
     }
 }
 
-extension UINavigationBar{
-
-    public func apply(navigationBarStyle style: NavigationBarStyle, appearanceProxyFriendly: Bool = false){
+extension UINavigationBar {
+    
+    public func apply(navigationBarStyle style: NavigationBarStyle, appearanceProxyFriendly: Bool = false) {
         
         let navBar = self
-        if (!appearanceProxyFriendly){
-            if(style.transparent){
+        if !appearanceProxyFriendly {
+            if style.transparent {
                 navBar.makeTransparent()
-            }
-            else{
+            } else {
                 resetToDefaultStyle()
                 navBar.setBackgroundImage(style.backgroundImage, for: .default)
             }
-            navBar.hairlineBottomBorder()?.isHidden = style.hidesBottomHairline
-			navBar.setNeedsDisplay()
+            navBar.hairlineBottomBorder?.isHidden = style.hidesBottomHairline
+            navBar.setNeedsDisplay()
         }
-        if(!style.transparent){
+        if !style.transparent {
             navBar.isTranslucent = style.translucent
             navBar.isOpaque = style.opaque
             navBar.barTintColor = style.barColor
             navBar.tintColor = style.titleTextStyle.color
         }
-		navBar.barStyle = .default
-
-		let textAttributes = style.titleTextStyle.attributeDictionary
-		navBar.titleTextAttributes = textAttributes
-		if #available(iOS 11.0, *) {
-			navBar.largeTitleTextAttributes = textAttributes
-		}
-
-        if let gradient = style.gradient{
+        navBar.barStyle = .default
+        
+        let textAttributes = style.titleTextStyle.attributeDictionary
+        navBar.titleTextAttributes = textAttributes
+        if #available(iOS 11.0, *) {
+            navBar.largeTitleTextAttributes = textAttributes
+        }
+        
+        if let gradient = style.gradient {
             var frameAndStatusBar: CGRect = self.bounds
             frameAndStatusBar.size.width = min(UIScreen.screenWidth, frameAndStatusBar.size.width)
             frameAndStatusBar.size.height += UIApplication.shared.statusBarFrame.height
-//            navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
+            //            navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
             navBar.setBackgroundImage(gradient.toImage(frame: frameAndStatusBar)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .default)
             
             navBar.barTintColor = .clear
             navBar.tintColor = .clear
         }
         
-
     }
 }
 
-
 extension UINavigationBar {
     
-    public func hairlineBottomBorder() -> UIImageView? {
-        return self.findFirstSubview(matching: { (subview) -> Bool in
+    public var hairlineBottomBorder: UIImageView? {
+        return self.firstSubview(matching: { (subview) -> Bool in
             return subview is UIImageView && subview.bounds.height <= 1.0
         }) as? UIImageView
         //        if view.isKindOfClass(UIImageView) && view.bounds.height <= 1.0 {
@@ -111,9 +114,8 @@ extension UINavigationBar {
         self.setBackgroundImage(nil, for: .default)
         self.backgroundColor = nil
         self.shadowImage = nil
-        hairlineBottomBorder()?.isHidden = false
+        hairlineBottomBorder?.isHidden = false
     }
-    
     
     //    /// Applies a background gradient with the given colors
     //    public func apply(gradient colors : [UIColor]) {

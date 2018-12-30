@@ -298,6 +298,7 @@
 		D5B2E8A91C3A780C00C0327D /* UIKitTheme-iOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIKitTheme-iOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C629401C3A7FAA007F7B7C /* UIKitTheme.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitTheme.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5C629491C3A7FAA007F7B7C /* UIKitTheme-macOS-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIKitTheme-macOS-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E487376621D988BF0094F2EB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E4AF7F2521BB2976002D6E86 /* BarButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonStyle.swift; sourceTree = "<group>"; };
 		E4AF7F2621BB2976002D6E86 /* TableViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewStyle.swift; sourceTree = "<group>"; };
 		E4AF7F2721BB2976002D6E86 /* TabBarItemStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemStyle.swift; sourceTree = "<group>"; };
@@ -506,6 +507,7 @@
 		D5B2E8951C3A780C00C0327D = {
 			isa = PBXGroup;
 			children = (
+				E487376621D988BF0094F2EB /* .swiftlint.yml */,
 				E4AF814121BBA1AB002D6E86 /* Cartfile */,
 				E4AF814221BBA1AB002D6E86 /* circle.yml */,
 				E4AF814621BBA1AB002D6E86 /* CONTRIBUTING.md */,
@@ -778,6 +780,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D284B10D1F79038B00D94AF3 /* Build configuration list for PBXNativeTarget "UIKitTheme-tvOS" */;
 			buildPhases = (
+				E487376821D988D50094F2EB /* SwiftLint */,
 				D284B0F71F79038B00D94AF3 /* Sources */,
 				D284B0F81F79038B00D94AF3 /* Frameworks */,
 				D284B0F91F79038B00D94AF3 /* Headers */,
@@ -814,6 +817,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D284B11D1F79039F00D94AF3 /* Build configuration list for PBXNativeTarget "UIKitTheme-watchOS" */;
 			buildPhases = (
+				E487376921D988E50094F2EB /* SwiftLint */,
 				D284B1131F79039F00D94AF3 /* Sources */,
 				D284B1141F79039F00D94AF3 /* Frameworks */,
 				D284B1151F79039F00D94AF3 /* Headers */,
@@ -832,6 +836,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5B2E8B31C3A780C00C0327D /* Build configuration list for PBXNativeTarget "UIKitTheme-iOS" */;
 			buildPhases = (
+				E487376521D9886F0094F2EB /* SwiftLint */,
 				AE822DCEAF9EE8D0A1CDA84D /* [CP] Check Pods Manifest.lock */,
 				D5B2E89A1C3A780C00C0327D /* Sources */,
 				D5B2E89B1C3A780C00C0327D /* Frameworks */,
@@ -869,6 +874,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5C629511C3A7FAA007F7B7C /* Build configuration list for PBXNativeTarget "UIKitTheme-macOS" */;
 			buildPhases = (
+				E487376721D988C70094F2EB /* SwiftLint */,
 				D5C6293B1C3A7FAA007F7B7C /* Sources */,
 				D5C6293C1C3A7FAA007F7B7C /* Frameworks */,
 				D5C6293D1C3A7FAA007F7B7C /* Headers */,
@@ -1043,6 +1049,78 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E487376521D9886F0094F2EB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config .swiftlint.yml \n\"${PODS_ROOT}/SwiftLint/swiftlint\" --config .swiftlint.yml \n";
+		};
+		E487376721D988C70094F2EB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config .swiftlint.yml \n\"${PODS_ROOT}/SwiftLint/swiftlint\" --config .swiftlint.yml \n";
+		};
+		E487376821D988D50094F2EB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config .swiftlint.yml \n\"${PODS_ROOT}/SwiftLint/swiftlint\" --config .swiftlint.yml \n";
+		};
+		E487376921D988E50094F2EB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --config .swiftlint.yml \n\"${PODS_ROOT}/SwiftLint/swiftlint\" --config .swiftlint.yml \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

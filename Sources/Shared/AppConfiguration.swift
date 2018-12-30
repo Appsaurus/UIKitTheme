@@ -8,21 +8,20 @@
 import UIKit
 import CoreGraphics
 
-open class AppConfiguration{
+open class AppConfiguration {
 
 	open var layout: AppLayoutGuide = AppLayoutGuide()
 	open var style: AppStyleGuide = AppStyleGuide()
     open var orientation: UIInterfaceOrientationMask = [.all]
 	
-    public required init(){
+    public required init() {
 		didInit()
 	}
-	open func didInit(){
+	open func didInit() {
 
 	}
 }
 
-
-open class AppLayoutGuide{
+open class AppLayoutGuide {
 	open var roundedCornerRadius: CGFloat = 3.0	
 }

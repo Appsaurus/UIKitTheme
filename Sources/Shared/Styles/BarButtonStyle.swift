@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-open class BarButtonItemStyle: Style{
+open class BarButtonItemStyle: Style {
 	open var titleTextStyle: TextStyle
 	open var tintColor: UIColor
     public init(titleTextStyle: TextStyle, tintColor: UIColor) {
@@ -17,16 +17,15 @@ open class BarButtonItemStyle: Style{
     }
 }
 
-public protocol BarButtonItemStyleable{
+public protocol BarButtonItemStyleable {
 	func apply(barButtonItemStyle style: BarButtonItemStyle)
 }
 
-extension UIBarButtonItem: BarButtonItemStyleable{
-	public func apply(barButtonItemStyle style: BarButtonItemStyle){
-		let textAttributes: [NSAttributedString.Key : Any] = style.titleTextStyle.attributeDictionary
+extension UIBarButtonItem: BarButtonItemStyleable {
+	public func apply(barButtonItemStyle style: BarButtonItemStyle) {
+		let textAttributes: [NSAttributedString.Key: Any] = style.titleTextStyle.attributeDictionary
 		setTitleTextAttributes(textAttributes, for: .normal)
 		setTitleTextAttributes(textAttributes, for: .highlighted)
 		tintColor = style.tintColor
 	}
 }
-

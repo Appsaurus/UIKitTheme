@@ -7,13 +7,13 @@
 
 import UIKit
 
-open class SegmentedControlStyleDefaults: SubAppStyleGuideDefaults{
+open class SegmentedControlStyleDefaults: SubAppStyleGuideDefaults {
 	open lazy var tintColor: UIColor = colors.primary
 	open lazy var selectedTextColor: UIColor = colors.primaryContrast
 
 }
 
-open class SegmentedControlStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class SegmentedControlStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = SegmentedControlStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -26,9 +26,9 @@ open class SegmentedControlStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 	}
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension SegmentedControlStyle{
+extension SegmentedControlStyle {
 	public static var defaultStyle: SegmentedControlStyle {
 		return App.style.segmentedControl.defaultStyle
 	}

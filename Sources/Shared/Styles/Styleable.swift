@@ -7,38 +7,33 @@
 //
 
 import Foundation
-//import DinoDNA
+
 //import DynamicColor
 
-public protocol Styleable: class{
+public protocol Styleable: class {
     func style()
 }
 
-extension Array where Element: Styleable{
-	public func style(){
+extension Array where Element: Styleable {
+	public func style() {
 		forEach({$0.style()})
 	}
 }
 
-extension Notification.Name{
+extension Notification.Name {
 	static public let appStyleDidChangeNotification = Notification.Name("appStyleDidChangeNotification")
 }
 
-public extension Styleable{
+public extension Styleable {
 
-	public var currentStyle: AppStyleGuide{
-		get{
-			return App.style
-		}
+	public var currentStyle: AppStyleGuide {
+        return App.style
 	}
-	public static var currentStyle: AppStyleGuide{
-		get{
-			return App.style
-		}
+	public static var currentStyle: AppStyleGuide {
+        return App.style
 	}
 
-
-	public func bindStyle(){
+	public func bindStyle() {
 
 		//Only bind one style at a time
 		NotificationCenter.default.removeObserver(self, name: .appStyleDidChangeNotification, object: nil)
@@ -50,7 +45,7 @@ public extension Styleable{
 		self.style()
 	}
     
-    public func styleDidChange(notification: Notification){
+    public func styleDidChange(notification: Notification) {
         self.style()
     }
 }
@@ -64,5 +59,3 @@ public extension Styleable{
 //        return StyleableViewControllerMixin(mixinable)
 //    }
 //}
-
-

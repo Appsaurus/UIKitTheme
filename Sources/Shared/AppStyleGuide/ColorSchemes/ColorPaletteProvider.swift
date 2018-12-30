@@ -7,6 +7,6 @@
 
 import UIKit
 
-public protocol ColorPaletteProvider{
+public protocol ColorPaletteProvider {
 	var colors: [UIColor] { get }
 }

@@ -7,18 +7,18 @@
 
 import UIKit
 
-public protocol ColorPalette{
+public protocol ColorPalette {
 	static var colors: [UIColor] { get }
 }
 
-extension UIColor{
-	public func flattened() -> UIColor{
+extension UIColor {
+	public func flattened() -> UIColor {
 		return closestMatch(in: FlatColors.colors)
 	}
 }
-public class FlatColors: ColorPalette{
-	//Array of all our colors
-	public class var colors: [UIColor] {
+public class FlatColors: ColorPalette {
+    public class var colors: [UIColor] {
+        //swiftlint:disable:next line_length
 		return [black, blackDark, blue, blueDark, brown, brownDark, coffee, coffeeDark, forestGreen, forestGreenDark, gray, grayDark, green, greenDark, lime, limeDark, magenta, magentaDark, maroon, maroonDark, mint, mintDark, navyBlue, navyBlueDark, orange, orangeDark, pink, pinkDark, plum, plumDark, powderBlue, powderBlueDark, purple, purpleDark, red, redDark, sand, sandDark, skyBlue, skyBlueDark, teal, tealDark, watermelon, watermelonDark, white, whiteDark, yellow, yellowDark]
 	}
 
@@ -169,5 +169,3 @@ public class FlatColors: ColorPalette{
 		return .hsb(40, 100, 100)
 	}
 }
-
-

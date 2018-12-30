@@ -5,16 +5,15 @@
 //  Created by Brian Strobach on 3/10/18.
 //
 
-
 import UIKit
 
-open class TableViewCellStyleDefaults: SubAppStyleGuideDefaults{
+open class TableViewCellStyleDefaults: SubAppStyleGuideDefaults {
 	open lazy var viewStyle: ViewStyle = ViewStyle()
 	open lazy var selectedBackgroundColor: UIColor? = nil
 	open lazy var selectionStyle: UITableViewCell.SelectionStyle = .none
 }
 
-open class TableViewCellStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
+open class TableViewCellStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	public typealias Defaults = TableViewCellStyleDefaults
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
@@ -23,19 +22,16 @@ open class TableViewCellStyleGuide: SubAppStyleGuide, DefaultSettingsManaged{
 																		selectedBackgroundColor: defaults.selectedBackgroundColor,
 																		selectionStyle: defaults.selectionStyle)
 
-
 	open override func applyAppearanceProxySettings() {
 		UITableViewCell.appearance().apply(tableViewCellStyle: self.defaultStyle)
 	}
 
 }
 
-//MARK: Convenience Extensions
+// MARK: Convenience Extensions
 //Make it easy to access functions from current style guide inside method signatures at call site.
-extension TableViewCellStyle{
+extension TableViewCellStyle {
 	public static var defaultStyle: TableViewCellStyle {
 		return App.style.tableViewCell.defaultStyle
 	}
 }
-
-

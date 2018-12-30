@@ -8,14 +8,13 @@
 
 import UIKitExtensions
 
-
-open class Style{
-    open class var s: AppStyleGuide{
+open class Style {
+    open class var s: AppStyleGuide {
         return App.style
     }
 }
 
-public enum ViewShape{
+public enum ViewShape {
 	public static var roundedRectCornerRadius: CGFloat = 3.0
 	case square
 	case rounded
@@ -23,7 +22,7 @@ public enum ViewShape{
 	case custom(cornerRadius: CGFloat)
 }
 
-open class ViewStyle: Style{
+open class ViewStyle: Style {
     open var backgroundColor: UIColor?
     open var borderStyle: BorderStyle?
     open var shadowStyle: ShadowStyle?
@@ -37,14 +36,14 @@ open class ViewStyle: Style{
     }
 }
 
-public protocol ViewStyleable{
+public protocol ViewStyleable {
     func apply(viewStyle style: ViewStyle, optimizeRendering: Bool)
 }
-extension UIView : ViewStyleable{
-    public func viewStyle() -> ViewStyle{
+extension UIView: ViewStyleable {
+    public func viewStyle() -> ViewStyle {
         return ViewStyle(backgroundColor: backgroundColor, borderStyle: self.borderStyle_(), shadowStyle: self.shadowStyle())
     }
-    public func apply(viewStyle style: ViewStyle, optimizeRendering: Bool = true){
+    public func apply(viewStyle style: ViewStyle, optimizeRendering: Bool = true) {
         backgroundColor = style.backgroundColor
         apply(borderStyle: style.borderStyle)
 		apply(shape: style.shape)
@@ -53,8 +52,8 @@ extension UIView : ViewStyleable{
 
     }
 
-	public func apply(shape: ViewShape){
-		switch shape{
+	public func apply(shape: ViewShape) {
+		switch shape {
 		case .square:
 			cornerRadius = 0.0
 		case .roundedRect:
@@ -67,5 +66,3 @@ extension UIView : ViewStyleable{
 		}
 	}
 }
-
-

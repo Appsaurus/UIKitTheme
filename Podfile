@@ -4,6 +4,7 @@ platform :ios, '9.0'
 
 def common_pods
   pod 'DynamicColor'
+  pod 'SwiftLint'
   pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
   pod 'UIKitMixinable', :git => 'https://github.com/Appsaurus/UIKitMixinable'
   pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
