@@ -836,8 +836,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5B2E8B31C3A780C00C0327D /* Build configuration list for PBXNativeTarget "UIKitTheme-iOS" */;
 			buildPhases = (
-				E487376521D9886F0094F2EB /* SwiftLint */,
 				AE822DCEAF9EE8D0A1CDA84D /* [CP] Check Pods Manifest.lock */,
+				E487376521D9886F0094F2EB /* SwiftLint */,
 				D5B2E89A1C3A780C00C0327D /* Sources */,
 				D5B2E89B1C3A780C00C0327D /* Frameworks */,
 				D5B2E89C1C3A780C00C0327D /* Headers */,

@@ -36,7 +36,7 @@ open class AppConfigurationManager {
 		style()
 		if refreshAppImmediately {
 			DispatchQueue.main.async {
-				NotificationCenter.post(name: .appStyleDidChangeNotification)
+				NotificationCenter.post(name: .appStyleDidChange)
                 UIApplication.shared.refreshAllViews()
 			}
 		}

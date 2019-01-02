@@ -6,56 +6,42 @@
 //
 //
 
-import Foundation
+#if canImport(UIKit)
+import UIKitExtensions
 
-//import DynamicColor
-
-public protocol Styleable: class {
+public protocol Styleable {
     func style()
 }
 
 extension Array where Element: Styleable {
-	public func style() {
-		forEach({$0.style()})
-	}
+    public func style() {
+        forEach({$0.style()})
+    }
 }
 
 extension Notification.Name {
-	static public let appStyleDidChangeNotification = Notification.Name("appStyleDidChangeNotification")
+    static public let appStyleDidChange = Notification.Name("appStyleDidChange")
 }
 
 public extension Styleable {
 
-	public var currentStyle: AppStyleGuide {
+    public var currentStyle: AppStyleGuide {
         return App.style
-	}
-	public static var currentStyle: AppStyleGuide {
+    }
+    public static var currentStyle: AppStyleGuide {
         return App.style
-	}
+    }
 
-	public func bindStyle() {
-
-		//Only bind one style at a time
-		NotificationCenter.default.removeObserver(self, name: .appStyleDidChangeNotification, object: nil)
-
-		NotificationCenter.default.addObserver(forName: .appStyleDidChangeNotification,
-                                               object: nil,
-                                               queue: OperationQueue.main,
-                                               using: styleDidChange)
-		self.style()
-	}
-    
     public func styleDidChange(notification: Notification) {
         self.style()
     }
 }
 
-//extension Styleable{
-//    public static func mixin(_ mixinable: UIView & Styleable) -> StyleableViewMixin{
-//        return StyleableViewMixin(mixinable)
-//    }
-//    
-//    public static func mixin(_ mixinable: UIViewController & Styleable) -> StyleableViewControllerMixin{
-//        return StyleableViewControllerMixin(mixinable)
-//    }
-//}
+public extension Styleable where Self: NSObject {
+    public mutating func bindStyle() {
+        on(.appStyleDidChange, closure: style)
+        self.style()
+    }
+}
+
+#endif

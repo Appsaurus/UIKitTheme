@@ -7,12 +7,12 @@
 
 import UIKitMixinable
 
-public class StyleableViewControllerMixin: UIViewControllerMixin<Styleable> {
+public class StyleableViewControllerMixin: UIViewControllerMixin<NSObject & Styleable> {
     open override func didFinishCreatingAllViews() {
         mixable.bindStyle()
     }
 }
-public class StyleableViewMixin: UIViewMixin<Styleable> {
+public class StyleableViewMixin: UIViewMixin<NSObject & Styleable> {
     open override func didFinishCreatingAllViews() {
         mixable.bindStyle()
     }
