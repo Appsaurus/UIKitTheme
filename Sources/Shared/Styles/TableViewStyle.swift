@@ -33,16 +33,6 @@ public protocol TableViewStyleable {
 
 extension UITableView: TableViewStyleable {
 
-    public func hideSeparatorInset() {
-        layoutMargins = UIEdgeInsets.zero
-        separatorInset = UIEdgeInsets.zero
-    }
-    
-    public func hideEmptyCellsAtBottomOfTable() {
-        guard tableFooterView == nil else { return }
-        self.tableFooterView = UIView(frame: CGRect.zero)
-    }
-    
     public func apply(tableViewStyle style: TableViewStyle) {
         if let viewStyle = style.viewStyle {
             apply(viewStyle: viewStyle, optimizeRendering: false)
