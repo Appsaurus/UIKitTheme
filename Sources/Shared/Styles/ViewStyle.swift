@@ -12,6 +12,8 @@ open class Style {
     open class var s: AppStyleGuide {
         return App.style
     }
+
+    public init(){}
 }
 
 public enum ViewShape {
