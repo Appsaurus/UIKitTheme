@@ -35,7 +35,7 @@ public extension String {
     ///   - style: style to apply
     ///   - range: range to apply (nil means entire string's range)
     /// - Returns: an NSMutableAttributedString instance
-    public func apply(style: AttributedTextStyle, range: Range<Int>? = nil) -> NSMutableAttributedString {
+    func apply(style: AttributedTextStyle, range: Range<Int>? = nil) -> NSMutableAttributedString {
         return self.attributed.mutable.apply(style: style, range: range)
     }
     
@@ -43,7 +43,7 @@ public extension String {
     ///
     /// - Parameter styles: styles to apply
     /// - Returns: a new attributed string
-    public func apply(styles: AttributedTextStyle...) -> NSMutableAttributedString {
+    func apply(styles: AttributedTextStyle...) -> NSMutableAttributedString {
         return self.apply(stylesArray: Array(styles))
     }
     
@@ -51,7 +51,7 @@ public extension String {
     ///
     /// - Parameter styles: styles to apply
     /// - Returns: a new attributed string
-    public func apply(stylesArray styles: [AttributedTextStyle]) -> NSMutableAttributedString {
+    func apply(stylesArray styles: [AttributedTextStyle]) -> NSMutableAttributedString {
         return self.attributed.mutable.apply(stylesArray: Array(styles))
     }
     
@@ -62,11 +62,11 @@ public extension String {
     ///   - pattern: pattern to search via regexp
     ///   - options: options of pattern matching
     /// - Returns: a new attributed string instance
-    public func apply(styles: AttributedTextStyle..., pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    func apply(styles: AttributedTextStyle..., pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         return self.attributed.mutable.apply(stylesArray: styles, pattern: pattern, options: options)
     }
     
-    public func apply(style: AttributedTextStyle, to words: [String], options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    func apply(style: AttributedTextStyle, to words: [String], options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         guard words.count > 0 else { return attributed.mutable }
         let regex = words.count > 1 ? "(" + words.joined(separator: "|") + ")" : "(\(words[0]))"
         return self.apply(styles: style, pattern: regex, options: options)
@@ -76,31 +76,31 @@ public extension String {
 
 public extension NSMutableAttributedString {
     @discardableResult
-    public func apply(style: AttributedTextStyle, range: Range<Int>? = nil) -> NSMutableAttributedString {
+    func apply(style: AttributedTextStyle, range: Range<Int>? = nil) -> NSMutableAttributedString {
         guard let range = range ?? Range.init(fullRange) else { return self }
         addAttributes(style.attributes, range: NSRange(range))
         return self
     }
     
     @discardableResult
-    public func apply(styles: AttributedTextStyle...) -> NSMutableAttributedString {
+    func apply(styles: AttributedTextStyle...) -> NSMutableAttributedString {
         return self.apply(stylesArray: Array(styles))
     }
     
     @discardableResult
-    public func apply(stylesArray styles: [AttributedTextStyle]) -> NSMutableAttributedString {
+    func apply(stylesArray styles: [AttributedTextStyle]) -> NSMutableAttributedString {
         addAttributes(styles.attributesDictionary, range: self.fullRange)
         return self
     }
     
     @discardableResult
-    public func apply(styles: AttributedTextStyle..., pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    func apply(styles: AttributedTextStyle..., pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         return apply(stylesArray: styles, pattern: pattern, options: options)
         
     }
     
     @discardableResult
-    public func apply(stylesArray styles: [AttributedTextStyle], pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    func apply(stylesArray styles: [AttributedTextStyle], pattern: String, options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         do {
             let regex = try NSRegularExpression(pattern: pattern, options: options)
             regex.enumerateMatches(in: self.string,
@@ -117,7 +117,7 @@ public extension NSMutableAttributedString {
     }
 
     @discardableResult
-    public func apply(style: AttributedTextStyle, to words: [String], options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
+    func apply(style: AttributedTextStyle, to words: [String], options: NSRegularExpression.Options = []) -> NSMutableAttributedString {
         guard words.count > 0 else { return self.apply(styles: style) }
         let regex = words.count > 1 ? "(" + words.joined(separator: "|") + ")" : "(\(words[0]))"
         return self.apply(styles: style, pattern: regex, options: options)
@@ -150,7 +150,7 @@ public extension String {
     ///
     /// - Parameter range: range to convert
     /// - Returns: equivalent
-    public func toNSRange(from range: Range<Int>?) -> NSRange {
+    func toNSRange(from range: Range<Int>?) -> NSRange {
         guard let range = range else {
             return self.toNSRange(from: self.toStringRange(from: NSRange(location: 0, length: self.count))!)
         }
@@ -161,7 +161,7 @@ public extension String {
         return NSRange(range, in: self)        
     }
     
-    public func toStringRange(range: Range<Int>) -> Range<String.Index> {
+    func toStringRange(range: Range<Int>) -> Range<String.Index> {
         let startIndex = self.index(self.startIndex, offsetBy: range.lowerBound)
         let endIndex = self.index(self.startIndex, offsetBy: range.upperBound)// - range.lowerBound)
         return Range<String.Index>(uncheckedBounds: (startIndex, endIndex))

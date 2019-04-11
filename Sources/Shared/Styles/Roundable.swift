@@ -19,7 +19,7 @@ private extension AssociatedObjectKeys {
 
 public extension Roundable where Self: UIView {
     
-    public var rounded: Bool {
+    var rounded: Bool {
         get {
             return getAssociatedObject(for: .rounded, initialValue: false)
         }

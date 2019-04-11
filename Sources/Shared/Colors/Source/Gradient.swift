@@ -94,7 +94,7 @@ public extension UIView {
     /// - Parameters:
     ///   - gradient: Note gradient colors will be ignored and replaced with proper colors for mask
     @discardableResult
-    public func applyGradientMask(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
+    func applyGradientMask(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
         gradient.colors = [.white, .clear]
         let gradientLayer = apply(gradient: gradient, frame: frame, at: index)
         self.layer.mask = gradientLayer
@@ -102,7 +102,7 @@ public extension UIView {
     }
     
     @discardableResult
-    public func apply(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
+    func apply(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
         if let existingLayer = self.layer.sublayers?[index] as? CAGradientLayer {
             return existingLayer
         } //Guard against adding multiple gradients

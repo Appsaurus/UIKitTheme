@@ -1,12 +1,12 @@
 PODS:
-  - DarkMagic (0.0.2)
+  - DarkMagic (0.0.4)
   - DynamicColor (4.0.3)
-  - Swiftest (0.0.12)
-  - SwiftLint (0.29.2)
-  - UIKitExtensions (0.0.9):
+  - Swiftest (0.0.18)
+  - SwiftLint (0.31.0)
+  - UIKitExtensions (0.0.20):
     - DarkMagic
     - Swiftest
-  - UIKitMixinable (0.0.2)
+  - UIKitMixinable (0.0.19)
 
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
@@ -33,25 +33,25 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   DarkMagic:
-    :commit: 0dd7dbb31d16ef1afd4ccc75b1179a54296aaaed
+    :commit: b6e5a19acc048e21d9caa18a95915137f99beb74
     :git: https://github.com/Appsaurus/DarkMagic
   Swiftest:
-    :commit: 04f08cde027f74180457600caf53ab29be2ae8ea
+    :commit: 48d78074e32b2d95ae097e1e0ffe96ec6ce66c67
     :git: https://github.com/Appsaurus/Swiftest
   UIKitExtensions:
-    :commit: aee163b2748b39cd7f2b2fff17852f8e9f1be8ec
+    :commit: 1371b88d99a1328de4cd34c76a8283c1373fe26d
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
-    :commit: 8b8420507f1ce6e4cd1593b946fe13f63be9f7fa
+    :commit: c2ab662441f3f6665f98fc2429a624969a6a4f74
     :git: https://github.com/Appsaurus/UIKitMixinable
 
 SPEC CHECKSUMS:
-  DarkMagic: b71093ea6606dd5737eca437e63aa8a30db213b5
+  DarkMagic: ccb2f3da6cd0b07b96cd44b3033d998dd6a8cddd
   DynamicColor: bf19b33fe404c59a68e64af95cc6b017346e7e75
-  Swiftest: 98d648aba22af5da50970a0e46b4593f63e911bf
-  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
-  UIKitExtensions: 39620bd94f271a6143c7c1f4951d28fd97aacdd2
-  UIKitMixinable: fff6c8bc2560dd8365225a6adbb5f28df089813a
+  Swiftest: 408f5c420196665271cf1cf2a81b6cb1839998c1
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
+  UIKitExtensions: 60898001f5af87877442bae61a3b8cb1423d27d1
+  UIKitMixinable: e18f3865c9c26a16ac015c7869a581e83f266d9c
 
 PODFILE CHECKSUM: 835b9d10b7be9e50231b87e4dfe32737728d46b0
 

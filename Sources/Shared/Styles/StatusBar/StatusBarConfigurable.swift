@@ -20,7 +20,7 @@ private extension AssociatedObjectKeys {
 
 public extension StatusBarConfigurable where Self: UIViewController {
     
-    public var statusBarStyle: UIStatusBarStyle {
+    var statusBarStyle: UIStatusBarStyle {
         get {
             return getAssociatedObject(for: .statusBarStyle, initialValue: self.statusBarConfiguration.style)
         }
@@ -30,7 +30,7 @@ public extension StatusBarConfigurable where Self: UIViewController {
         }
     }
     
-    public var statusBarHidden: Bool {
+    var statusBarHidden: Bool {
         get {
             return getAssociatedObject(for: .statusBarHidden, initialValue: self.statusBarConfiguration.hidden)
         }
@@ -40,7 +40,7 @@ public extension StatusBarConfigurable where Self: UIViewController {
         }
     }
     
-    public var statusBarAnimation: UIStatusBarAnimation {
+    var statusBarAnimation: UIStatusBarAnimation {
         get {
             return getAssociatedObject(for: .statusBarAnimation, initialValue: self.statusBarConfiguration.animation)
         }

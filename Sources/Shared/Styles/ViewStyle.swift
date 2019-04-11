@@ -13,7 +13,7 @@ open class Style {
         return App.style
     }
 
-    public init(){}
+    public init() {}
 }
 
 public enum ViewShape {

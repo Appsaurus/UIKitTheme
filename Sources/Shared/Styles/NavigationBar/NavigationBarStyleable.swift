@@ -10,7 +10,7 @@ import DarkMagic
 import UIKitExtensions
 
 public extension UIViewController {
-    public func applyNavigationBar(style: NavigationBarStyle) {
+    func applyNavigationBar(style: NavigationBarStyle) {
         
         guard let selfNav = self as? UINavigationController else {
             navigationController?.navigationBar.apply(navigationBarStyle: style)
@@ -32,7 +32,7 @@ private extension AssociatedObjectKeys {
 
 public extension NavigationBarStyleable where Self: NSObject {
     
-    public var navigationBarStyle: NavigationBarStyle? {
+    var navigationBarStyle: NavigationBarStyle? {
         get {
             return self[.navigationBarStyle]
         }
@@ -44,12 +44,12 @@ public extension NavigationBarStyleable where Self: NSObject {
     
 }
 public extension NavigationBarStyleable where Self: UIViewController {
-    public func applyDefaultNavigationBarStyle() {
+    func applyDefaultNavigationBarStyle() {
         guard let parent = self.parent, parent === navigationController else { return }
         guard let style = navigationBarStyle else { return }
         self.applyNavigationBar(style: style)
     }
-    public func animateToDefaultNavigationBarStyle() {
+    func animateToDefaultNavigationBarStyle() {
         guard let parent = self.parent, parent === navigationController else { return }
         guard let style = navigationBarStyle else { return }
         

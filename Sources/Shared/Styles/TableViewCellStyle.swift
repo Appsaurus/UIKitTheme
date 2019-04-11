@@ -40,17 +40,17 @@ extension UIColor {
 }
 
 public extension UITableViewCell {
-    public func applyClearBackground() {
+    func applyClearBackground() {
         backgroundColor = UIColor.clear
         backgroundView?.backgroundColor = UIColor.clear
     }
     
-    public func hideSeparatorInset() {
+    func hideSeparatorInset() {
         self.layoutMargins = UIEdgeInsets.zero
         self.separatorInset = UIEdgeInsets.zero
     }
     
-    public func setSelectedBackground(color: UIColor?) {
+    func setSelectedBackground(color: UIColor?) {
         guard let color = color else {
             self.selectedBackgroundView = nil
             return

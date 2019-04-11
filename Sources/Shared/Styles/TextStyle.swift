@@ -40,21 +40,21 @@ open class TextStyle: Style {
 }
 extension UILabel: TextStyleable {}
 public extension UILabel {
-    public func apply(textStyle: TextStyle) {
+    func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
         self.apply(shadowStyle: shadowStyle)
     }
     
-    public func textStyle() -> TextStyle {        
+    func textStyle() -> TextStyle {        
         return TextStyle(color: textColor, font: font, shadowStyle: shadowStyle())
     }
     
 }
 extension UITextField: TextStyleable {}
 public extension UITextField {
-    public func apply(textStyle: TextStyle) {
+    func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
@@ -64,7 +64,7 @@ public extension UITextField {
 
 extension UITextView: TextStyleable {}
 public extension UITextView {
-    public func apply(textStyle: TextStyle) {
+    func apply(textStyle: TextStyle) {
         font = textStyle.font
         textColor = textStyle.color
         guard let shadowStyle = textStyle.shadowStyle else { return }
@@ -74,7 +74,7 @@ public extension UITextView {
 
 extension UIButton: TextStyleable {}
 public extension UIButton {
-    public func apply(textStyle: TextStyle) {
+    func apply(textStyle: TextStyle) {
         setTitleColor(textStyle.color, for: .normal)
         titleLabel?.font = textStyle.font
         guard let shadow = textStyle.shadowStyle else {
@@ -86,11 +86,11 @@ public extension UIButton {
 
 extension UIBarButtonItem: TextStyleable {}
 public extension UIBarButtonItem {
-    public func apply(textStyle: TextStyle) {
+    func apply(textStyle: TextStyle) {
         setTitleTextAttributes(textStyle.attributeDictionary, for: .normal)
     }
     
-    public func apply(textStyle: TextStyle, for state: UIControl.State) {
+    func apply(textStyle: TextStyle, for state: UIControl.State) {
         setTitleTextAttributes(textStyle.attributeDictionary, for: state)
     }
 }

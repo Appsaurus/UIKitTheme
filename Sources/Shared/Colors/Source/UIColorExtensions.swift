@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIColor {
     
-    public class func randomColor() -> UIColor {
+    class func randomColor() -> UIColor {
         let red = CGFloat(drand48())
         let green = CGFloat(drand48())
         let blue = CGFloat(drand48())
@@ -24,28 +24,28 @@ public extension UIColor {
     //    }
     //
     /// Red component of UIColor (get-only)
-    public var redComponent: Int {
+    var redComponent: Int {
         var r: CGFloat = 0
         getRed(&r, green: nil, blue: nil, alpha: nil)
         return Int(r * 255)
     }
     
     /// Green component of UIColor (get-only)
-    public var greenComponent: Int {
+    var greenComponent: Int {
         var g: CGFloat = 0
         getRed(nil, green: &g, blue: nil, alpha: nil)
         return Int(g * 255)
     }
     
     /// blue component of UIColor (get-only)
-    public var blueComponent: Int {
+    var blueComponent: Int {
         var b: CGFloat = 0
         getRed(nil, green: nil, blue: &b, alpha: nil)
         return Int(b * 255)
     }
     
     /// Alpha of UIColor (get-only)
-    public var alpha: Int {
+    var alpha: Int {
         var a: CGFloat = 0
         getRed(nil, green: nil, blue: nil, alpha: &a)
         return Int(a)
@@ -57,7 +57,7 @@ public extension UIColor {
      :param: lighting percent percentage
      :returns: lighter UIColor
      */
-    public func lighterColor(_ percent: Double) -> UIColor {
+    func lighterColor(_ percent: Double) -> UIColor {
         return colorWithBrightnessFactor(CGFloat(1 + percent))
     }
     
@@ -67,7 +67,7 @@ public extension UIColor {
      :param: darking percent percentage
      :returns: darker UIColor
      */
-    public func darkerColor(_ percent: Double) -> UIColor {
+    func darkerColor(_ percent: Double) -> UIColor {
         return colorWithBrightnessFactor(CGFloat(1 - percent))
     }
     
@@ -77,7 +77,7 @@ public extension UIColor {
      :param: factor brightness factor
      :returns: modified color
      */
-    public func colorWithBrightnessFactor(_ factor: CGFloat) -> UIColor {
+    func colorWithBrightnessFactor(_ factor: CGFloat) -> UIColor {
         var hue: CGFloat = 0
         var saturation: CGFloat = 0
         var brightness: CGFloat = 0
@@ -90,11 +90,11 @@ public extension UIColor {
         }
     }
     
-    public func brighten(amount: CGFloat) -> UIColor {
+    func brighten(amount: CGFloat) -> UIColor {
         return self.colorWithBrightnessFactor(brightnessComponent + amount)
     }
     
-    public class func hsb(_ h: CGFloat, _ s: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor {
+    class func hsb(_ h: CGFloat, _ s: CGFloat, _ b: CGFloat, _ a: CGFloat = 1.0) -> UIColor {
         return UIColor(hue: h/360.0, saturation: s/100.0, brightness: b/100.0, alpha: a)
     }
 }

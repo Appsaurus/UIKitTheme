@@ -54,7 +54,7 @@ open class AppConfigurationManager {
 }
 
 internal extension UIApplication {
-    internal func refreshAllViews() {
+    func refreshAllViews() {
         for window in self.windows {
             for view in window.subviews {
                 view.removeFromSuperview()

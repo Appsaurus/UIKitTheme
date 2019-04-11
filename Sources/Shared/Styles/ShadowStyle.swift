@@ -34,7 +34,7 @@ open class ShadowStyle: Style {
 }
 
 public extension UIView {
-    public func apply(shadowStyle style: ShadowStyle, optimizeRendering: Bool = true) {
+    func apply(shadowStyle style: ShadowStyle, optimizeRendering: Bool = true) {
         layer.shadowColor = style.shadowColor?.cgColor
         layer.masksToBounds = layer.shadowColor != nil && style.shadowOpacity > 0.0 ? false : true
         layer.shadowOpacity = style.shadowOpacity
@@ -48,7 +48,7 @@ public extension UIView {
 //        }
     }
     
-    public func shadowStyle() -> ShadowStyle? {
+    func shadowStyle() -> ShadowStyle? {
         guard let shadowColor = layer.shadowColor else { return nil }
         return ShadowStyle(shadowColor: UIColor(cgColor: shadowColor), shadowOffset: layer.shadowOffset, shadowOpacity: layer.shadowOpacity, shadowRadius: layer.shadowRadius)
     }
