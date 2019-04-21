@@ -59,7 +59,7 @@ open class FontGuide: DefaultOverridable {
     open var blackName: String?
     
     public required init() {
-        overrideDerivedDefaults()
+        overrideDefaults()
         loadCustomFonts()
     }
     
