@@ -79,47 +79,47 @@ extension TextStyle {
 
 extension TextStyle {
     @available(iOS 11.0, *)
-    public static func largeTitle(color: UIColor = .textDefault) -> TextStyle {
+    public static func largeTitle(color: UIColor = .largeTitle) -> TextStyle {
         return TextStyle(color: color, font: .largeTitle)
     }
 
-    public static func title1(color: UIColor = .textDefault) -> TextStyle {
+    public static func title1(color: UIColor = .title1) -> TextStyle {
         return TextStyle(color: color, font: .title1)
     }
 
-    public static func title2(color: UIColor = .textDefault) -> TextStyle {
+    public static func title2(color: UIColor = .title2) -> TextStyle {
         return TextStyle(color: color, font: .title2)
     }
 
-    public static func title3(color: UIColor = .textDefault) -> TextStyle {
+    public static func title3(color: UIColor = .title3) -> TextStyle {
         return TextStyle(color: color, font: .title3)
     }
 
-    public static func headline(color: UIColor = .textDefault) -> TextStyle {
+    public static func headline(color: UIColor = .headline) -> TextStyle {
         return TextStyle(color: color, font: .headline)
     }
 
-    public static func body(color: UIColor = .textDefault) -> TextStyle {
+    public static func body(color: UIColor = .body) -> TextStyle {
         return TextStyle(color: color, font: .body)
     }
 
-    public static func callout(color: UIColor = .textDefault) -> TextStyle {
+    public static func callout(color: UIColor = .callout) -> TextStyle {
         return TextStyle(color: color, font: .callout)
     }
 
-    public static func subheadline(color: UIColor = .textDefault) -> TextStyle {
+    public static func subheadline(color: UIColor = .subheadline) -> TextStyle {
         return TextStyle(color: color, font: .subheadline)
     }
 
-    public static func footnote(color: UIColor = .textDefault) -> TextStyle {
+    public static func footnote(color: UIColor = .footnote) -> TextStyle {
         return TextStyle(color: color, font: .footnote)
     }
 
-    public static func caption1(color: UIColor = .textDefault) -> TextStyle {
+    public static func caption1(color: UIColor = .caption1) -> TextStyle {
         return TextStyle(color: color, font: .caption1)
     }
 
-    public static func caption2(color: UIColor = .textDefault) -> TextStyle {
+    public static func caption2(color: UIColor = .caption2) -> TextStyle {
         return TextStyle(color: color, font: .caption2)
     }
 }

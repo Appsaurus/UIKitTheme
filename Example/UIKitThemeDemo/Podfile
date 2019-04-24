@@ -1,13 +1,20 @@
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'UIKitThemeDemo' do
   pod 'UIKitTheme', path: '../../'
-  pod 'DynamicColor'
-  pod 'DinoDNA', :git => 'git@bitbucket.org:appsaurus/dinodna.git'
+  pod 'Swiftest', :git => 'https://github.com/Appsaurus/Swiftest'
+  pod 'UIKitBase', :git => 'https://github.com/Appsaurus/UIKitBase'
   pod 'UIKitMixinable', :git => 'https://github.com/Appsaurus/UIKitMixinable'
   pod 'UIKitExtensions', :git => 'https://github.com/Appsaurus/UIKitExtensions'
+  pod 'Layman', :git => 'https://github.com/Appsaurus/Layman'
   pod 'DarkMagic', :git => 'https://github.com/Appsaurus/DarkMagic'
+  pod 'RuntimeExtensions', :git => 'https://github.com/Appsaurus/RuntimeExtensions'
+  pod 'UIFontLoader', :git => 'https://github.com/Appsaurus/UIFontLoader'
+  pod 'UIFontIcons/MaterialIcons', :git => 'https://github.com/Appsaurus/UIFontIcons'
+  pod 'UIFontIcons/Feather', :git => 'https://github.com/Appsaurus/UIFontIcons'
+  pod 'Actions'
+  pod 'Nuke'
 end
 

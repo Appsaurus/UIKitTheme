@@ -18,7 +18,7 @@ extension AppStyleGuideDerived {
 		return appStyleGuide.colors
 	}
 	public var fonts: FontGuide {
-		return appStyleGuide.fonts
+		return appStyleGuide.secondaryFonts
 	}
 	public var text: TextStyleGuide {
 		return appStyleGuide.text

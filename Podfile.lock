@@ -6,7 +6,7 @@ PODS:
   - UIKitExtensions (0.0.20):
     - DarkMagic
     - Swiftest
-  - UIKitMixinable (0.0.23)
+  - UIKitMixinable (0.0.24)
 
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
@@ -42,7 +42,7 @@ CHECKOUT OPTIONS:
     :commit: 1371b88d99a1328de4cd34c76a8283c1373fe26d
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
-    :commit: 29d483b16bfa0b00de6e5d959d39ae3eba6cc689
+    :commit: 440555a53fcb0ef92fe192775b38df7400d77f1d
     :git: https://github.com/Appsaurus/UIKitMixinable
 
 SPEC CHECKSUMS:
@@ -51,8 +51,8 @@ SPEC CHECKSUMS:
   Swiftest: 408f5c420196665271cf1cf2a81b6cb1839998c1
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   UIKitExtensions: 60898001f5af87877442bae61a3b8cb1423d27d1
-  UIKitMixinable: 703d0ed59832d399d591b10d4508728c39976409
+  UIKitMixinable: 45594c9f6a1a5c53d3b9e4e87c4f9a3fd9afa329
 
 PODFILE CHECKSUM: 835b9d10b7be9e50231b87e4dfe32737728d46b0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

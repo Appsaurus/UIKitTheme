@@ -31,7 +31,8 @@ open class FontSizingGuide: DefaultOverridable {
 
 open class TypographyGuide: DefaultOverridable {
 	open lazy var sizes: FontSizingGuide = FontSizingGuide()
-	open lazy var fonts: FontGuide = FontGuide()
+    open lazy var primaryFonts: FontGuide = FontGuide()
+    open lazy var secondaryFonts: FontGuide = FontGuide()
 
     public required init() {
         overrideDefaults()
@@ -57,7 +58,21 @@ open class FontGuide: DefaultOverridable {
     open var boldName: String?
     open var heavyName: String?
     open var blackName: String?
-    
+
+
+    // MARK: Custom Dynamic Type Font Names
+    open var dynamicFontName: String?
+//    open var title1Name: String?
+//    open var title2Name: String?
+//    open var title3Name: String?
+//    open var headlineName: String?
+//    open var bodyName: String?
+//    open var calloutName: String?
+//    open var subheadlineName: String?
+//    open var footnoteName: String?
+//    open var caption1Name: String?
+//    open var caption2Name: String?
+
     public required init() {
         overrideDefaults()
         loadCustomFonts()
@@ -140,6 +155,61 @@ open class FontGuide: DefaultOverridable {
 		return font(weight: .black, size: size)
 	}
 
+    @available(iOS 11.0, *)
+    open func largeTitle(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .largeTitle)
+    }
+
+    open func title1(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .title1)
+    }
+
+    open func title2(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .title2)
+    }
+
+    open func title3(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .title3)
+    }
+
+    open func headline(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .headline)
+    }
+
+    open func body(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .body)
+    }
+
+    open func callout(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .callout)
+    }
+
+    open func subheadline(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .subheadline)
+    }
+
+    open func footnote(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .footnote)
+    }
+
+    open func caption1(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .caption1)
+    }
+
+    open func caption2(font: UIFont? = nil) -> UIFont {
+        return dynamic(font: font, textStyle: .caption2)
+    }
+
+    open func dynamic(font: UIFont? = nil, textStyle: UIFont.TextStyle) -> UIFont {
+        var font = font
+        if font == nil, let dynamicFontName = self.dynamicFontName {
+            font = UIFont(name: dynamicFontName, size: .system)
+        }
+        guard #available(iOS 11.0, *), let customFont = font else { return .preferredFont(forTextStyle: textStyle) }
+        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
+    }
+
+    // MARK: Custom Dynamic Type Font Overrides
 }
 
 extension FontGuide {
@@ -163,39 +233,39 @@ extension FontGuide {
 extension UIFont {
 
 	public static func ultraLight(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.ultraLight(size)
+		return App.style.secondaryFonts.ultraLight(size)
 	}
 
 	public static func thin(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.thin(size)
+		return App.style.secondaryFonts.thin(size)
 	}
 
 	public static func light(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.light(size)
+		return App.style.secondaryFonts.light(size)
 	}
 
 	public static func regular(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.regular(size)
+		return App.style.secondaryFonts.regular(size)
 	}
 
 	public static func medium(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.medium(size)
+		return App.style.secondaryFonts.medium(size)
 	}
 
 	public static func semibold(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.semibold(size)
+		return App.style.secondaryFonts.semibold(size)
 	}
 
 	public static func bold(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.bold(size)
+		return App.style.secondaryFonts.bold(size)
 	}
 
 	public static func heavy(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.heavy(size)
+		return App.style.secondaryFonts.heavy(size)
 	}
 
 	public static func black(_ size: CGFloat = .system) -> UIFont {
-		return App.style.fonts.black(size)
+		return App.style.secondaryFonts.black(size)
 	}
 }
 
@@ -203,47 +273,47 @@ extension UIFont {
 extension UIFont {
     @available(iOS 11.0, *)
     public static var largeTitle: UIFont {
-        return .preferredFont(forTextStyle: .largeTitle)
+        return App.style.secondaryFonts.largeTitle()
     }
 
     public static var title1: UIFont {
-        return .preferredFont(forTextStyle: .title1)
+        return App.style.secondaryFonts.title1()
     }
 
     public static var title2: UIFont {
-        return .preferredFont(forTextStyle: .title2)
+        return App.style.secondaryFonts.title2()
     }
 
     public static var title3: UIFont {
-        return .preferredFont(forTextStyle: .title3)
+        return App.style.secondaryFonts.title3()
     }
 
     public static var headline: UIFont {
-        return .preferredFont(forTextStyle: .headline)
+        return App.style.secondaryFonts.headline()
     }
 
     public static var body: UIFont {
-        return .preferredFont(forTextStyle: .body)
+        return App.style.secondaryFonts.body()
     }
 
     public static var callout: UIFont {
-        return .preferredFont(forTextStyle: .callout)
+        return App.style.secondaryFonts.callout()
     }
 
     public static var subheadline: UIFont {
-        return .preferredFont(forTextStyle: .subheadline)
+        return App.style.secondaryFonts.subheadline()
     }
 
     public static var footnote: UIFont {
-        return .preferredFont(forTextStyle: .footnote)
+        return App.style.secondaryFonts.footnote()
     }
 
     public static var caption1: UIFont {
-        return .preferredFont(forTextStyle: .caption1)
+        return App.style.secondaryFonts.caption1()
     }
 
     public static var caption2: UIFont {
-        return .preferredFont(forTextStyle: .caption2)
+        return App.style.secondaryFonts.caption2()
     }
 }
 
