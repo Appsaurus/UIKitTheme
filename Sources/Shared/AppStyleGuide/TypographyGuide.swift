@@ -139,6 +139,7 @@ open class FontGuide: DefaultOverridable {
 	open func black(_ size: CGFloat = .system) -> UIFont {
 		return font(weight: .black, size: size)
 	}
+
 }
 
 extension FontGuide {
@@ -160,6 +161,7 @@ extension FontGuide {
 // MARK: Convenience Extensions
 
 extension UIFont {
+
 	public static func ultraLight(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.ultraLight(size)
 	}
@@ -195,6 +197,54 @@ extension UIFont {
 	public static func black(_ size: CGFloat = .system) -> UIFont {
 		return App.style.fonts.black(size)
 	}
+}
+
+// MARK: Dynamic Type Support
+extension UIFont {
+    @available(iOS 11.0, *)
+    public static var largeTitle: UIFont {
+        return .preferredFont(forTextStyle: .largeTitle)
+    }
+
+    public static var title1: UIFont {
+        return .preferredFont(forTextStyle: .title1)
+    }
+
+    public static var title2: UIFont {
+        return .preferredFont(forTextStyle: .title2)
+    }
+
+    public static var title3: UIFont {
+        return .preferredFont(forTextStyle: .title3)
+    }
+
+    public static var headline: UIFont {
+        return .preferredFont(forTextStyle: .headline)
+    }
+
+    public static var body: UIFont {
+        return .preferredFont(forTextStyle: .body)
+    }
+
+    public static var callout: UIFont {
+        return .preferredFont(forTextStyle: .callout)
+    }
+
+    public static var subheadline: UIFont {
+        return .preferredFont(forTextStyle: .subheadline)
+    }
+
+    public static var footnote: UIFont {
+        return .preferredFont(forTextStyle: .footnote)
+    }
+
+    public static var caption1: UIFont {
+        return .preferredFont(forTextStyle: .caption1)
+    }
+
+    public static var caption2: UIFont {
+        return .preferredFont(forTextStyle: .caption2)
+    }
 }
 
 extension CGFloat {

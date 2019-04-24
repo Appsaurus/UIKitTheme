@@ -8,6 +8,7 @@
 import UIKit
 
 open class TextStyleGuide: SubAppStyleGuide {
+
 	open func ultraLight(color: UIColor? = nil, size: CGFloat = .system) -> TextStyle {
 		return style(color: color, font: fonts.ultraLight(size))
 	}
@@ -74,4 +75,51 @@ extension TextStyle {
     public static func bold(color: UIColor = .textDefault, size: CGFloat = .system) -> TextStyle {
 		return App.style.text.bold(color: color, size: size)
 	}
+}
+
+extension TextStyle {
+    @available(iOS 11.0, *)
+    public static func largeTitle(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .largeTitle)
+    }
+
+    public static func title1(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .title1)
+    }
+
+    public static func title2(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .title2)
+    }
+
+    public static func title3(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .title3)
+    }
+
+    public static func headline(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .headline)
+    }
+
+    public static func body(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .body)
+    }
+
+    public static func callout(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .callout)
+    }
+
+    public static func subheadline(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .subheadline)
+    }
+
+    public static func footnote(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .footnote)
+    }
+
+    public static func caption1(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .caption1)
+    }
+
+    public static func caption2(color: UIColor = .textDefault) -> TextStyle {
+        return TextStyle(color: color, font: .caption2)
+    }
 }
