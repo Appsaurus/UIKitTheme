@@ -122,4 +122,51 @@ extension TextStyle {
     public static func caption2(color: UIColor = .caption2) -> TextStyle {
         return TextStyle(color: color, font: .caption2)
     }
+
+    // MARK: Display Font
+
+    @available(iOS 11.0, *)
+    public static func displayLargeTitle(color: UIColor = .largeTitle) -> TextStyle {
+        return TextStyle(color: color, font: .displayLargeTitle)
+    }
+
+    public static func displayTitle1(color: UIColor = .title1) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle1)
+    }
+
+    public static func displayTitle2(color: UIColor = .title2) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle2)
+    }
+
+    public static func displayTitle3(color: UIColor = .title3) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle3)
+    }
+
+    public static func displayHeadline(color: UIColor = .headline) -> TextStyle {
+        return TextStyle(color: color, font: .displayHeadline)
+    }
+
+    public static func displayBody(color: UIColor = .body) -> TextStyle {
+        return TextStyle(color: color, font: .displayBody)
+    }
+
+    public static func displayCallout(color: UIColor = .callout) -> TextStyle {
+        return TextStyle(color: color, font: .displayCallout)
+    }
+
+    public static func displaySubheadline(color: UIColor = .subheadline) -> TextStyle {
+        return TextStyle(color: color, font: .displaySubheadline)
+    }
+
+    public static func displayFootnote(color: UIColor = .footnote) -> TextStyle {
+        return TextStyle(color: color, font: .displayFootnote)
+    }
+
+    public static func displayCaption1(color: UIColor = .caption1) -> TextStyle {
+        return TextStyle(color: color, font: .displayCaption1)
+    }
+
+    public static func displayCaption2(color: UIColor = .caption2) -> TextStyle {
+        return TextStyle(color: color, font: .displayCaption2)
+    }
 }

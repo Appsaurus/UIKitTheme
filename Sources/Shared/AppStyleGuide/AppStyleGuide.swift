@@ -98,12 +98,12 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable {
 
 extension AppStyleGuide {
 	// MARK: Convenience
-    open var primaryFonts: FontGuide {
-        return typography.secondaryFonts
+    open var displayFont: FontGuide {
+        return typography.font
     }
 
-	open var secondaryFonts: FontGuide {
-		return typography.secondaryFonts
+	open var font: FontGuide {
+		return typography.font
 	}
 
 	open var fontSizes: FontSizingGuide {
