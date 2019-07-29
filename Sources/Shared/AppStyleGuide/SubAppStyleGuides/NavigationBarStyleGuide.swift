@@ -27,7 +27,7 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	open override func applyAppearanceProxySettings() {
 		assert(defaultStyle.transparent == false, "Cannot have default nav bar style be transparent since it cannot be done via appearance proxy.")
-		UINavigationBar.appearance().apply(navigationBarStyle: defaultStyle, appearanceProxyFriendly: true)
+        UINavigationBar.appearance().apply(navigationBarStyle: defaultStyle, appearanceProxyFriendly: true)
 	}
 
 	open var primary: NavigationBarStyle {

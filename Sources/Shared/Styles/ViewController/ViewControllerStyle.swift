@@ -8,10 +8,10 @@
 import Foundation
 
 open class ViewControllerStyle: Style {
-    open var navigationBarStyle: NavigationBarStyle
+    open var navigationBarStyle: NavigationBarStyle?
     open var viewStyle: ViewStyle
     
-    public required init(navigationBarStyle: NavigationBarStyle = .default,
+    public required init(navigationBarStyle: NavigationBarStyle? = nil,
                          viewStyle: ViewStyle = ViewStyle(backgroundColor: .viewControllerBaseViewBackgroundColor)) {
         self.navigationBarStyle = navigationBarStyle
         self.viewStyle = viewStyle
