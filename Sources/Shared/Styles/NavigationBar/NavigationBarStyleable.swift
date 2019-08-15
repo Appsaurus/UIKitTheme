@@ -8,7 +8,7 @@
 import UIKit
 import DarkMagic
 import UIKitExtensions
-
+import Swiftest
 
 public protocol NavigationBarStyleable: class {
     var navigationBarStyle: NavigationBarStyle? { get set }
@@ -46,7 +46,7 @@ extension UIViewController: NavigationBarStyleable {
 
         guard let navigationController = navigationController else { return nil }
 
-        if navigationController.overridesChildNavigationBarStyles == true  {
+        if navigationController.overridesChildNavigationBarStyles  {
             return navigationController.navigationBarStyle ?? navigationBarStyle
         }
 
@@ -58,6 +58,14 @@ extension UIViewController: NavigationBarStyleable {
         self.apply(navigationBarStyle: style)
     }
 
+    public func animateToPreviousViewControllerNavigationBarStyle() {
+        guard let navVC = navigationController,
+            let index = navVC.viewControllers.index(of: self),
+            index > 0 else { return }
+        let previousVC = navVC.viewControllers[index - 1]
+        guard let style = previousVC.navigationBarStyle else { return }
+        navigationController?.apply(navigationBarStyle: style)
+    }
     public func animateToDefaultNavigationBarStyle() {
         guard let style = _navigationBarStyle else { return }
 
@@ -65,10 +73,9 @@ extension UIViewController: NavigationBarStyleable {
             self.apply(navigationBarStyle: style)
             return
         }
-        let destinationVC = transitionCoordinator.toViewController
-
-        transitionCoordinator.animate(alongsideTransition: { (_) in
-            destinationVC.apply(navigationBarStyle: style)
+//        let destinationVC = transitionCoordinator.toViewController
+        transitionCoordinator.animate(alongsideTransition: {[weak self] (_) in
+            self?.applyDefaultNavigationBarStyle()
         }, completion: nil)
     }
 }
@@ -81,7 +88,7 @@ public extension NavigationBarStyleable where Self: UIViewController{
 
     public var overridesChildNavigationBarStyles: Bool{
         get{
-            return self[.overridesChildNavigationBarStyles, true]
+            return self[.overridesChildNavigationBarStyles, false]
         }
         set{
             self[.overridesChildNavigationBarStyles] = newValue

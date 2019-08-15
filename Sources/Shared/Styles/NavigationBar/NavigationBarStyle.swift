@@ -57,8 +57,8 @@ extension UINavigationBar {
             navBar.isTranslucent = style.translucent
             navBar.isOpaque = style.opaque
             navBar.barTintColor = style.barColor
-            navBar.tintColor = style.titleTextStyle.color
         }
+        navBar.tintColor = style.titleTextStyle.color
         navBar.barStyle = .default
         
         let textAttributes = style.titleTextStyle.attributeDictionary
