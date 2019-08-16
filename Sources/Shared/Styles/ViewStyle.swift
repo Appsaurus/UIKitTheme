@@ -17,7 +17,7 @@ open class Style {
 }
 
 public enum ViewShape {
-	public static var roundedRectCornerRadius: CGFloat = 3.0
+	public static var roundedRectCornerRadius: CGFloat = 2.0
 	case square
 	case rounded
 	case roundedRect
