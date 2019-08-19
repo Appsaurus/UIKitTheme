@@ -31,11 +31,9 @@ public protocol NavigationBarStyleable: class {
 extension UIViewController: NavigationBarStyleable {
     public func apply(navigationBarStyle: NavigationBarStyle) {
         guard let selfNav = self as? UINavigationController else {
-            print("Apply nav style from \(className) \(navigationBarStyle.barColor)")
             navigationController?.navigationBar.apply(navigationBarStyle: navigationBarStyle)
             return
         }
-        print("Apply nav nav style from \(className) \(navigationBarStyle.barColor)")
         selfNav.navigationBar.apply(navigationBarStyle: navigationBarStyle)
     }
 
