@@ -14,6 +14,7 @@ open class NavigationBarStyle: Style {
     open var backgroundImage: UIImage?
     open var gradient: GradientConfiguration?
     open var titleTextStyle: TextStyle
+    open var barItemColor: UIColor?
     open var opaque: Bool
     open var translucent: Bool
     open var transparent: Bool
@@ -23,6 +24,7 @@ open class NavigationBarStyle: Style {
                 backgroundImage: UIImage? = nil,
                 gradient: GradientConfiguration? = nil,
                 titleTextStyle: TextStyle? = nil,
+                barItemColor: UIColor? = nil,
                 opaque: Bool = true,
                 translucent: Bool = false,
                 transparent: Bool = false,
@@ -31,6 +33,7 @@ open class NavigationBarStyle: Style {
         self.backgroundImage = backgroundImage
         self.gradient = gradient
         self.titleTextStyle = titleTextStyle ?? .regular(size: .navigationBarTitle)
+        self.barItemColor = barItemColor ?? titleTextStyle?.color
         self.opaque = transparent ? false : opaque
         self.translucent = translucent
         self.transparent = transparent
@@ -58,7 +61,9 @@ extension UINavigationBar {
             navBar.isOpaque = style.opaque
             navBar.barTintColor = style.barColor
         }
-        navBar.tintColor = style.titleTextStyle.color
+        if let barItemColor = style.barItemColor {
+            navBar.tintColor = barItemColor
+        }
         navBar.barStyle = .default
         
         let textAttributes = style.titleTextStyle.attributeDictionary
