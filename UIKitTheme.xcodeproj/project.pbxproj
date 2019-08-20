@@ -239,14 +239,14 @@
 		E4AF804321BB2976002D6E86 /* RoundableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6721BB2976002D6E86 /* RoundableMixin.swift */; };
 		E4AF804421BB2976002D6E86 /* RoundableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6721BB2976002D6E86 /* RoundableMixin.swift */; };
 		E4AF804521BB2976002D6E86 /* RoundableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6721BB2976002D6E86 /* RoundableMixin.swift */; };
-		E4AF804621BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */; };
-		E4AF804721BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */; };
-		E4AF804821BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */; };
-		E4AF804921BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */; };
 		E4AF804A21BB2976002D6E86 /* StyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */; };
 		E4AF804B21BB2976002D6E86 /* StyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */; };
 		E4AF804C21BB2976002D6E86 /* StyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */; };
 		E4AF804D21BB2976002D6E86 /* StyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */; };
+		E4C119EE230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */; };
+		E4C119EF230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */; };
+		E4C119F0230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */; };
+		E4C119F1230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */; };
 		FA2DBE9C838AF74C068DCD3E /* Pods_UIKitTheme_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492C17885D6C76787FBED6B5 /* Pods_UIKitTheme_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -354,7 +354,6 @@
 		E4AF7F6321BB2976002D6E86 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		E4AF7F6421BB2976002D6E86 /* AppConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		E4AF7F6721BB2976002D6E86 /* RoundableMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundableMixin.swift; sourceTree = "<group>"; };
-		E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarStyleableMixin.swift; sourceTree = "<group>"; };
 		E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleableMixin.swift; sourceTree = "<group>"; };
 		E4AF813F21BBA1AB002D6E86 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E4AF814021BBA1AB002D6E86 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -364,6 +363,7 @@
 		E4AF814421BBA1AB002D6E86 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E4AF814521BBA1AB002D6E86 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		E4AF814621BBA1AB002D6E86 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyleableMixin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -736,8 +736,8 @@
 			isa = PBXGroup;
 			children = (
 				E4AF7F6721BB2976002D6E86 /* RoundableMixin.swift */,
-				E4AF7F6821BB2976002D6E86 /* NavigationBarStyleableMixin.swift */,
 				E4AF7F6921BB2976002D6E86 /* StyleableMixin.swift */,
+				E4C119ED230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -1145,6 +1145,7 @@
 				E4AF7F9821BB2976002D6E86 /* TabBarStyle.swift in Sources */,
 				E4AF7FB421BB2976002D6E86 /* ViewControllerStyle.swift in Sources */,
 				E4AF7F8C21BB2976002D6E86 /* BorderStyle.swift in Sources */,
+				E4C119F0230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF801C21BB2976002D6E86 /* TableViewStyleGuide.swift in Sources */,
 				E4AF800021BB2976002D6E86 /* AppStyleGuide.swift in Sources */,
 				E4AF803021BB2976002D6E86 /* TabBarItemStyleGuide.swift in Sources */,
@@ -1164,7 +1165,6 @@
 				E4AF7FCC21BB2976002D6E86 /* Gradient.swift in Sources */,
 				E4AF802021BB2976002D6E86 /* TextFieldStyleGuide.swift in Sources */,
 				E4AF802821BB2976002D6E86 /* SegmentedControlStyleGuide.swift in Sources */,
-				E4AF804821BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF803421BB2976002D6E86 /* TabBarStyleGuide.swift in Sources */,
 				E4AF7F9021BB2976002D6E86 /* NavigationBarStyle.swift in Sources */,
 				E4AF7F7421BB2976002D6E86 /* TabBarItemStyle.swift in Sources */,
@@ -1218,6 +1218,7 @@
 				E4AF7F9921BB2976002D6E86 /* TabBarStyle.swift in Sources */,
 				E4AF7FB521BB2976002D6E86 /* ViewControllerStyle.swift in Sources */,
 				E4AF7F8D21BB2976002D6E86 /* BorderStyle.swift in Sources */,
+				E4C119F1230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF801D21BB2976002D6E86 /* TableViewStyleGuide.swift in Sources */,
 				E4AF800121BB2976002D6E86 /* AppStyleGuide.swift in Sources */,
 				E4AF803121BB2976002D6E86 /* TabBarItemStyleGuide.swift in Sources */,
@@ -1237,7 +1238,6 @@
 				E4AF7FCD21BB2976002D6E86 /* Gradient.swift in Sources */,
 				E4AF802121BB2976002D6E86 /* TextFieldStyleGuide.swift in Sources */,
 				E4AF802921BB2976002D6E86 /* SegmentedControlStyleGuide.swift in Sources */,
-				E4AF804921BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF803521BB2976002D6E86 /* TabBarStyleGuide.swift in Sources */,
 				E4AF7F9121BB2976002D6E86 /* NavigationBarStyle.swift in Sources */,
 				E4AF7F7521BB2976002D6E86 /* TabBarItemStyle.swift in Sources */,
@@ -1282,6 +1282,7 @@
 				E4AF7F9621BB2976002D6E86 /* TabBarStyle.swift in Sources */,
 				E4AF7FB221BB2976002D6E86 /* ViewControllerStyle.swift in Sources */,
 				E4AF7F8A21BB2976002D6E86 /* BorderStyle.swift in Sources */,
+				E4C119EE230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF801A21BB2976002D6E86 /* TableViewStyleGuide.swift in Sources */,
 				E4AF7FFE21BB2976002D6E86 /* AppStyleGuide.swift in Sources */,
 				E4AF802E21BB2976002D6E86 /* TabBarItemStyleGuide.swift in Sources */,
@@ -1301,7 +1302,6 @@
 				E4AF7FCA21BB2976002D6E86 /* Gradient.swift in Sources */,
 				E4AF801E21BB2976002D6E86 /* TextFieldStyleGuide.swift in Sources */,
 				E4AF802621BB2976002D6E86 /* SegmentedControlStyleGuide.swift in Sources */,
-				E4AF804621BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF803221BB2976002D6E86 /* TabBarStyleGuide.swift in Sources */,
 				E4AF7F8E21BB2976002D6E86 /* NavigationBarStyle.swift in Sources */,
 				E4AF7F7221BB2976002D6E86 /* TabBarItemStyle.swift in Sources */,
@@ -1355,6 +1355,7 @@
 				E4AF7F9721BB2976002D6E86 /* TabBarStyle.swift in Sources */,
 				E4AF7FB321BB2976002D6E86 /* ViewControllerStyle.swift in Sources */,
 				E4AF7F8B21BB2976002D6E86 /* BorderStyle.swift in Sources */,
+				E4C119EF230C87A3009F3FB0 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF801B21BB2976002D6E86 /* TableViewStyleGuide.swift in Sources */,
 				E4AF7FFF21BB2976002D6E86 /* AppStyleGuide.swift in Sources */,
 				E4AF802F21BB2976002D6E86 /* TabBarItemStyleGuide.swift in Sources */,
@@ -1374,7 +1375,6 @@
 				E4AF7FCB21BB2976002D6E86 /* Gradient.swift in Sources */,
 				E4AF801F21BB2976002D6E86 /* TextFieldStyleGuide.swift in Sources */,
 				E4AF802721BB2976002D6E86 /* SegmentedControlStyleGuide.swift in Sources */,
-				E4AF804721BB2976002D6E86 /* NavigationBarStyleableMixin.swift in Sources */,
 				E4AF803321BB2976002D6E86 /* TabBarStyleGuide.swift in Sources */,
 				E4AF7F8F21BB2976002D6E86 /* NavigationBarStyle.swift in Sources */,
 				E4AF7F7321BB2976002D6E86 /* TabBarItemStyle.swift in Sources */,
