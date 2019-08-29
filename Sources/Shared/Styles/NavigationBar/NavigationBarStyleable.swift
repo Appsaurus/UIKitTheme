@@ -18,16 +18,6 @@ public protocol NavigationBarStyleable: class {
     func animateToDefaultNavigationBarStyle()
 }
 
-//public extension UIViewController {
-//    func parent(where test: (UIViewController) -> Bool) -> UIViewController? {
-//        var nextParent = self.parent
-//        while let parentToTest = nextParent  {
-//            if test(parentToTest) { return parentToTest }
-//            nextParent = parentToTest.parent
-//        }
-//        return nil
-//    }
-//}
 extension UIViewController: NavigationBarStyleable {
     public func apply(navigationBarStyle: NavigationBarStyle) {
         guard let selfNav = self as? UINavigationController else {
@@ -38,16 +28,13 @@ extension UIViewController: NavigationBarStyleable {
     }
 
     private var _navigationBarStyle: NavigationBarStyle? {
-        if self is UINavigationController {
-            return navigationBarStyle
+        if let selfNav = self as? UINavigationController {
+            return selfNav.overridesChildNavigationBarStyles ? navigationBarStyle : selfNav.viewControllers.first?.navigationBarStyle
         }
 
-        guard let navigationController = navigationController else { return nil }
-
-        if navigationController.overridesChildNavigationBarStyles  {
-            return navigationController.navigationBarStyle ?? navigationBarStyle
+        if navigationController?.overridesChildNavigationBarStyles == true  {
+            return navigationController?.navigationBarStyle ?? navigationBarStyle
         }
-
         return navigationBarStyle
     }
 
