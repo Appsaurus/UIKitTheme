@@ -40,7 +40,13 @@ public extension UIView {
         layer.shadowOpacity = style.shadowOpacity
         layer.shadowOffset = style.shadowOffset
         layer.shadowRadius = style.shadowRadius
-        
+
+//        layer.shadowColor = UIColor.green.cgColor
+//        layer.shadowOpacity = 0.8
+//        layer.shadowOffset = CGSize(width: 20, height: 20)
+//        layer.shadowRadius = 1
+//        layer.masksToBounds = false
+//        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
         //Perormance improvements for shadows
 //        if optimizeRendering{
 //            layer.shadowPath = UIBezierPath(rect:bounds).cgPath
@@ -53,3 +59,4 @@ public extension UIView {
         return ShadowStyle(shadowColor: UIColor(cgColor: shadowColor), shadowOffset: layer.shadowOffset, shadowOpacity: layer.shadowOpacity, shadowRadius: layer.shadowRadius)
     }
 }
+
