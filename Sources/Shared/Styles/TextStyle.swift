@@ -37,6 +37,33 @@ open class TextStyle: Style {
         }
         return attributes   
     }
+
+    public func set(fontSize: CGFloat) -> Self {
+        font = font.withSize(fontSize)
+        return self
+    }
+
+    public func adjustFontSize(byPointSize pointSize: CGFloat) -> Self {
+        font = font.withSize(font.pointSize + pointSize)
+        return self
+    }
+
+    public func adjustFontSize(byMultiplier multiplier: CGFloat) -> Self {
+        font = font.withSize(font.pointSize * multiplier)
+        return self
+    }
+
+    public func with(fontSize: CGFloat) -> TextStyle {
+        return self.copy().set(fontSize: fontSize)
+    }
+
+    public func withFontSize(adjustedBy pointSize: CGFloat) -> TextStyle {
+        return self.copy().adjustFontSize(byPointSize: pointSize)
+    }
+
+    public func withFontSize(adjustedByMultiplier  multiplier: CGFloat) -> TextStyle {
+        return self.copy().adjustFontSize(byMultiplier: multiplier)
+    }
 }
 extension UILabel: TextStyleable {}
 public extension UILabel {
