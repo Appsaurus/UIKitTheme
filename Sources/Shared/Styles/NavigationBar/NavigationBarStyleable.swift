@@ -29,7 +29,7 @@ extension UIViewController: NavigationBarStyleable {
 
     private var _navigationBarStyle: NavigationBarStyle? {
         if let selfNav = self as? UINavigationController {
-            return selfNav.overridesChildNavigationBarStyles ? navigationBarStyle : selfNav.viewControllers.first?.navigationBarStyle
+            return selfNav.overridesChildNavigationBarStyles ? navigationBarStyle : selfNav.viewControllers.last?.navigationBarStyle
         }
 
         if navigationController?.overridesChildNavigationBarStyles == true  {
