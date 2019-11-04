@@ -8,8 +8,9 @@
 import UIKit
 
 open class SegmentedControlStyleDefaults: SubAppStyleGuideDefaults {
-	open lazy var tintColor: UIColor = colors.primary
+	open lazy var tintColor: UIColor = colors.functional.selected
 	open lazy var selectedTextColor: UIColor = colors.primaryContrast
+    open lazy var selectedSegmentTintColor: UIColor = colors.functional.selected
 
 }
 
@@ -19,7 +20,8 @@ open class SegmentedControlStyleGuide: SubAppStyleGuide, DefaultSettingsManaged 
 	open lazy var defaults: Defaults = Defaults(appStyleGuide: appStyleGuide)
 
 	open lazy var defaultStyle: SegmentedControlStyle =  SegmentedControlStyle(tintColor: defaults.tintColor,
-																			   selectedTextColor: defaults.selectedTextColor)
+																			   selectedTextColor: defaults.selectedTextColor,
+                                                                               selectedSegmentTintColor: defaults.selectedSegmentTintColor)
 
 	open override func applyAppearanceProxySettings() {
 		UISegmentedControl.appearance().apply(segmentedControlStyle: defaultStyle)
