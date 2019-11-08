@@ -61,6 +61,7 @@ open class FontGuide: DefaultOverridable {
 
 
     // MARK: Custom Dynamic Type Font Names
+    open var largeTitleName: String?
     open var title1Name: String?
     open var title2Name: String?
     open var title3Name: String?
@@ -208,18 +209,25 @@ extension FontGuide {
     }
 
     public func fontName(textStyle: UIFont.TextStyle) -> String? {
+        if #available(iOS 11.0, *) {
+            switch textStyle {
+            case .largeTitle: return largeTitleName
+            default: break
+            }
+        }
+
         switch textStyle {
-        case .title1: return title1Name
-        case .title2: return title2Name
-        case .title3: return title3Name
-        case .headline: return headlineName
-        case .body: return bodyName
-        case .callout: return calloutName
-        case .subheadline: return subheadlineName
-        case .footnote: return footnoteName
-        case .caption1: return caption1Name
-        case .caption2: return caption2Name
-        default: return nil
+            case .title1: return title1Name
+            case .title2: return title2Name
+            case .title3: return title3Name
+            case .headline: return headlineName
+            case .body: return bodyName
+            case .callout: return calloutName
+            case .subheadline: return subheadlineName
+            case .footnote: return footnoteName
+            case .caption1: return caption1Name
+            case .caption2: return caption2Name
+            default: return title1Name
         }
     }
 }

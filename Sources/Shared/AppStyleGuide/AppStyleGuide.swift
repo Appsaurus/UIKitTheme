@@ -99,7 +99,7 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable {
 extension AppStyleGuide {
 	// MARK: Convenience
     open var displayFont: FontGuide {
-        return typography.font
+        return typography.displayFont
     }
 
 	open var font: FontGuide {
