@@ -12,6 +12,15 @@ public protocol TextStyleable {
     func apply(textStyle: TextStyle)
 }
 
+
+extension Collection where Element: TextStyleable {
+    public func apply(textStyle: TextStyle) {
+        for item in self {
+            item.apply(textStyle: textStyle)
+        }
+    }
+}
+
 open class TextStyle: Style {
     open var color: UIColor
     open var font: UIFont

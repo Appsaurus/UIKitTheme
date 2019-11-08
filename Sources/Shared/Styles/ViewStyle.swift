@@ -41,6 +41,16 @@ open class ViewStyle: Style {
 public protocol ViewStyleable {
     func apply(viewStyle style: ViewStyle, optimizeRendering: Bool)
 }
+
+
+extension Collection where Element: ViewStyleable {
+    public func apply(viewStyle style: ViewStyle, optimizeRendering: Bool = true) {
+        for item in self {
+            item.apply(viewStyle: style, optimizeRendering: optimizeRendering)
+        }
+    }
+}
+
 extension UIView: ViewStyleable {
     public func viewStyle() -> ViewStyle {
         return ViewStyle(backgroundColor: backgroundColor, borderStyle: self.borderStyle_(), shadowStyle: self.shadowStyle())

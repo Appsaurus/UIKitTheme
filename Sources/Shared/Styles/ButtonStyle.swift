@@ -22,6 +22,14 @@ open class ButtonStyle: Style {
 public protocol ButtonStyleable {
     func apply(buttonStyle style: ButtonStyle)
 }
+
+extension Collection where Element: ButtonStyleable {
+    public func apply(buttonStyle style: ButtonStyle) {
+        for item in self {
+            item.apply(buttonStyle: style)
+        }
+    }
+}
 extension ButtonStyleable where Self: TextStyleable & ViewStyleable {
     public func apply(buttonStyle style: ButtonStyle) {
         apply(textStyle: style.textStyle)
