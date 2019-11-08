@@ -182,11 +182,13 @@ open class FontGuide: DefaultOverridable {
 
     open func dynamic(font: UIFont? = nil, textStyle: UIFont.TextStyle) -> UIFont {
         var font = font
+        let preferredFont = UIFont.preferredFont(forTextStyle: textStyle)
         if font == nil, let dynamicFontName = fontName(textStyle: textStyle) {
-            font = UIFont(name: dynamicFontName, size: .system)
+            font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
         }
-        guard #available(iOS 11.0, *), let customFont = font else { return .preferredFont(forTextStyle: textStyle) }
-        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
+        return font ?? preferredFont
+//        guard #available(iOS 11.0, *), let customFont = font else { return preferredFont }
+//        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
     }
 
     // MARK: Custom Dynamic Type Font Overrides
