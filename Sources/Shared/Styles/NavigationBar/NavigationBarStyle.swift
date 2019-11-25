@@ -74,13 +74,14 @@ extension UINavigationBar {
         
         if let gradient = style.gradient {
             var frameAndStatusBar: CGRect = self.bounds
+
             frameAndStatusBar.size.width = min(UIScreen.screenWidth, frameAndStatusBar.size.width)
             frameAndStatusBar.size.height += UIApplication.shared.statusBarFrame.height
-            //            navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
-            navBar.setBackgroundImage(gradient.toImage(frame: frameAndStatusBar)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .default)
+            navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
+//            navBar.setBackgroundImage(gradient.toImage(frame: frameAndStatusBar)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .default)
             
-            navBar.barTintColor = .clear
-            navBar.tintColor = .clear
+//            navBar.barTintColor = .clear
+//            navBar.tintColor = .clear
         }
         
     }
