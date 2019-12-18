@@ -52,6 +52,11 @@ open class TextStyle: Style {
         return self
     }
 
+    public func set(color: UIColor) -> Self {
+        self.color = color
+        return self
+    }
+
     public func adjustFontSize(byPointSize pointSize: CGFloat) -> Self {
         font = font.withSize(font.pointSize + pointSize)
         return self
@@ -73,7 +78,12 @@ open class TextStyle: Style {
     public func withFontSize(adjustedByMultiplier  multiplier: CGFloat) -> TextStyle {
         return self.copy().adjustFontSize(byMultiplier: multiplier)
     }
+
+    public func with(color: UIColor) -> TextStyle {
+        return self.copy().set(color: color)
+    }
 }
+
 extension UILabel: TextStyleable {}
 public extension UILabel {
     func apply(textStyle: TextStyle) {
