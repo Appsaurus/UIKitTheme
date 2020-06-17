@@ -276,6 +276,45 @@ extension UIFont {
     }
 }
 
+extension UIFont {
+
+    public static func displayUltralight(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.ultraLight(size)
+    }
+
+    public static func displayThin(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.thin(size)
+    }
+
+    public static func displayLight(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.light(size)
+    }
+
+    public static func displayRegular(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.regular(size)
+    }
+
+    public static func displayMedium(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.medium(size)
+    }
+
+    public static func displaySemibold(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.semibold(size)
+    }
+
+    public static func displayBold(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.bold(size)
+    }
+
+    public static func displayHeavy(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.heavy(size)
+    }
+
+    public static func displayBlack(_ size: CGFloat = .system) -> UIFont {
+        return App.style.displayFont.black(size)
+    }
+}
+
 // MARK: Dynamic Type Support
 extension UIFont {
     @available(iOS 11.0, *)
