@@ -58,9 +58,12 @@ extension UIViewController: NavigationBarStyleable {
             self.apply(navigationBarStyle: style)
             return
         }
-//        let destinationVC = transitionCoordinator.toViewController
-        transitionCoordinator.animate(alongsideTransition: {[weak self] (_) in
-            self?.applyDefaultNavigationBarStyle()
+
+        transitionCoordinator.animate(alongsideTransition: {[weak self] (context) in
+            guard let self = self else { return }
+            if context.viewController(forKey: .to) === self {
+                self.applyDefaultNavigationBarStyle()
+            }
         }, completion: nil)
     }
 }

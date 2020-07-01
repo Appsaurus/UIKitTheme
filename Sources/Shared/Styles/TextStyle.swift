@@ -146,3 +146,12 @@ extension Array where Element: TextStyleable {
         forEach({$0.apply(textStyle: textStyle)})
     }
 }
+
+extension String {
+    public func apply(textStyle: TextStyle) -> NSMutableAttributedString {
+        apply(style: textStyle.attributed, range: nil)
+    }
+    public func apply(textStyle: TextStyle, range: Range<Int>) -> NSMutableAttributedString {
+        apply(style: textStyle.attributed, range: range)
+    }
+}
