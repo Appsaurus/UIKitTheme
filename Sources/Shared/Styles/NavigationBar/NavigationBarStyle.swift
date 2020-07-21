@@ -71,19 +71,32 @@ extension UINavigationBar {
         if #available(iOS 11.0, *) {
             navBar.largeTitleTextAttributes = textAttributes
         }
-        
-        if let gradient = style.gradient {
-            var frameAndStatusBar: CGRect = self.bounds
 
-            frameAndStatusBar.size.width = min(UIScreen.screenWidth, frameAndStatusBar.size.width)
-            frameAndStatusBar.size.height += UIApplication.shared.statusBarFrame.height
-            navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
-//            navBar.setBackgroundImage(gradient.toImage(frame: frameAndStatusBar)?.resizableImage(withCapInsets: .zero, resizingMode: .stretch), for: .default)
-            
-//            navBar.barTintColor = .clear
-//            navBar.tintColor = .clear
+        guard let gradient = style.gradient,
+            let navFrame = self.globalFrame else {
+            return
         }
-        
+        var frameAndStatusBar = navFrame
+        frameAndStatusBar.size.width = min(UIScreen.screenWidth, frameAndStatusBar.size.width)
+        var topBarHeight = self.parentViewController?.statusBarHeight ?? 0
+        if topBarHeight == 0 {
+            frameAndStatusBar = CGRect(origin: .zero, width: navFrame.width, height: navFrame.bottomLeft.y)
+        }
+        else {
+            frameAndStatusBar.size.height += topBarHeight
+        }
+        print("frameAndStatusBar: \(frameAndStatusBar)")
+        navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
+    }
+}
+
+extension UIView{
+    var globalPoint :CGPoint? {
+        return self.superview?.convert(self.frame.origin, to: nil)
+    }
+
+    var globalFrame :CGRect? {
+        return self.superview?.convert(self.frame, to: nil)
     }
 }
 
@@ -156,4 +169,22 @@ extension UINavigationBar {
     //        return UIGraphicsGetImageFromCurrentImageContext()
     //    }
     
+}
+
+public extension UIViewController {
+
+    /**
+     *  Height of status bar + navigation bar (if navigation bar exist). Call in viewWillAppear to ensure navigationBar exists.
+     */
+    var topbarHeight: CGFloat {
+        return statusBarHeight + (self.navigationController?.navigationBar.frame.height ?? 0.0)
+    }
+
+    var statusBarHeight: CGFloat {
+        if #available(iOS 13.0, *) {
+            return view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0.0
+        } else {
+            return UIApplication.shared.statusBarFrame.size.height
+        }
+    }
 }
