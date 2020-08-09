@@ -79,94 +79,94 @@ extension TextStyle {
 
 extension TextStyle {
     @available(iOS 11.0, *)
-    public static func largeTitle(color: UIColor = .largeTitle) -> TextStyle {
-        return TextStyle(color: color, font: .largeTitle)
+    public static func largeTitle(color: UIColor = .largeTitle, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .largeTitle(dynamic: dynamic))
     }
 
-    public static func title1(color: UIColor = .title1) -> TextStyle {
-        return TextStyle(color: color, font: .title1)
+    public static func title1(color: UIColor = .title1, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .title1(dynamic: dynamic))
     }
 
-    public static func title2(color: UIColor = .title2) -> TextStyle {
-        return TextStyle(color: color, font: .title2)
+    public static func title2(color: UIColor = .title2, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .title2(dynamic: dynamic))
     }
 
-    public static func title3(color: UIColor = .title3) -> TextStyle {
-        return TextStyle(color: color, font: .title3)
+    public static func title3(color: UIColor = .title3, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .title3(dynamic: dynamic))
     }
 
-    public static func headline(color: UIColor = .headline) -> TextStyle {
-        return TextStyle(color: color, font: .headline)
+    public static func headline(color: UIColor = .headline, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .headline(dynamic: dynamic))
     }
 
-    public static func body(color: UIColor = .body) -> TextStyle {
-        return TextStyle(color: color, font: .body)
+    public static func body(color: UIColor = .body, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .body(dynamic: dynamic))
     }
 
-    public static func callout(color: UIColor = .callout) -> TextStyle {
-        return TextStyle(color: color, font: .callout)
+    public static func callout(color: UIColor = .callout, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .callout(dynamic: dynamic))
     }
 
-    public static func subheadline(color: UIColor = .subheadline) -> TextStyle {
-        return TextStyle(color: color, font: .subheadline)
+    public static func subheadline(color: UIColor = .subheadline, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .subheadline(dynamic: dynamic))
     }
 
-    public static func footnote(color: UIColor = .footnote) -> TextStyle {
-        return TextStyle(color: color, font: .footnote)
+    public static func footnote(color: UIColor = .footnote, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .footnote(dynamic: dynamic))
     }
 
-    public static func caption1(color: UIColor = .caption1) -> TextStyle {
-        return TextStyle(color: color, font: .caption1)
+    public static func caption1(color: UIColor = .caption1, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .caption1(dynamic: dynamic))
     }
 
-    public static func caption2(color: UIColor = .caption2) -> TextStyle {
-        return TextStyle(color: color, font: .caption2)
+    public static func caption2(color: UIColor = .caption2, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .caption2(dynamic: dynamic))
     }
 
     // MARK: Display Font
 
     @available(iOS 11.0, *)
-    public static func displayLargeTitle(color: UIColor = .largeTitle) -> TextStyle {
-        return TextStyle(color: color, font: .displayLargeTitle)
+    public static func displayLargeTitle(color: UIColor = .largeTitle, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayLargeTitle(dynamic: dynamic))
     }
 
-    public static func displayTitle1(color: UIColor = .title1) -> TextStyle {
-        return TextStyle(color: color, font: .displayTitle1)
+    public static func displayTitle1(color: UIColor = .title1, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle1(dynamic: dynamic))
     }
 
-    public static func displayTitle2(color: UIColor = .title2) -> TextStyle {
-        return TextStyle(color: color, font: .displayTitle2)
+    public static func displayTitle2(color: UIColor = .title2, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle2(dynamic: dynamic))
     }
 
-    public static func displayTitle3(color: UIColor = .title3) -> TextStyle {
-        return TextStyle(color: color, font: .displayTitle3)
+    public static func displayTitle3(color: UIColor = .title3, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayTitle3(dynamic: dynamic))
     }
 
-    public static func displayHeadline(color: UIColor = .headline) -> TextStyle {
-        return TextStyle(color: color, font: .displayHeadline)
+    public static func displayHeadline(color: UIColor = .headline, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayHeadline(dynamic: dynamic))
     }
 
-    public static func displayBody(color: UIColor = .body) -> TextStyle {
-        return TextStyle(color: color, font: .displayBody)
+    public static func displayBody(color: UIColor = .body, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayBody(dynamic: dynamic))
     }
 
-    public static func displayCallout(color: UIColor = .callout) -> TextStyle {
-        return TextStyle(color: color, font: .displayCallout)
+    public static func displayCallout(color: UIColor = .callout, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayCallout(dynamic: dynamic))
     }
 
-    public static func displaySubheadline(color: UIColor = .subheadline) -> TextStyle {
-        return TextStyle(color: color, font: .displaySubheadline)
+    public static func displaySubheadline(color: UIColor = .subheadline, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displaySubheadline(dynamic: dynamic))
     }
 
-    public static func displayFootnote(color: UIColor = .footnote) -> TextStyle {
-        return TextStyle(color: color, font: .displayFootnote)
+    public static func displayFootnote(color: UIColor = .footnote, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayFootnote(dynamic: dynamic))
     }
 
-    public static func displayCaption1(color: UIColor = .caption1) -> TextStyle {
-        return TextStyle(color: color, font: .displayCaption1)
+    public static func displayCaption1(color: UIColor = .caption1, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayCaption1(dynamic: dynamic))
     }
 
-    public static func displayCaption2(color: UIColor = .caption2) -> TextStyle {
-        return TextStyle(color: color, font: .displayCaption2)
+    public static func displayCaption2(color: UIColor = .caption2, dynamic: Bool = false) -> TextStyle {
+        return TextStyle(color: color, font: .displayCaption2(dynamic: dynamic))
     }
 }

@@ -136,53 +136,58 @@ open class FontGuide: DefaultOverridable {
     }
 
     @available(iOS 11.0, *)
-    open func largeTitle(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .largeTitle)
+    open func largeTitle(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .largeTitle, dynamic: dynamic)
     }
 
-    open func title1(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .title1)
+    open func title1(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .title1, dynamic: dynamic)
     }
 
-    open func title2(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .title2)
+    open func title2(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .title2, dynamic: dynamic)
     }
 
-    open func title3(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .title3)
+    open func title3(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .title3, dynamic: dynamic)
     }
 
-    open func headline(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .headline)
+    open func headline(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .headline, dynamic: dynamic)
     }
 
-    open func body(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .body)
+    open func body(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .body, dynamic: dynamic)
     }
 
-    open func callout(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .callout)
+    open func callout(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .callout, dynamic: dynamic)
     }
 
-    open func subheadline(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .subheadline)
+    open func subheadline(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .subheadline, dynamic: dynamic)
     }
 
-    open func footnote(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .footnote)
+    open func footnote(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .footnote, dynamic: dynamic)
     }
 
-    open func caption1(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .caption1)
+    open func caption1(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .caption1, dynamic: dynamic)
     }
 
-    open func caption2(font: UIFont? = nil) -> UIFont {
-        return dynamic(font: font, textStyle: .caption2)
+    open func caption2(font: UIFont? = nil, dynamic: Bool = false) -> UIFont {
+        return resolveFont(font: font, textStyle: .caption2, dynamic: dynamic)
     }
 
-    open func dynamic(font: UIFont? = nil, textStyle: UIFont.TextStyle) -> UIFont {
+    open func resolveFont(font: UIFont? = nil, textStyle: UIFont.TextStyle, dynamic: Bool = false) -> UIFont {
         var font = font
-        let preferredFont = UIFont.preferredFont(forTextStyle: textStyle)
+        var preferredFont = UIFont.preferredFont(forTextStyle: textStyle)
+        if #available(iOS 10.0, *) {
+            if !dynamic {
+                preferredFont = UIFont.preferredFont(forTextStyle: textStyle, compatibleWith: .defaultContentSizeTraitCollection)
+            }
+        }
         if font == nil, let dynamicFontName = fontName(textStyle: textStyle) {
             font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
         }
@@ -191,7 +196,22 @@ open class FontGuide: DefaultOverridable {
 //        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
     }
 
-    // MARK: Custom Dynamic Type Font Overrides
+    @available(iOS 10.0, *)
+    open func nonDynamic(font: UIFont? = nil, textStyle: UIFont.TextStyle) -> UIFont {
+            var font = font
+        let preferredFont = UIFont.preferredFont(forTextStyle: textStyle, compatibleWith: .defaultContentSizeTraitCollection)
+            if font == nil, let dynamicFontName = fontName(textStyle: textStyle) {
+                font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
+            }
+            return font ?? preferredFont
+        }
+}
+
+@available(iOS 10.0, *)
+public extension UITraitCollection {
+    /// A trait collection containing the default content size category used
+    /// when the system does not have a modified type size set.
+    static let defaultContentSizeTraitCollection = UITraitCollection(preferredContentSizeCategory: .large)
 }
 
 extension FontGuide {
@@ -318,94 +338,94 @@ extension UIFont {
 // MARK: Dynamic Type Support
 extension UIFont {
     @available(iOS 11.0, *)
-    public static var largeTitle: UIFont {
-        return App.style.font.largeTitle()
+    public static func largeTitle(dynamic: Bool = false) -> UIFont {
+        return App.style.font.largeTitle(dynamic: dynamic)
     }
 
-    public static var title1: UIFont {
-        return App.style.font.title1()
+    public static func title1(dynamic: Bool = false) -> UIFont {
+        return App.style.font.title1(dynamic: dynamic)
     }
 
-    public static var title2: UIFont {
-        return App.style.font.title2()
+    public static func title2(dynamic: Bool = false) -> UIFont {
+        return App.style.font.title2(dynamic: dynamic)
     }
 
-    public static var title3: UIFont {
-        return App.style.font.title3()
+    public static func title3(dynamic: Bool = false) -> UIFont {
+        return App.style.font.title3(dynamic: dynamic)
     }
 
-    public static var headline: UIFont {
-        return App.style.font.headline()
+    public static func headline(dynamic: Bool = false) -> UIFont {
+        return App.style.font.headline(dynamic: dynamic)
     }
 
-    public static var body: UIFont {
-        return App.style.font.body()
+    public static func body(dynamic: Bool = false) -> UIFont {
+        return App.style.font.body(dynamic: dynamic)
     }
 
-    public static var callout: UIFont {
-        return App.style.font.callout()
+    public static func callout(dynamic: Bool = false) -> UIFont {
+        return App.style.font.callout(dynamic: dynamic)
     }
 
-    public static var subheadline: UIFont {
-        return App.style.font.subheadline()
+    public static func subheadline(dynamic: Bool = false) -> UIFont {
+        return App.style.font.subheadline(dynamic: dynamic)
     }
 
-    public static var footnote: UIFont {
-        return App.style.font.footnote()
+    public static func footnote(dynamic: Bool = false) -> UIFont {
+        return App.style.font.footnote(dynamic: dynamic)
     }
 
-    public static var caption1: UIFont {
-        return App.style.font.caption1()
+    public static func caption1(dynamic: Bool = false) -> UIFont {
+        return App.style.font.caption1(dynamic: dynamic)
     }
 
-    public static var caption2: UIFont {
-        return App.style.font.caption2()
+    public static func caption2(dynamic: Bool = false) -> UIFont {
+        return App.style.font.caption2(dynamic: dynamic)
     }
 
     //MARK: Display Font
     @available(iOS 11.0, *)
-    public static var displayLargeTitle: UIFont {
-        return App.style.displayFont.largeTitle()
+    public static func displayLargeTitle(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.largeTitle(dynamic: dynamic)
     }
 
-    public static var displayTitle1: UIFont {
-        return App.style.displayFont.title1()
+    public static func displayTitle1(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.title1(dynamic: dynamic)
     }
 
-    public static var displayTitle2: UIFont {
-        return App.style.displayFont.title2()
+    public static func displayTitle2(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.title2(dynamic: dynamic)
     }
 
-    public static var displayTitle3: UIFont {
-        return App.style.displayFont.title3()
+    public static func displayTitle3(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.title3(dynamic: dynamic)
     }
 
-    public static var displayHeadline: UIFont {
-        return App.style.displayFont.headline()
+    public static func displayHeadline(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.headline(dynamic: dynamic)
     }
 
-    public static var displayBody: UIFont {
-        return App.style.displayFont.body()
+    public static func displayBody(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.body(dynamic: dynamic)
     }
 
-    public static var displayCallout: UIFont {
-        return App.style.displayFont.callout()
+    public static func displayCallout(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.callout(dynamic: dynamic)
     }
 
-    public static var displaySubheadline: UIFont {
-        return App.style.displayFont.subheadline()
+    public static func displaySubheadline(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.subheadline(dynamic: dynamic)
     }
 
-    public static var displayFootnote: UIFont {
-        return App.style.displayFont.footnote()
+    public static func displayFootnote(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.footnote(dynamic: dynamic)
     }
 
-    public static var displayCaption1: UIFont {
-        return App.style.displayFont.caption1()
+    public static func displayCaption1(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.caption1(dynamic: dynamic)
     }
 
-    public static var displayCaption2: UIFont {
-        return App.style.displayFont.caption2()
+    public static func displayCaption2(dynamic: Bool = false) -> UIFont {
+        return App.style.displayFont.caption2(dynamic: dynamic)
     }
 }
 
@@ -417,4 +437,7 @@ extension CGFloat {
     public static var navigationBarTitle: CGFloat { return  App.style.fontSizes.navigationBarTitle }
     public static var smallSystem: CGFloat { return App.style.fontSizes.smallSystem }
     public static var system: CGFloat { return App.style.fontSizes.system }
+
 }
+
+
