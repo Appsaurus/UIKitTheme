@@ -85,7 +85,6 @@ extension UINavigationBar {
         else {
             frameAndStatusBar.size.height += topBarHeight
         }
-        print("frameAndStatusBar: \(frameAndStatusBar)")
         navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
     }
 }

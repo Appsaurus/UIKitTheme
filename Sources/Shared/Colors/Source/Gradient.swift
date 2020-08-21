@@ -37,7 +37,6 @@ public class GradientConfiguration {
         return image
     }
     public func toColor(frame: CGRect) -> UIColor {
-        print("frame: \(frame)")
         let color = UIColor(patternImage: toImage(frame: frame)!)
         return color
     }
