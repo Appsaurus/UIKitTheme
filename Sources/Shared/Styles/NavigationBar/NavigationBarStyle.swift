@@ -78,9 +78,9 @@ extension UINavigationBar {
         }
         var frameAndStatusBar = navFrame
         frameAndStatusBar.size.width = min(UIScreen.screenWidth, frameAndStatusBar.size.width)
-        var topBarHeight = self.parentViewController?.statusBarHeight ?? 0
+        let topBarHeight = self.parentViewController?.statusBarHeight ?? 0
         if topBarHeight == 0 {
-            frameAndStatusBar = CGRect(origin: .zero, width: navFrame.width, height: navFrame.bottomLeft.y)
+            frameAndStatusBar = CGRect(origin: .zero, width: navFrame.width.double, height: navFrame.bottomLeft.y.double)
         }
         else {
             frameAndStatusBar.size.height += topBarHeight

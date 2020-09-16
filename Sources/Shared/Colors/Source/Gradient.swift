@@ -36,9 +36,9 @@ public class GradientConfiguration {
         let image = UIImage.imageWithLayer(layer: gradientLayer)
         return image
     }
-    public func toColor(frame: CGRect) -> UIColor {
-        let color = UIColor(patternImage: toImage(frame: frame)!)
-        return color
+    public func toColor(frame: CGRect) -> UIColor? {
+        guard let image = toImage(frame: frame) else { return nil }
+        return UIColor(patternImage: image)        
     }
 //    
 //    public func toView(frame: CGRect) -> GradientView{

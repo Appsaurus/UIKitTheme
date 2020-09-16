@@ -45,7 +45,7 @@ extension UIViewController: NavigationBarStyleable {
 
     public func animateToPreviousViewControllerNavigationBarStyle() {
         guard let navVC = navigationController,
-            let index = navVC.viewControllers.index(of: self),
+            let index = navVC.viewControllers.firstIndex(of: self),
             index > 0 else { return }
         let previousVC = navVC.viewControllers[index - 1]
         guard let style = previousVC.navigationBarStyle else { return }
@@ -74,7 +74,7 @@ private extension AssociatedObjectKeys{
 
 public extension NavigationBarStyleable where Self: UIViewController{
 
-    public var overridesChildNavigationBarStyles: Bool{
+    var overridesChildNavigationBarStyles: Bool{
         get{
             return self[.overridesChildNavigationBarStyles, false]
         }
