@@ -1,12 +1,12 @@
 PODS:
   - DarkMagic (0.0.4)
-  - DynamicColor (4.1.0)
-  - Swiftest (0.0.27)
-  - SwiftLint (0.34.0)
-  - UIKitExtensions (0.0.21):
+  - DynamicColor (4.2.0)
+  - Swiftest (0.0.40)
+  - SwiftLint (0.40.3)
+  - UIKitExtensions (0.0.35):
     - DarkMagic
     - Swiftest
-  - UIKitMixinable (0.0.24)
+  - UIKitMixinable (0.1.0)
 
 DEPENDENCIES:
   - DarkMagic (from `https://github.com/Appsaurus/DarkMagic`)
@@ -17,7 +17,7 @@ DEPENDENCIES:
   - UIKitMixinable (from `https://github.com/Appsaurus/UIKitMixinable`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - DynamicColor
     - SwiftLint
 
@@ -36,23 +36,23 @@ CHECKOUT OPTIONS:
     :commit: b6e5a19acc048e21d9caa18a95915137f99beb74
     :git: https://github.com/Appsaurus/DarkMagic
   Swiftest:
-    :commit: 6fca7899677760371198e6e8e766c24ef94931c9
+    :commit: 0294b9943b7732efb5bda6d112858db8b5a04ff0
     :git: https://github.com/Appsaurus/Swiftest
   UIKitExtensions:
-    :commit: 4a2e72c7cfd474a99a21f857408b298caf9db2b3
+    :commit: f0f5d2f395e411485968e3e459182333c24054af
     :git: https://github.com/Appsaurus/UIKitExtensions
   UIKitMixinable:
-    :commit: f6887d39479d03348f039e6dbbc4fba3c51a1598
+    :commit: 48afc3989a857e476c66839323e58c73064c75bd
     :git: https://github.com/Appsaurus/UIKitMixinable
 
 SPEC CHECKSUMS:
   DarkMagic: 2bc17557251fb322573c365be1d3c17e0acaf5fc
-  DynamicColor: e72fcf4174518c514e862bb4bdea794c1865b412
-  Swiftest: 30587c12b00d542aff79d9a8667ed232ca2dadea
-  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
-  UIKitExtensions: e5f67f57967a0093465d944bd24c7cf0edf7b052
-  UIKitMixinable: 5457a0ce8df8a23faf3f6daea7c2bcd69bd01402
+  DynamicColor: c475f66bda1cabf602f2c54ac1171c0c07148a5a
+  Swiftest: fa33781ee5e1b24bd3f87c262dda1e68bac92325
+  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
+  UIKitExtensions: f537810861e3fb57a1970dbe504b10128abe50ec
+  UIKitMixinable: bbe0d8c368dc1ac8c334f3f6a0ac2032c201bb2e
 
 PODFILE CHECKSUM: 835b9d10b7be9e50231b87e4dfe32737728d46b0
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

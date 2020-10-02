@@ -81,20 +81,19 @@ extension UINavigationBar {
         let topBarHeight = self.parentViewController?.statusBarHeight ?? 0
         if topBarHeight == 0 {
             frameAndStatusBar = CGRect(origin: .zero, width: navFrame.width.double, height: navFrame.bottomLeft.y.double)
-        }
-        else {
+        } else {
             frameAndStatusBar.size.height += topBarHeight
         }
         navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
     }
 }
 
-extension UIView{
-    var globalPoint :CGPoint? {
+extension UIView {
+    var globalPoint: CGPoint? {
         return self.superview?.convert(self.frame.origin, to: nil)
     }
 
-    var globalFrame :CGRect? {
+    var globalFrame: CGRect? {
         return self.superview?.convert(self.frame, to: nil)
     }
 }

@@ -170,7 +170,6 @@ public class FlatColors: ColorPalette {
 	}
 }
 
-
 //enum ColorCompatibility {
 //    static var label: UIColor {
 //        if #available(iOS 13, *) {

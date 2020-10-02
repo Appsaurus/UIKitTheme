@@ -12,7 +12,6 @@ public protocol TextStyleable {
     func apply(textStyle: TextStyle)
 }
 
-
 extension Collection where Element: TextStyleable {
     public func apply(textStyle: TextStyle) {
         for item in self {
