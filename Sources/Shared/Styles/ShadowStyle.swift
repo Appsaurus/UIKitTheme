@@ -59,4 +59,3 @@ public extension UIView {
         return ShadowStyle(shadowColor: UIColor(cgColor: shadowColor), shadowOffset: layer.shadowOffset, shadowOpacity: layer.shadowOpacity, shadowRadius: layer.shadowRadius)
     }
 }
-

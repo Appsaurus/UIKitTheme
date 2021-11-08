@@ -11,16 +11,16 @@ import UIKitMixinable
 public class NavigationBarStyleableMixin: UIViewControllerMixin<UIViewController & NavigationBarStyleable> {
 
     open override func viewWillAppear(_ animated: Bool) {
-        mixable.animateToDefaultNavigationBarStyle()
+        mixable?.animateToDefaultNavigationBarStyle()
     }
     open override func viewDidLoad() {
-        mixable.applyDefaultNavigationBarStyle()
+        mixable?.applyDefaultNavigationBarStyle()
     }
 
     open override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
         guard parent == nil else { return }
-        mixable.animateToPreviousViewControllerNavigationBarStyle()
+        mixable?.animateToPreviousViewControllerNavigationBarStyle()
     }
 
 }

@@ -9,11 +9,11 @@ import UIKitMixinable
 
 public class StyleableViewControllerMixin: UIViewControllerMixin<NSObject & Styleable> {
     open override func didFinishCreatingAllViews() {
-        mixable.bindStyle()
+        mixable?.bindStyle()
     }
 }
 public class StyleableViewMixin: UIViewMixin<NSObject & Styleable> {
     open override func didFinishCreatingAllViews() {
-        mixable.bindStyle()
+        mixable?.bindStyle()
     }
 }

@@ -32,7 +32,7 @@ extension UIViewController: NavigationBarStyleable {
             return selfNav.overridesChildNavigationBarStyles ? navigationBarStyle : selfNav.viewControllers.last?.navigationBarStyle
         }
 
-        if navigationController?.overridesChildNavigationBarStyles == true  {
+        if navigationController?.overridesChildNavigationBarStyles == true {
             return navigationController?.navigationBarStyle ?? navigationBarStyle
         }
         return navigationBarStyle
@@ -68,17 +68,17 @@ extension UIViewController: NavigationBarStyleable {
     }
 }
 
-private extension AssociatedObjectKeys{
+private extension AssociatedObjectKeys {
     static let overridesChildNavigationBarStyles = AssociatedObjectKey<Bool>("overridesChildNavigationBarStyles")
 }
 
-public extension NavigationBarStyleable where Self: UIViewController{
+public extension NavigationBarStyleable where Self: UIViewController {
 
-    var overridesChildNavigationBarStyles: Bool{
-        get{
+    var overridesChildNavigationBarStyles: Bool {
+        get {
             return self[.overridesChildNavigationBarStyles, false]
         }
-        set{
+        set {
             self[.overridesChildNavigationBarStyles] = newValue
         }
     }

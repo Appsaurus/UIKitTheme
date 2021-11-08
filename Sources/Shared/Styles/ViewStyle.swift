@@ -42,7 +42,6 @@ public protocol ViewStyleable {
     func apply(viewStyle style: ViewStyle, optimizeRendering: Bool)
 }
 
-
 extension Collection where Element: ViewStyleable {
     public func apply(viewStyle style: ViewStyle, optimizeRendering: Bool = true) {
         for item in self {

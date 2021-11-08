@@ -59,7 +59,6 @@ open class FontGuide: DefaultOverridable {
     open var heavyName: String?
     open var blackName: String?
 
-
     // MARK: Custom Dynamic Type Font Names
     open var largeTitleName: String?
     open var title1Name: String?
@@ -192,19 +191,19 @@ open class FontGuide: DefaultOverridable {
             font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
         }
         return font ?? preferredFont
-//        guard #available(iOS 11.0, *), let customFont = font else { return preferredFont }
-//        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
+        //        guard #available(iOS 11.0, *), let customFont = font else { return preferredFont }
+        //        return UIFontMetrics(forTextStyle: textStyle).scaledFont(for: customFont)
     }
 
     @available(iOS 10.0, *)
     open func nonDynamic(font: UIFont? = nil, textStyle: UIFont.TextStyle) -> UIFont {
-            var font = font
+        var font = font
         let preferredFont = UIFont.preferredFont(forTextStyle: textStyle, compatibleWith: .defaultContentSizeTraitCollection)
-            if font == nil, let dynamicFontName = fontName(textStyle: textStyle) {
-                font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
-            }
-            return font ?? preferredFont
+        if font == nil, let dynamicFontName = fontName(textStyle: textStyle) {
+            font = UIFont(name: dynamicFontName, size: preferredFont.pointSize)
         }
+        return font ?? preferredFont
+    }
 }
 
 @available(iOS 10.0, *)
@@ -239,21 +238,20 @@ extension FontGuide {
         }
 
         switch textStyle {
-            case .title1: return title1Name
-            case .title2: return title2Name
-            case .title3: return title3Name
-            case .headline: return headlineName
-            case .body: return bodyName
-            case .callout: return calloutName
-            case .subheadline: return subheadlineName
-            case .footnote: return footnoteName
-            case .caption1: return caption1Name
-            case .caption2: return caption2Name
-            default: return title1Name
+        case .title1: return title1Name
+        case .title2: return title2Name
+        case .title3: return title3Name
+        case .headline: return headlineName
+        case .body: return bodyName
+        case .callout: return calloutName
+        case .subheadline: return subheadlineName
+        case .footnote: return footnoteName
+        case .caption1: return caption1Name
+        case .caption2: return caption2Name
+        default: return title1Name
         }
     }
 }
-
 
 // MARK: Convenience Extensions
 
@@ -382,7 +380,7 @@ extension UIFont {
         return App.style.font.caption2(dynamic: dynamic)
     }
 
-    //MARK: Display Font
+    // MARK: Display Font
     @available(iOS 11.0, *)
     public static func displayLargeTitle(dynamic: Bool = false) -> UIFont {
         return App.style.displayFont.largeTitle(dynamic: dynamic)
@@ -437,7 +435,4 @@ extension CGFloat {
     public static var navigationBarTitle: CGFloat { return  App.style.fontSizes.navigationBarTitle }
     public static var smallSystem: CGFloat { return App.style.fontSizes.smallSystem }
     public static var system: CGFloat { return App.style.fontSizes.system }
-
 }
-
-

@@ -7,8 +7,9 @@
 
 import UIKitMixinable
 
-open class RoundableMixin: UIViewMixin<Roundable & UIView> {
+open class RoundableMixin<RoundableView>: UIViewMixin<RoundableView> where RoundableView: UIView & Roundable {
     open override func layoutSubviews() {
+        guard let mixable = self.mixable else { return }
         if mixable.rounded {
             mixable.roundCorners()
         }

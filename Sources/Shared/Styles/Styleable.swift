@@ -39,7 +39,9 @@ public extension Styleable {
 
 public extension Styleable where Self: NSObject {
     func bindStyle() {
-        on(.appStyleDidChange, closure: style)
+        on(.appStyleDidChange) { [weak self] (notification) in
+            self?.style()
+        }
         self.style()
     }
 }
