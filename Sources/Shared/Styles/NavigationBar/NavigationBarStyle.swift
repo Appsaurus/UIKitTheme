@@ -19,7 +19,7 @@ open class NavigationBarStyle: Style {
     open var translucent: Bool
     open var transparent: Bool
     open var hidesBottomHairline: Bool
-    
+
     public init(barColor: UIColor? = nil,
                 backgroundImage: UIImage? = nil,
                 gradient: GradientConfiguration? = nil,
@@ -42,10 +42,32 @@ open class NavigationBarStyle: Style {
 }
 
 extension UINavigationBar {
-    
+
     public func apply(navigationBarStyle style: NavigationBarStyle, appearanceProxyFriendly: Bool = false) {
-        
+
         let navBar = self
+
+        if #available(iOS 13.0, *) {
+            let navAppearance = UINavigationBarAppearance()
+            if style.transparent {
+                navAppearance.configureWithTransparentBackground()
+            }
+            else if style.opaque {
+                navAppearance.configureWithOpaqueBackground()
+            }
+            else {
+                navAppearance.configureWithDefaultBackground()
+            }
+            if style.hidesBottomHairline {
+                navAppearance.shadowColor = .clear
+            }
+
+            navAppearance.backgroundColor = style.barColor
+            navBar.standardAppearance  = navAppearance
+            navBar.scrollEdgeAppearance = navAppearance
+
+        }
+
         if !appearanceProxyFriendly {
             if style.transparent {
                 navBar.makeTransparent()
@@ -65,7 +87,7 @@ extension UINavigationBar {
             navBar.tintColor = barItemColor
         }
         navBar.barStyle = .default
-        
+
         let textAttributes = style.titleTextStyle.attributeDictionary
         navBar.titleTextAttributes = textAttributes
         if #available(iOS 11.0, *) {
@@ -81,27 +103,26 @@ extension UINavigationBar {
         let topBarHeight = self.parentViewController?.statusBarHeight ?? 0
         if topBarHeight == 0 {
             frameAndStatusBar = CGRect(origin: .zero, width: navFrame.width.double, height: navFrame.bottomLeft.y.double)
-        }
-        else {
+        } else {
             frameAndStatusBar.size.height += topBarHeight
         }
         navBar.barTintColor = gradient.toColor(frame: frameAndStatusBar)
     }
 }
 
-extension UIView{
-    var globalPoint :CGPoint? {
+extension UIView {
+    var globalPoint: CGPoint? {
         return self.superview?.convert(self.frame.origin, to: nil)
     }
 
-    var globalFrame :CGRect? {
+    var globalFrame: CGRect? {
         return self.superview?.convert(self.frame, to: nil)
     }
 }
 
-extension UINavigationBar {
+public extension UINavigationBar {
     
-    public var hairlineBottomBorder: UIImageView? {
+    var hairlineBottomBorder: UIImageView? {
         return self.firstSubview(matching: { (subview) -> Bool in
             return subview is UIImageView && subview.bounds.height <= 1.0
         }) as? UIImageView
@@ -117,8 +138,8 @@ extension UINavigationBar {
         //
         //        return nil
     }
-    
-    public func makeTransparent() {
+
+    func makeTransparent() {
         self.setBackgroundImage(UIImage(), for: .default)
         self.shadowImage = UIImage()
         self.backgroundColor = nil// UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
@@ -126,22 +147,22 @@ extension UINavigationBar {
         self.isOpaque = false
         //        self.hideBottomHairline()
     }
-    
-    public func resetToDefaultStyle() {
+
+    func resetToDefaultStyle() {
         self.isTranslucent = false
         self.setBackgroundImage(nil, for: .default)
         self.backgroundColor = nil
         self.shadowImage = nil
         hairlineBottomBorder?.isHidden = false
     }
-    
+
     //    /// Applies a background gradient with the given colors
     //    public func apply(gradient colors : [UIColor]) {
     //        var frameAndStatusBar: CGRect = self.bounds
     //        frameAndStatusBar.size.height += UIApplication.shared.statusBarFrame.height
     //        setBackgroundImage(self.gradient(size: frameAndStatusBar.size, colors: colors), for: .default)
     //    }
-    
+
     //    /// Creates a gradient image with the given settings
     //    static func gradient(size : CGSize, colors : [UIColor]) -> UIImage?
     //    {
@@ -167,7 +188,7 @@ extension UINavigationBar {
     //        // Generate the image (the defer takes care of closing the context)
     //        return UIGraphicsGetImageFromCurrentImageContext()
     //    }
-    
+
 }
 
 public extension UIViewController {
