@@ -63,6 +63,11 @@ extension UINavigationBar {
             }
 
             navAppearance.backgroundColor = style.barColor
+
+            let textAttributes = style.titleTextStyle.attributeDictionary
+            navAppearance.titleTextAttributes = textAttributes
+            navAppearance.largeTitleTextAttributes = textAttributes
+            
             navBar.standardAppearance  = navAppearance
             navBar.scrollEdgeAppearance = navAppearance
 
