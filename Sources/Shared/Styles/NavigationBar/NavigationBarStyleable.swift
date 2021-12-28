@@ -10,7 +10,7 @@ import DarkMagic
 import UIKitExtensions
 import Swiftest
 
-public protocol NavigationBarStyleable: class {
+public protocol NavigationBarStyleable: AnyObject {
     var navigationBarStyle: NavigationBarStyle? { get set }
     var overridesChildNavigationBarStyles: Bool { get set }
     func apply(navigationBarStyle: NavigationBarStyle)

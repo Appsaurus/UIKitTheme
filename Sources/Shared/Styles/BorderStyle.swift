@@ -72,7 +72,7 @@ extension CALayer: ShadowStyleable {
         shadowOffset = style.shadowOffset
         shadowRadius = style.shadowRadius
         
-        //Perormance improvements for shadows
+// Perrormance improvements for shadows
         //        if optimizeRendering{
         //            layer.shadowPath = UIBezierPath(rect:bounds).cgPath
         //            self.optimizeRendering()

@@ -36,7 +36,7 @@ open class TabBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 extension TabBarStyle {
 	public static var defaultStyle: TabBarStyle {
 		return App.style.tabBar.defaultStyle

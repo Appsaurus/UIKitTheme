@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-//import DynamicColor
 
 open class ViewStyleGuideDefaults: SubAppStyleGuideDefaults {
     open var roundedRectCornerRadius: CGFloat = 3.0
@@ -77,7 +76,7 @@ open class ViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 
 extension ViewStyle {
     

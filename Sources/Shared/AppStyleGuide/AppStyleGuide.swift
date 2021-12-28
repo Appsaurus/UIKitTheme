@@ -41,7 +41,7 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable {
 	open lazy var collectionView: CollectionViewStyleGuide = CollectionViewStyleGuide(appStyleGuide: self)
 	open lazy var collectionViewCell: CollectionViewCellStyleGuide = CollectionViewCellStyleGuide(appStyleGuide: self)
 
-    //TODO: Refactor into separate styles
+    // TODO: Refactor into separate styles
     open lazy var mainWindowBackgroundColor: UIColor = colors.primary
     open lazy var viewControllerBaseViewBackgroundColor: UIColor = colors.neutrals.light
     //    open lazy var tableViewControllerBaseViewBackgroundColor: UIColor = viewControllerBaseViewBackgroundColor

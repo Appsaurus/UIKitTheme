@@ -9,13 +9,20 @@ import Foundation
 import UIKit
 
 open class NavigationBarStyleDefaults: SubAppStyleGuideDefaults {
-	open var titleFontSize: CGFloat = 17.0
-	open var backButtonImage: UIImage?
-	open var hidesBottomHairline: Bool = true
+    open var backButtonImage: UIImage?
+    open var hidesBottomHairline: Bool = true
+
+    open var titleFontSize: CGFloat = .navigationBarTitle
 	open lazy var titleFont: UIFont = fonts.regular(titleFontSize)
 	open func titleTextStyle(color: UIColor, font: UIFont? = nil) -> TextStyle {
 		return TextStyle(color: color, font: font ?? titleFont)
 	}
+
+    open var largeTitleFontSize: CGFloat = .largeNavigationBarTitle
+    open lazy var largeTitleFont: UIFont = fonts.semibold(largeTitleFontSize)
+    open func largeTitleTextStyle(color: UIColor, font: UIFont? = nil) -> TextStyle {
+        return TextStyle(color: color, font: font ?? largeTitleFont)
+    }
 }
 
 open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
@@ -33,12 +40,14 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 	open var primary: NavigationBarStyle {
 		return NavigationBarStyle(barColor: colors.primary,
 								  titleTextStyle: defaults.titleTextStyle(color: colors.primaryContrast),
+                                  largeTitleTextStyle: defaults.largeTitleTextStyle(color: colors.primaryContrast),
 								  hidesBottomHairline: defaults.hidesBottomHairline)
 	}
 
 	open var primaryContrast: NavigationBarStyle {
 		return NavigationBarStyle(barColor: colors.primaryContrast,
 								  titleTextStyle: defaults.titleTextStyle(color: colors.primary),
+                                  largeTitleTextStyle: defaults.largeTitleTextStyle(color: colors.primary),
 								  hidesBottomHairline: defaults.hidesBottomHairline)
 	}
 
@@ -46,6 +55,7 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 		let gradient = GradientConfiguration(colors: [colors.primary, colors.primaryDark], orientation: .leftRight)
 		return  NavigationBarStyle(gradient: gradient,
 								   titleTextStyle: defaults.titleTextStyle(color: colors.primaryContrast),
+                                   largeTitleTextStyle: defaults.largeTitleTextStyle(color: colors.primaryContrast),
 								   translucent: false,
 								   transparent: false,
 								   hidesBottomHairline: defaults.hidesBottomHairline)
@@ -53,13 +63,14 @@ open class NavigationBarStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 
 	open var transparent: NavigationBarStyle {
 		return NavigationBarStyle(titleTextStyle: defaults.titleTextStyle(color: colors.primaryContrast),
+                                  largeTitleTextStyle: defaults.largeTitleTextStyle(color: colors.primaryContrast),
 								  transparent: true,
 								  hidesBottomHairline: true)
 	}
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 extension NavigationBarStyle {
 
 	public static var `default`: NavigationBarStyle {

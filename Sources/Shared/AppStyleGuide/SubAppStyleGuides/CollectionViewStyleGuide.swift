@@ -25,7 +25,7 @@ open class CollectionViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 extension CollectionViewStyle {
 	public static var defaultStyle: CollectionViewStyle {
 		return App.style.collectionView.defaultStyle

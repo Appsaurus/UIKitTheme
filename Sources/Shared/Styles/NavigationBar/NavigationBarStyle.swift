@@ -14,6 +14,7 @@ open class NavigationBarStyle: Style {
     open var backgroundImage: UIImage?
     open var gradient: GradientConfiguration?
     open var titleTextStyle: TextStyle
+    open var largeTitleTextStyle: TextStyle
     open var barItemColor: UIColor?
     open var opaque: Bool
     open var translucent: Bool
@@ -24,6 +25,7 @@ open class NavigationBarStyle: Style {
                 backgroundImage: UIImage? = nil,
                 gradient: GradientConfiguration? = nil,
                 titleTextStyle: TextStyle? = nil,
+                largeTitleTextStyle: TextStyle? = nil,
                 barItemColor: UIColor? = nil,
                 opaque: Bool = true,
                 translucent: Bool = false,
@@ -33,6 +35,7 @@ open class NavigationBarStyle: Style {
         self.backgroundImage = backgroundImage
         self.gradient = gradient
         self.titleTextStyle = titleTextStyle ?? .regular(size: .navigationBarTitle)
+        self.largeTitleTextStyle = largeTitleTextStyle ?? .semibold(size: .largeNavigationBarTitle)
         self.barItemColor = barItemColor ?? titleTextStyle?.color
         self.opaque = transparent ? false : opaque
         self.translucent = translucent
@@ -41,9 +44,9 @@ open class NavigationBarStyle: Style {
     }
 }
 
-extension UINavigationBar {
+public extension UINavigationBar {
 
-    public func apply(navigationBarStyle style: NavigationBarStyle, appearanceProxyFriendly: Bool = false) {
+    func apply(navigationBarStyle style: NavigationBarStyle, appearanceProxyFriendly: Bool = false) {
 
         let navBar = self
 
@@ -51,28 +54,20 @@ extension UINavigationBar {
             let navAppearance = UINavigationBarAppearance()
             if style.transparent {
                 navAppearance.configureWithTransparentBackground()
-            }
-            else if style.opaque {
+            } else if style.opaque {
                 navAppearance.configureWithOpaqueBackground()
-            }
-            else {
+            } else {
                 navAppearance.configureWithDefaultBackground()
             }
             if style.hidesBottomHairline {
                 navAppearance.shadowColor = .clear
             }
-
             navAppearance.backgroundColor = style.barColor
-
-            let textAttributes = style.titleTextStyle.attributeDictionary
-            navAppearance.titleTextAttributes = textAttributes
-            navAppearance.largeTitleTextAttributes = textAttributes
-            
+            navAppearance.titleTextAttributes = style.titleTextStyle.attributeDictionary
+            navAppearance.largeTitleTextAttributes = style.largeTitleTextStyle.attributeDictionary
             navBar.standardAppearance  = navAppearance
             navBar.scrollEdgeAppearance = navAppearance
-
         }
-
         if !appearanceProxyFriendly {
             if style.transparent {
                 navBar.makeTransparent()
@@ -92,13 +87,10 @@ extension UINavigationBar {
             navBar.tintColor = barItemColor
         }
         navBar.barStyle = .default
-
-        let textAttributes = style.titleTextStyle.attributeDictionary
-        navBar.titleTextAttributes = textAttributes
+        navBar.titleTextAttributes = style.titleTextStyle.attributeDictionary
         if #available(iOS 11.0, *) {
-            navBar.largeTitleTextAttributes = textAttributes
+            navBar.largeTitleTextAttributes = style.largeTitleTextStyle.attributeDictionary
         }
-
         guard let gradient = style.gradient,
             let navFrame = self.globalFrame else {
             return
@@ -115,7 +107,7 @@ extension UINavigationBar {
     }
 }
 
-extension UIView {
+public extension UIView {
     var globalPoint: CGPoint? {
         return self.superview?.convert(self.frame.origin, to: nil)
     }
@@ -126,7 +118,7 @@ extension UIView {
 }
 
 public extension UINavigationBar {
-    
+
     var hairlineBottomBorder: UIImageView? {
         return self.firstSubview(matching: { (subview) -> Bool in
             return subview is UIImageView && subview.bounds.height <= 1.0

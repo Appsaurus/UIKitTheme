@@ -12,6 +12,7 @@ open class FontSizingGuide: DefaultOverridable {
     open var button: CGFloat = UIFont.buttonFontSize
     open var label: CGFloat = UIFont.labelFontSize
     open var navigationBarTitle: CGFloat = 17.0
+    open var largeNavigationBarTitle: CGFloat = 34.0
     open var smallSystem: CGFloat = UIFont.smallSystemFontSize
     open var system: CGFloat = UIFont.systemFontSize
     open var icon: CGFloat = 50.0
@@ -79,7 +80,7 @@ open class FontGuide: DefaultOverridable {
 
     open func overrideStoredDefaults() {}
     open func overrideDerivedDefaults() {}
-    open func loadCustomFonts() {} //If you want to manually load custom fonts, do it here.
+    open func loadCustomFonts() {} // If you want to manually load custom fonts, do it here.
 
     open func iconFont(_ size: CGFloat? = nil) -> UIFont {
         assertionFailure(String(describing: self) + " is abstract. You must implement " + #function)
@@ -213,9 +214,9 @@ public extension UITraitCollection {
     static let defaultContentSizeTraitCollection = UITraitCollection(preferredContentSizeCategory: .large)
 }
 
-extension FontGuide {
+public extension FontGuide {
 
-    public func fontName(weight: UIFont.Weight) -> String? {
+    func fontName(weight: UIFont.Weight) -> String? {
         switch weight {
         case .ultraLight: return ultraLightName
         case .thin: return thinName
@@ -229,7 +230,7 @@ extension FontGuide {
         }
     }
 
-    public func fontName(textStyle: UIFont.TextStyle) -> String? {
+    func fontName(textStyle: UIFont.TextStyle) -> String? {
         if #available(iOS 11.0, *) {
             switch textStyle {
             case .largeTitle: return largeTitleName
@@ -433,6 +434,7 @@ extension CGFloat {
     public static var icon: CGFloat { return App.style.fontSizes.icon }
     public static var label: CGFloat { return  App.style.fontSizes.label }
     public static var navigationBarTitle: CGFloat { return  App.style.fontSizes.navigationBarTitle }
+    public static var largeNavigationBarTitle: CGFloat { return  App.style.fontSizes.largeNavigationBarTitle }
     public static var smallSystem: CGFloat { return App.style.fontSizes.smallSystem }
     public static var system: CGFloat { return App.style.fontSizes.system }
 }

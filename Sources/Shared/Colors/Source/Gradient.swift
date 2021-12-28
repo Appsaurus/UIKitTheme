@@ -105,7 +105,8 @@ public extension UIView {
     func apply(gradient: GradientConfiguration, frame: CGRect? = nil, at index: Int = 0) -> CAGradientLayer {
         if let existingLayer = self.layer.sublayers?[index] as? CAGradientLayer {
             return existingLayer
-        } //Guard against adding multiple gradients
+        }
+        // Guard against adding multiple gradients
         let gradientLayer: CAGradientLayer = gradient.toLayer(frame: frame ?? self.bounds)
         self.layer.insertSublayer(gradientLayer, at: UInt32(index))
         return gradientLayer

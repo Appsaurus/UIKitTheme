@@ -8,7 +8,7 @@
 import UIKit
 import DarkMagic
 
-public protocol StatusBarConfigurable: class {
+public protocol StatusBarConfigurable: AnyObject {
     var statusBarConfiguration: StatusBarConfiguration { get }
 }
 

@@ -9,7 +9,6 @@ import UIKit
 import DynamicColor
 
 open class FunctionalColorScheme: DefaultOverridable {
-	//Indicator colors
 	open var cancel: UIColor = FlatColors.red
 	open var delete: UIColor = FlatColors.red
 	open var deselected: UIColor = FlatColors.grayDark
@@ -53,7 +52,7 @@ extension FunctionalColorScheme: ColorPaletteProvider {
 
 extension UIColor {
 
-	//Functional
+	// Functional
 	public static var cancel: UIColor { return App.colors.functional.cancel }
 	public static var delete: UIColor { return App.colors.functional.delete }
 	public static var deselected: UIColor { return App.colors.functional.deselected }

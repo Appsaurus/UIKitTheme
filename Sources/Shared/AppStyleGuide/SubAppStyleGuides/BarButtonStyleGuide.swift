@@ -29,7 +29,7 @@ open class BarButtonItemStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 extension BarButtonItemStyle {
 	public static var defaultStyle: BarButtonItemStyle {
 		return App.style.barButtonItem.defaultStyle

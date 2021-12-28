@@ -31,7 +31,7 @@ open class TableViewStyleGuide: SubAppStyleGuide, DefaultSettingsManaged {
 }
 
 // MARK: Convenience Extensions
-//Make it easy to access functions from current style guide inside method signatures at call site.
+// Make it easy to access functions from current style guide inside method signatures at call site.
 extension TableViewStyle {
 	public static var defaultStyle: TableViewStyle {
 		return App.style.tableView.defaultStyle

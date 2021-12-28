@@ -28,7 +28,7 @@ extension DynamicColor {
                                  rank: RelativeContrastRank = .max,
                                  fromCandidates colors: [DynamicColor]) -> UIColor {
         
-        //Sorted from least to most contrasting
+        // Sorted from least to most contrasting
         let sortedByContrast = colors.sorted(by: { (color1, color2) -> Bool in
             color1.contrastRatio(with: self) < color2.contrastRatio(with: self)
         }).filter { (color) -> Bool in

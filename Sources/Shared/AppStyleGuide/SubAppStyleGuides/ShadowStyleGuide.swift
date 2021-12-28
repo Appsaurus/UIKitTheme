@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-//import DynamicColor
 
 open class ShadowStyleGuideDefaults: SubAppStyleGuideDefaults {
 	open lazy var color: UIColor = colors.neutrals.mediumLight

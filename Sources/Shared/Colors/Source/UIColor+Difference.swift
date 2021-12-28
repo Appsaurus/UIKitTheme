@@ -46,7 +46,7 @@ extension UIColor {
                 nearestColor = candidateColor
             }
         }
-        //Return the closest  color
+        // Return the closest  color
         return nearestColor
     }
 
@@ -97,14 +97,14 @@ extension UIColor {
     }
 
     /**
-    Detemine the distance between two colors based on the way humans perceive them.
+    Determine the distance between two colors based on the way humans perceive them.
     Uses the Sharma 2004 alteration of the CIEDE2000 algorithm.
 
     - parameter compare color: A UIColor to compare.
 
     - returns: A CGFloat representing the deltaE
     */
-    //swiftlint:disable:next function_body_length
+    // swiftlint:disable:next function_body_length
     func CIEDE2000(compare color: UIColor) -> CGFloat {
         // CIEDE2000, Sharma 2004 -> http://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf
 

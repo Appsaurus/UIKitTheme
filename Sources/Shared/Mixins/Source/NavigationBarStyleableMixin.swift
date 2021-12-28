@@ -7,7 +7,7 @@
 //
 import UIKitMixinable
 
-//See notes here: https://stackoverflow.com/questions/40243112/uinavigationbar-change-colors-on-push
+// See notes here: https://stackoverflow.com/questions/40243112/uinavigationbar-change-colors-on-push
 public class NavigationBarStyleableMixin: UIViewControllerMixin<UIViewController & NavigationBarStyleable> {
 
     open override func viewWillAppear(_ animated: Bool) {

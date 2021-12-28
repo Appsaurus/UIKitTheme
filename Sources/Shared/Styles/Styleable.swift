@@ -9,7 +9,7 @@
 #if canImport(UIKit)
 import UIKitExtensions
 
-public protocol Styleable: class {
+public protocol Styleable: AnyObject {
     func style()
 }
 
@@ -39,7 +39,7 @@ public extension Styleable {
 
 public extension Styleable where Self: NSObject {
     func bindStyle() {
-        on(.appStyleDidChange) { [weak self] (notification) in
+        on(.appStyleDidChange) { [weak self] (_) in
             self?.style()
         }
         self.style()

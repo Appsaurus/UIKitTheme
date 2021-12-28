@@ -8,8 +8,8 @@
 import UIKit
 import DarkMagic
 
-//For views that need to round their corners after resizing their layout
-public protocol Roundable: class {
+// For views that need to round their corners after resizing their layout
+public protocol Roundable: AnyObject {
     var rounded: Bool { get set }
 }
 

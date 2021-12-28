@@ -47,7 +47,7 @@ public extension UIView {
 //        layer.shadowRadius = 1
 //        layer.masksToBounds = false
 //        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
-        //Perormance improvements for shadows
+// Performance improvements for shadows
 //        if optimizeRendering{
 //            layer.shadowPath = UIBezierPath(rect:bounds).cgPath
 //            self.optimizeRendering()

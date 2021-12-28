@@ -12,7 +12,7 @@ public protocol SegmentedControlStyleable {
 }
 
 open class SegmentedControlStyle: Style {
-	///Applies to the selected background color, border, and unselected text color
+// Applies to the selected background color, border, and unselected text color
 	open var tintColor: UIColor?
 	open var selectedTextColor: UIColor
     open var selectedSegmentTintColor: UIColor?
