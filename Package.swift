@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "UIKitTheme",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .tvOS(.v15),
+        .iOS(.v9),
+        .macOS(.v10_10),
+        .tvOS(.v9),
         .watchOS(.v8),
     ],
     products: [
