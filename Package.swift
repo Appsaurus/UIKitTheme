@@ -24,7 +24,7 @@ let package = Package(
         .package(url: "https://github.com/yannickl/DynamicColor", from: "5.0.0"),
         .package(url: "https://github.com/Appsaurus/Swiftest", from: "0.0.1"),
         .package(url: "https://github.com/Appsaurus/UIKitMixinable", from: "1.0.0"),
-        .package(url: "https://github.com/Appsaurus/UIKitExtensions", branch: "1.0.0"),
+        .package(url: "https://github.com/Appsaurus/UIKitExtensions", from: "1.0.0"),
         .package(url: "https://github.com/Appsaurus/DarkMagic", from: "0.0.1")
         // .package(url: /* package url */, from: "1.0.0"),
     ],
