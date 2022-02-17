@@ -109,25 +109,6 @@ Then simply `import UIKitTheme` wherever you’d like to use it.
 @_exported import UIKitTheme
 ``` -->
 
-
-## Usage
-
-
-
-## 🗺 Roadmap
-
-- World Domination
-
-
-
-## Contributing
-
-Contributions to `UIKitTheme` are most welcome. Check out some of the [issue templates](./.github/ISSUE_TEMPLATE/) for more info.
-
-
-
-## 💻 Developing
-
 ### Requirements
 
 - Xcode 13.0+
