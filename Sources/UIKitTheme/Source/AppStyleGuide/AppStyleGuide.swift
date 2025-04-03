@@ -98,15 +98,15 @@ open class AppStyleGuide: AppearanceProxyManager, DefaultOverridable {
 
 extension AppStyleGuide {
 	// MARK: Convenience
-    open var displayFont: FontGuide {
+    public var displayFont: FontGuide {
         return typography.displayFont
     }
 
-	open var font: FontGuide {
+    public var font: FontGuide {
 		return typography.font
 	}
 
-	open var fontSizes: FontSizingGuide {
+    public var fontSizes: FontSizingGuide {
 		return typography.sizes
 	}
 }
